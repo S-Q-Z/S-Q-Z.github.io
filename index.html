@@ -79,23 +79,34 @@
 
   
 <style>
-  .paper-icon{
+.paper-icon{
     width:120px;height:90px;
     display:flex;align-items:center;justify-content:center;
     border-radius:10px;
     background: rgba(255,255,255,0.85);
   }
   .paper-icon svg{width:54px;height:54px;}
-  .avatar-controls{margin-top:10px; display:flex; justify-content:center; gap:10px; align-items:center;}
-  #avatarUpload{max-width:220px; font-size:12px;}
-  .avatar-upload-btn{
-    display:inline-flex; align-items:center; justify-content:center;
-    width:34px; height:34px; border-radius:999px;
-    border:1px solid rgba(255,255,255,0.6);
-    background: rgba(0,0,0,0.15);
-    cursor:pointer;
-  }
+  
+  
+  
   .avatar-upload-btn i{color:#fff;}
+
+  /* Avatar upload (minimal, template-friendly) */
+  #my-pic{position:relative; display:inline-block;}
+  #avatarUpload{display:none;}
+  .avatar-upload-btn{
+    position:absolute; right:10px; bottom:10px;
+    width:34px; height:34px; border-radius:999px;
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(255,255,255,0.88);
+    border:1px solid rgba(0,0,0,0.12);
+    box-shadow:0 2px 8px rgba(0,0,0,0.15);
+    color:#333; cursor:pointer;
+  }
+  .avatar-upload-btn:hover{background:rgba(255,255,255,0.96);}
+  .avatar-upload-btn i{font-size:14px; line-height:1;}
+  #my-contact .bio-body{font-size:1rem; line-height:1.55;}
+
 </style>
 </head>
 
@@ -136,16 +147,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div id="profile-cover" class="cover shallow-bg img-responsive"> 
     <div id="profile-namecard" class="profile-wrapper wrapper-light">
       <div id="my-pic" class="profile-col profile-col-1">
-        <img id="profile-avatar" src="images/myself.jpg" alt="Me" class="circle-img border-dark"/>
-<div class="avatar-controls">
-  <label for="avatarUpload" class="avatar-upload-btn" title="Upload portrait">
-    <i class="fa fa-camera"></i>
-  </label>
-  <input type="file" id="avatarUpload" accept="image/*" />
+    <img id="profile-avatar" src="images/myself.jpg" alt="Me" class="circle-img border-dark"/>
+    <label for="avatarUpload" class="avatar-upload-btn" title="Upload portrait" aria-label="Upload portrait">
+      <i class="fa fa-camera"></i>
+    </label>
+    <input type="file" id="avatarUpload" accept="image/*">
 </div>
-      </div>
       <div id="my-contact" class="profile-col profile-col-2">
-        <div id="my-name" class="text-grey-dark">Shiqi Zhang (章仕起)</h1>
+        <div id="my-name" class="text-grey-dark">Shiqi Zhang (章仕起)</div>
   <div class="bio-body" style="overflow:hidden;">
 <p>I am a Ph.D. candidate in Electrical Engineering at Yanshan University. My research focuses on power electronics and renewable-to-hydrogen systems, including electrolyzer power supplies, multi-port DC–DC converter topologies, impedance modeling & stability under weak grids, and reliability-aware control.</p>
 <p>I work on modeling, control, optimization, and demonstration-oriented prototyping for photovoltaic/wind-powered hydrogen production, with particular interest in low-ripple, high power-density converter design and AI/DRL-based energy management.</p>
