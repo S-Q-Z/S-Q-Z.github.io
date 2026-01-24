@@ -1,604 +1,494 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shiqi Zhang (章仕起) | Power Electronics & Green Hydrogen</title>
-  <meta name="description" content="Shiqi Zhang (章仕起) | Ph.D. Candidate in Electrical Engineering at Yanshan University. Research: electrolyzer power converters, renewable-to-hydrogen systems, energy management & optimization." />
-  <meta name="theme-color" content="#0b1220" />
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-RFR2GFKT75"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-RFR2GFKT75');
+  </script> -->
+  <!-- Google Tag Manager -->
+  <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  })(window,document,'script','dataLayer','GTM-NC38VTD');</script> -->
+  <!-- End Google Tag Manager -->
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta http-equiv="refresh" content="0; URL=https://cs.stanford.edu/~leoyuan/"> -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  
+	<!-- <meta name="google-site-verification" content="u_--0s_Uw50r4zCgRrzltkmFhNCduYOJwPGlKVTuNJU" /> -->
+
+  <title>Shiqi Zhang (章仕起) | Academic Homepage</title>
+  <meta name="description" lang="en" content="This is an academic website for Shiqi Zhang (章仕起)">
+  <meta name="keywords" lang="en" content="Shiqi Zhang (章仕起)" />
+  
+
+  <link rel="shortcut icon" href="images/J.jpeg">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/academicons.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+
+  <script src="js/jquery-2.1.3.min.js"> </script>
+
+  <!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+</script>
+<![endif]-->
+
+  <script type="text/javascript">
+    function ShowHide(divId, linkDivId) {
+        if(document.getElementById(divId).style.display == 'none') {
+            document.getElementById(divId).style.display='block';
+            document.getElementById(linkDivId).style.display='none'; // Hide the "read more" link
+        }
+        else {
+            document.getElementById(divId).style.display = 'none';
+        }
+    }
+  </script>
 
   <style>
-    :root{
-      --bg: #0b1220;
-      --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.08);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.72);
-      --muted2: rgba(255,255,255,.60);
-      --line: rgba(255,255,255,.10);
-      --accent: #7dd3fc;
-      --accent2: #a78bfa;
-      --good: #34d399;
-      --warn: #fbbf24;
-      --bad: #fb7185;
-      --shadow: 0 18px 40px rgba(0,0,0,.35);
-      --radius: 18px;
-      --radius2: 24px;
-      --max: 1100px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: var(--sans);
-      color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 15% 10%, rgba(125,211,252,.18), transparent 55%),
-        radial-gradient(900px 500px at 85% 20%, rgba(167,139,250,.18), transparent 55%),
-        radial-gradient(900px 600px at 60% 95%, rgba(52,211,153,.10), transparent 55%),
-        var(--bg);
-      line-height:1.6;
-    }
-    a{color:inherit; text-decoration:none}
-    a:hover{color:var(--accent)}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 70px}
-    .topbar{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(14px);
-      background: rgba(11,18,32,.55);
-      border-bottom: 1px solid var(--line);
-    }
-    .topbar-inner{
-      max-width:var(--max); margin:0 auto; padding:10px 18px;
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-    }
-    .brand{display:flex; align-items:center; gap:10px}
-    .dot{
-      width:12px;height:12px;border-radius:999px;
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
-      box-shadow: 0 0 0 4px rgba(125,211,252,.10);
-    }
-    .brand b{font-weight:750}
-    .nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
-    .nav a{
-      padding:8px 10px; border-radius:999px;
-      color:var(--muted);
-      border:1px solid transparent;
-    }
-    .nav a:hover{
-      color:var(--text);
-      border-color: var(--line);
-      background: rgba(255,255,255,.04);
+    /* 为所有列表项设置样式 */
+    li.indented {
+        position: relative;
+        padding-left: 90px; /* 这是对齐效果的关键，可以根据实际内容调整这个值 */
     }
 
-    .hero{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:18px;
-      align-items:stretch;
+    li.indented::before {
+        content: attr(data-date);
+        position: absolute;
+        left: 0;
+        top: 0;
+        white-space: nowrap;
     }
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-    }
-    .card{
-      background: linear-gradient(180deg, var(--panel), rgba(255,255,255,.03));
-      border: 1px solid var(--line);
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .card-inner{padding:18px}
-    .badge-row{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 0}
-    .badge{
-      font-size:13px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      color: var(--muted);
-    }
-    .badge strong{color:var(--text)}
-    .title{
-      font-size:30px;
-      line-height:1.2;
-      margin:0;
-      letter-spacing:.2px;
-    }
-    .subtitle{
-      margin:10px 0 0;
-      color:var(--muted);
-      font-size:15px;
-    }
-    .cta{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-top:14px;
-    }
-    .btn{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:10px 12px;
-      border-radius: 12px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      cursor:pointer;
-      transition:.15s ease;
-      user-select:none;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      border-color: rgba(125,211,252,.35);
-      background: rgba(125,211,252,.10);
-    }
-    .btn.primary{
-      border-color: rgba(125,211,252,.35);
-      background: linear-gradient(135deg, rgba(125,211,252,.18), rgba(167,139,250,.18));
-    }
-
-    .kv{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:10px;
-    }
-    .kv .row{
-      padding:12px 12px;
-      border-radius: 14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-    }
-    .kv .k{font-size:12px; color:var(--muted2); text-transform:uppercase; letter-spacing:.14em}
-    .kv .v{margin-top:4px; font-size:14px; color:var(--text)}
-    .mono{font-family: var(--mono)}
-    .sec{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:18px;
-    }
-    @media (max-width: 900px){
-      .sec{grid-template-columns:1fr}
-    }
-    .sec h2{
-      margin:0 0 10px;
-      font-size:18px;
-      letter-spacing:.2px;
-    }
-    .list{
-      display:flex; flex-direction:column; gap:10px;
-    }
-    .item{
-      padding:12px;
-      border-radius: 16px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-    }
-    .item .t{font-weight:700}
-    .item .m{color:var(--muted); font-size:14px; margin-top:6px}
-    .item .tags{margin-top:8px; display:flex; flex-wrap:wrap; gap:8px}
-    .pill{
-      font-size:12px; padding:4px 8px; border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      color: var(--muted);
-    }
-    details{
-      border:1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(255,255,255,.03);
-      padding:10px 12px;
-    }
-    details summary{
-      cursor:pointer;
-      list-style:none;
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      font-weight:700;
-    }
-    details summary::-webkit-details-marker{display:none}
-    .chev{opacity:.7}
-    details[open] .chev{transform:rotate(180deg)}
-    .detail-body{margin-top:10px; color:var(--muted); font-size:14px}
-    .grid3{
-      display:grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap:10px;
-    }
-    @media (max-width: 900px){ .grid3{grid-template-columns:1fr} }
-    .metric{
-      padding:12px;
-      border-radius: 16px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-    }
-    .metric .n{
-      font-size:22px; font-weight:800;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-    }
-    .metric .d{color:var(--muted); margin-top:6px; font-size:13px}
-    footer{
-      margin-top:22px;
-      color: var(--muted2);
-      text-align:center;
-      font-size:13px;
-    }
-    .anchor{scroll-margin-top:78px}
   </style>
+  
+
+  
+<style>
+  .paper-icon{
+    width:120px;height:90px;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:10px;
+    background: rgba(255,255,255,0.85);
+  }
+  .paper-icon svg{width:54px;height:54px;}
+  .avatar-controls{margin-top:10px; display:flex; justify-content:center; gap:10px; align-items:center;}
+  #avatarUpload{max-width:220px; font-size:12px;}
+  .avatar-upload-btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:34px; height:34px; border-radius:999px;
+    border:1px solid rgba(255,255,255,0.6);
+    background: rgba(0,0,0,0.15);
+    cursor:pointer;
+  }
+  .avatar-upload-btn i{color:#fff;}
+</style>
 </head>
 
+
 <body>
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <div class="dot" aria-hidden="true"></div>
-        <div>
-          <b>Shiqi Zhang</b> <span style="color:var(--muted)">章仕起</span>
-        </div>
+
+    <!-- Google Tag Manager (noscript) -->
+<!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NC38VTD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+<!-- End Google Tag Manager (noscript) -->
+
+    <header class="site-header">
+
+  <div class="wrapper">
+<nav class="site-nav">
+  <a href="#" class="menu-icon">
+    <svg viewBox="0 0 18 15">
+      <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+      <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+      <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+    </svg>
+  </a>
+
+  <div class="trigger">
+    <a class="page-link" href="#bio"><b>Biography</b></a>
+    <a class="page-link" href="#timeline"><b>Experiences</b></a>
+    <a class="page-link" href="#publications"><b>Publications</b></a>
+    <a class="page-link" href="#codebase"><b>GitHub</b></a>
+    <a class="page-link" href="#awards"><b>Honors & Awards</b></a>
+    <a class="page-link" href="#academicservices"><b>Academic Services </b></a>
+    <!--<a class="page-link" href="#otherprojects">Projects</a>-->
+    <!-- Button for Posts -->
+  </div>
+</nav>
+  </div>
+</header>
+
+  <div id="profile-cover" class="cover shallow-bg img-responsive"> 
+    <div id="profile-namecard" class="profile-wrapper wrapper-light">
+      <div id="my-pic" class="profile-col profile-col-1">
+        <img id="profile-avatar" src="images/myself.jpg" alt="Me" class="circle-img border-dark"/>
+<div class="avatar-controls">
+  <label for="avatarUpload" class="avatar-upload-btn" title="Upload portrait">
+    <i class="fa fa-camera"></i>
+  </label>
+  <input type="file" id="avatarUpload" accept="image/*" />
+</div>
       </div>
-      <nav class="nav">
-        <a href="#about">简介</a>
-        <a href="#research">研究</a>
-        <a href="#publications">论文</a>
-        <a href="#projects">项目</a>
-        <a href="#honors">荣誉</a>
-        <a href="#contact">联系</a>
-      </nav>
+      <div id="my-contact" class="profile-col profile-col-2">
+        <div id="my-name" class="text-grey-dark">Shiqi Zhang (章仕起)</h1>
+  <div class="bio-body" style="overflow:hidden;">
+<p>I am a Ph.D. candidate in Electrical Engineering at Yanshan University. My research focuses on power electronics and renewable-to-hydrogen systems, including electrolyzer power supplies, multi-port DC–DC converter topologies, impedance modeling & stability under weak grids, and reliability-aware control.</p>
+<p>I work on modeling, control, optimization, and demonstration-oriented prototyping for photovoltaic/wind-powered hydrogen production, with particular interest in low-ripple, high power-density converter design and AI/DRL-based energy management.</p>
+
+<strong>Research Interests</strong>
+<ul class="list-unstyled interests-list">
+<li>• Electrolyzer power electronics &amp; low-ripple DC–DC converters</li><li>• Multi-port converters (TAB/DAB/Buck/Boost families) for renewable-to-hydrogen</li><li>• Impedance modeling &amp; stability analysis in weak-grid / converter-dominated systems</li><li>• Reliability-aware control, fault diagnosis, and fault-tolerant operation</li><li>• Optimization &amp; AI/DRL-based energy management for PV/wind-to-hydrogen microgrids</li>
+</ul>
+
+<strong>Education</strong>
+<ul class="list-unstyled interests-list">
+<li><b>Sep 2022 – Present</b> — Ph.D. in Electrical Engineering, Yanshan University (Yanshan, China)<br/><span class="text-muted">GPA 3.83/4.5 (Rank 1). Advisor: Prof. Xiaoqiang Guo.</span></li><li><b>Feb 2021 – Feb 2022</b> — M.Eng. in Emerging Power Systems, Curtin University (Perth, Australia)<br/><span class="text-muted">GPA 85.25/100 (Rank 1). Advisor: Prof. Ahmed Abu‑Siada.</span></li><li><b>Sep 2016 – Jun 2020</b> — B.Eng. in Electrical Engineering and Automation, Shenyang Agricultural University (Shenyang, China)<br/><span class="text-muted">GPA 3.92/4.5 (Rank 2).</span></li>
+</ul>
+</div>
+
+    <div style="width: 50%; float:right">
+			<h3>
+				<i class="fa fa-graduation-cap" aria-hidden="true"></i>
+				<strong>Education</strong>
+			</h3>
+			<b>The Qinhuangdao University of Science and Technology</b><br>
+			<ul>
+        <li>Ph.D in Robotics, Sep. 2020 - Oct. 2024</li>
+        <li>Mentor: <a href="https://cqf.io/" target="_blank">Prof. Qifeng Chen</a> and <a href="https://scholar.google.com/citations?user=Oo7c22wAAAAJ&hl=zh-CN" target="_blank">Prof. Michael Yu Wang</a> </li>
+      </ul>
+      <b>The Qinhuangdao University of Science and Technology</b><br>
+        <ul>
+          <li>M.Sc in Mechanical Engineering, Sep. 2019 - Oct. 2020</li>
+          <li>Mentor: <a href="https://seng.hkust.edu.hk/about/people/faculty/lilong-cai" target="_blank">Prof. Lilong Cai</a></li>
+        </ul>
+      <b>Zhejiang University</b><br>
+      <ul>
+        <li>B.Eng in Mechatronics Engineering, Sep. 2015 - Oct. 2019</li>
+        <li>Mentor: <a href="http://me.zju.edu.cn/meenglish/2016/1129/c15493a734703/page.htm" target="_blank">Prof. Jinghua Xu</a></li>
+      </ul>
     </div>
+  
+  </div>
+</div>
+
+<!-- <div id="news" class="bio">
+  <h1 class="md-heading text-left">
+    <i class="fa fa-tasks" aria-hidden="true"></i>
+    News
+  </h1>  
+  <ul>
+    	<li class="indented" data-date="[Feb, 2024]"> Give a talk on <a href="https://arxiv.org/pdf/2402.03675.pdf">protein-protein interaction prediction</a> to <a href="https://jian-tang.com/students/">Jian Tang's group</a>. [<a href="files/ppiretrieval.pdf">Slide</a>]</li>
+	<li class="indented" data-date="[Dec, 2023]"> Give a talk on <a href="https://arxiv.org/pdf/2304.14621.pdf">structure-based molecule design</a> at LoG2023 Montreal. [<a href="files/mudiff.pdf">Slide</a>][<a href="https://www.youtube.com/watch?v=Z5l-gaV-DUo">Video</a>]</li>
+    	<li class="indented" data-date="[Nov, 2023]"> One paper accepted to 2nd Learning on Graphs Conference.</li>
+    	<li class="indented" data-date="[Oct, 2023]"> One paper accepted to 37th Conference on Neural Information Processing Systems.</li>
+    	<li class="indented" data-date="[Sep, 2023]"> One paper accepted to 12th International Conference on Complex Networks and their Applications.</li>
+   	<li class="indented" data-date="[Oct, 2022]"> One paper accepted to 36th Conference on Neural Information Processing Systems, GLFrontiers, and selected for <b><span style="color: red;">Oral</span></b> presentation.</li>
+   	<li class="indented" data-date="[Oct, 2022]"> Two papers accepted to 36th Conference on Neural Information Processing Systems, and one paper selected for <b><span style="color: red;">Spotlight</span></b> presentation.</li>
+  </ul>
+</div> -->
+
+<!-- <div class="wrapper"> -->
+  <div id="timeline" class="section scrollspy">
+  <div class="container">
+    <div class="section-inner">
+      <h2 class="heading">Education & Experience</h2>
+      <div class="content">
+        <div class="timeline">
+          <div class="timeline-item">
+  <div class="timeline-left">
+    <div class="timeline-date">Sep 2022 – Present</div>
+  </div>
+  <div class="timeline-content">
+    <h4 class="timeline-title">Yanshan University — Ph.D. Research (Electrical Engineering)</h4>
+    <p>Power electronics for renewable-to-hydrogen systems: electrolyzer power supplies, multi-port DC–DC converters, stability under weak grids, and reliability-aware control.</p>
+  </div>
+</div>
+<div class="timeline-item">
+  <div class="timeline-left">
+    <div class="timeline-date">Feb 2021 – Feb 2022</div>
+  </div>
+  <div class="timeline-content">
+    <h4 class="timeline-title">Curtin University — M.Eng. (Emerging Power Systems)</h4>
+    <p>Power system engineering and renewable integration; supervised by Prof. Ahmed Abu‑Siada.</p>
+  </div>
+</div>
+<div class="timeline-item">
+  <div class="timeline-left">
+    <div class="timeline-date">Sep 2016 – Jun 2020</div>
+  </div>
+  <div class="timeline-content">
+    <h4 class="timeline-title">Shenyang Agricultural University — B.Eng. (Electrical Engineering &amp; Automation)</h4>
+    <p>Electrical engineering foundations in control, circuits, and power electronics.</p>
+  </div>
+</div>
+        </div><!--//timeline-->
+      </div><!--//content-->
+    </div><!--//section-inner-->
+  </div><!--//container-->
+</div><!--//section-->
+
+<div id="publications" class="section scrollspy">
+  <div class="container">
+    <div class="section-inner">
+      <h2 class="heading">Publications</h2>
+      <div class="content">
+        <p class="text-muted">Selected journal and conference publications (from my CV).</p>
+
+        <h3 class="subheading">Journal Articles</h3>
+        <div class="pub-list">
+          <div class="pub">
+  <div class="pub-left">
+    <div class="paper-icon frame"><svg viewBox="0 0 64 64" aria-hidden="true">
+  <path d="M14 6h26l10 10v42H14z" fill="none" stroke="currentColor" stroke-width="2"/>
+  <path d="M40 6v12h12" fill="none" stroke="currentColor" stroke-width="2"/>
+  <path d="M20 26h24M20 34h24M20 42h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</svg></div>
+  </div>
+  <div class="pub-right">
+    <div class="pub-title">S. Zhang, Y. Teng, H. Kong, N. Wang, Y. Liu, X. Guo, and C. Hua, “An industrial overview of variable-frequency drives for hydrogen compressors in hydrogen transportation,” Renew. Sustain. Energy Rev., vol. 223, 116009, 2025.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-left">
+    <div class="paper-icon frame"><svg viewBox="0 0 64 64" aria-hidden="true">
+  <path d="M14 6h26l10 10v42H14z" fill="none" stroke="currentColor" stroke-width="2"/>
+  <path d="M40 6v12h12" fill="none" stroke="currentColor" stroke-width="2"/>
+  <path d="M20 26h24M20 34h24M20 42h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</svg></div>
+  </div>
+  <div class="pub-right">
+    <div class="pub-title">S. Zhang, Z. Jiao, J. Su, N. Wang, Z. Li, X. Guo, and C. Hua, “Low-ripple modulation strategy for a photovoltaic-based triple-port hydrogen production system,” IEEE Trans. Ind. Electron., Early Access, 2025.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-left">
+    <div class="paper-icon frame"><svg viewBox="0 0 64 64" aria-hidden="true">
+  <path d="M14 6h26l10 10v42H14z" fill="none" stroke="currentColor" stroke-width="2"/>
+  <path d="M40 6v12h12" fill="none" stroke="currentColor" stroke-width="2"/>
+  <path d="M20 26h24M20 34h24M20 42h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</svg></div>
+  </div>
+  <div class="pub-right">
+    <div class="pub-title">S. Zhang, Y. Teng, Y. Sun, F. Ding, N. Wang, X. Guo, and C. Hua, “Fault diagnosis and fault-tolerant operation strategy for triple-port hydrogen production system,” IEEE Trans. Power Electron., vol. 40, no. 8, pp. 11526–11536, 2025.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-left">
+    <div class="paper-icon frame"><svg viewBox="0 0 64 64" aria-hidden="true">
+  <path d="M14 6h26l10 10v42H14z" fill="none" stroke="currentColor" stroke-width="2"/>
+  <path d="M40 6v12h12" fill="none" stroke="currentColor" stroke-width="2"/>
+  <path d="M20 26h24M20 34h24M20 42h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</svg></div>
+  </div>
+  <div class="pub-right">
+    <div class="pub-title">S. Zhang, Y. Wei, X. Guo, Z. Li, X. Song, and F. Blaabjerg, “Overview of US</div>
+  </div>
+</div>
+        </div>
+
+        <h3 class="subheading">Conference Papers</h3>
+        <div class="pub-list">
+          
+        </div>
+      </div><!--//content-->
+    </div><!--//section-inner-->
+  </div><!--//container-->
+</div><!--//section-->
+
+<div id="codebase" class="section scrollspy">
+  <div class="container">
+    <div class="section-inner">
+      <h2 class="heading">Projects</h2>
+      <div class="content">
+        <p class="text-muted">Representative projects aligned with my CV.</p>
+        <div class="cards">
+          <div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Low‑Ripple DC–DC Converter for Electrolyzers</h4>
+    <p class="card-text">High step‑down converter topologies with reduced output ripple for electrolyzer applications (modeling, control, validation).</p>
+    <div class="card-tags"><span class="label label-default">Power Electronics</span> <span class="label label-default">Converter Design</span> <span class="label label-default">Electrolyzer</span></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Triple‑Port Hydrogen Production System</h4>
+    <p class="card-text">Fault diagnosis and fault‑tolerant operation strategy for triple‑port hydrogen production systems.</p>
+    <div class="card-tags"><span class="label label-default">Reliability</span> <span class="label label-default">Fault‑Tolerance</span> <span class="label label-default">Multi‑port</span></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Impedance Modeling &amp; Weak‑Grid Stability</h4>
+    <p class="card-text">Small‑signal impedance modeling and stability analysis of electrolysis systems connected to weak grids.</p>
+    <div class="card-tags"><span class="label label-default">Stability</span> <span class="label label-default">Impedance</span> <span class="label label-default">Weak Grid</span></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">AI/DRL‑Based Energy Management</h4>
+    <p class="card-text">Optimization and DRL scheduling for renewable-driven hydrogen production with start‑stop and ramping constraints.</p>
+    <div class="card-tags"><span class="label label-default">Energy Management</span> <span class="label label-default">Optimization</span> <span class="label label-default">DRL</span></div>
+  </div>
+</div>
+        </div>
+      </div><!--//content-->
+    </div><!--//section-inner-->
+  </div><!--//container-->
+</div><!--//section-->
+
+<div id="awards" class="section scrollspy">
+  <div class="container">
+    <div class="section-inner">
+      <h2 class="heading">Honors & Awards</h2>
+      <div class="content">
+        <ul class="list-unstyled">
+<li>• National Gold Award, China International “Internet+” Innovation &amp; Entrepreneurship Competition (7th).</li>
+<li>• National Gold Award, China International “Internet+” Innovation &amp; Entrepreneurship Competition (8th, consecutive).</li>
+<li>• Geneva International Invention Exhibition (49th) — hydrogen-related power system invention.</li>
+<li>• “China College Students’ Self‑Strengthening Star” and multiple national/provincial honors.</li>
+<li>• China Telecom Scholarship (Tianyi Award) and other innovation &amp; entrepreneurship awards.</li>
+</ul>
+      </div><!--//content-->
+    </div><!--//section-inner-->
+  </div><!--//container-->
+</div><!--//section-->
+
+<div id="academicservices" class="section scrollspy">
+  <div class="container">
+    <div class="section-inner">
+      <h2 class="heading">Skills</h2>
+      <div class="content">
+        <ul class="list-unstyled">
+<li>• MATLAB/Simulink; circuit simulation and power-electronics prototyping</li>
+<li>• Python (data processing / ML / DRL); scientific computing</li>
+<li>• Technical writing (IEEE/Elsevier), figure preparation, and peer review</li>
+</ul>
+      </div><!--//content-->
+    </div><!--//section-inner-->
+  </div><!--//container-->
+</div><!--//section-->
+
+<footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Personal Email:</li>
+          <li><a href="mailto:zhangshiqi@outlook.com">zhangshiqi@outlook.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+          <a href="https://scholar.google.com/citations?user=7SKAhBwAAAAJ&hl=en" target="_blank" class="icon-button github">
+          <i class="ai ai-google-scholar-square icon-github"></i>
+            <span></span>
+          </a>
+
+          <a href="https://github.com/Jun-CEN" target="_blank" class="icon-button github">
+            <i class="fa fa-github icon-github"></i>
+            <span></span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/jun-cen-45b995219/" target="_blank" class="icon-button linkedin">
+            <i class="fa fa-linkedin icon-linkedin"></i>
+            <span></span>
+          </a>
+         
+          <!-- <a href="work/Resume_Jun_CEN.pdf" target="_blank" class="icon-button github">
+            <i class="ai ai-cv icon-github"></i>
+            <span></span>
+          </a> -->
+          <a href="https://www.xiaohongshu.com/user/profile/616ae887000000000201f2fa" class="icon-button xiaohongshu" aria-label="小红书" target="_blank" rel="noopener noreferrer">
+            <i> <img src="https://cdn.simpleicons.org/xiaohongshu/FF2D55" alt="" width="45" height="45" style="vertical-align:middle;"> </i>
+            <span></span>
+          </a>
+      </div>
+	<div class="footer-col footer-col-3">
+    	<!--<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fshiqi-zhang127.github.io&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a> -->
+	<!-- <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?user=Lxe71v4AAAAJ&hl=en&url=https%3A%2F%2Fscholar.google.com%2Fcitations&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a> -->
+		<p class="text">Last updated: Aug, 2025.<br>The style of this website is borrowed from <a href='https://leoyuan.site/' target="_blank">Zeqing Yuan's</a>.</p>
+	</div>
+  </div>
   </div>
 
-  <div class="wrap">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="card">
-        <div class="card-inner anchor" id="about">
-          <h1 class="title">Power Electronics × Green Hydrogen</h1>
-          <p class="subtitle">
-            我是 <b>章仕起 / Shiqi Zhang</b>，燕山大学电气工程学院博士研究生（电气工程方向）。
-            研究聚焦 <b>可再生能源-制氢系统</b> 建模与优化、<b>电解槽电源变换器</b>（低纹波/高可靠/多端口拓扑）、
-            以及 <b>深度强化学习</b> 能量管理与可靠性友好型控制。
-          </p>
+</footer>
+    <div class="back-to-top">Top</div>
 
-          <div class="badge-row" aria-label="keywords">
-            <span class="badge"><strong>Electrolyzer Converters</strong> · Low ripple / High step-down</span>
-            <span class="badge"><strong>Renewable-to-H2</strong> · PV/Wind coupling</span>
-            <span class="badge"><strong>EMS & Optimization</strong> · MPC / DRL (DDPG, NSGA-II)</span>
-            <span class="badge"><strong>Reliability</strong> · start/stop & power cycling constraints</span>
-          </div>
 
-          <div class="cta">
-            <a class="btn primary" href="#contact">Contact / 合作交流</a>
-            <button class="btn" onclick="window.print()">Print / 导出PDF</button>
-            <a class="btn" href="#publications">Selected Publications</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-inner">
-          <div class="kv">
-            <div class="row">
-              <div class="k">Affiliation</div>
-              <div class="v">Yanshan University · School of Electrical Engineering</div>
-            </div>
-            <div class="row">
-              <div class="k">Role</div>
-              <div class="v">Ph.D. Candidate · Power Electronics / Hydrogen Energy</div>
-            </div>
-            <div class="row">
-              <div class="k">Research Interests</div>
-              <div class="v">Electrolyzer power supplies, multi-port converters, impedance & stability, DRL-based EMS</div>
-            </div>
-            <div class="row">
-              <div class="k">Keywords</div>
-              <div class="v mono">DC-DC · TAB/DAB · grid-forming · LVRT · degradation-aware control</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- METRICS -->
-    <section class="sec">
-      <div class="card">
-        <div class="card-inner">
-          <h2>Highlights / 亮点概览</h2>
-          <div class="grid3">
-            <div class="metric">
-              <div class="n">30+</div>
-              <div class="d">Authorized invention patents (incl. hydrogen power supply)</div>
-            </div>
-            <div class="metric">
-              <div class="n">IEEE</div>
-              <div class="d">TPEL accepted (Vol.40 No.8, Aug 2025) · TIE published (Oct 2024)</div>
-            </div>
-            <div class="metric">
-              <div class="n">2×</div>
-              <div class="d">China International “Internet+” Gold Award (7th & 8th)</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-inner">
-          <h2>Education / 教育背景</h2>
-          <div class="list">
-            <div class="item">
-              <div class="t">Yanshan University · Ph.D. in Electrical Engineering</div>
-              <div class="m">GPA 3.83/4.5 · Rank #1 · Research: Renewable-to-hydrogen, converter control & EMS</div>
-              <div class="tags">
-                <span class="pill">Power Electronics</span>
-                <span class="pill">Hydrogen Systems</span>
-                <span class="pill">Control & Optimization</span>
-              </div>
-            </div>
-            <div class="item">
-              <div class="t">Curtin University · Master of Professional Engineering (Emerging Power Systems)</div>
-              <div class="m">GPA 85.25/100 · Rank #1</div>
-              <div class="tags">
-                <span class="pill">Emerging Power Systems</span>
-                <span class="pill">Modeling</span>
-              </div>
-            </div>
-            <div class="item">
-              <div class="t">Shenyang Agricultural University · B.Eng. (Electrical Engineering & Automation)</div>
-              <div class="m">GPA 3.92/4.5 · Rank #2</div>
-              <div class="tags">
-                <span class="pill">Electrical Engineering</span>
-                <span class="pill">Automation</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESEARCH -->
-    <section class="sec anchor" id="research">
-      <div class="card">
-        <div class="card-inner">
-          <h2>Research Focus / 研究方向</h2>
-
-          <details open>
-            <summary>
-              Electrolyzer Power Converter Design
-              <span class="chev">▾</span>
-            </summary>
-            <div class="detail-body">
-              面向电解槽应用的 DC–DC 变换器拓扑与控制：高降压、低纹波、宽工况与高可靠设计；
-              关注输出电流纹波抑制、弱电网稳定性、以及多端口功率协同。
-            </div>
-          </details>
-
-          <details>
-            <summary>
-              Renewable-to-Hydrogen System Modeling & EMS
-              <span class="chev">▾</span>
-            </summary>
-            <div class="detail-body">
-              构建光伏/风电—电解槽—储氢/储能耦合模型；采用优化调度与 MPC/DRL（如 DDPG、NSGA-II）
-              实现分钟级能量管理，并显式约束启停次数、爬坡速率、功率循环强度等可靠性指标。
-            </div>
-          </details>
-
-          <details>
-            <summary>
-              Reliability-aware Operation & Protection Coordination
-              <span class="chev">▾</span>
-            </summary>
-            <div class="detail-body">
-              提炼功率突降/模式切换/保护动作引发的反向过电流与尖峰阈值特性，提出控制—保护协同抑制策略；
-              输出工程整定所需特征量与判据，提升连续运行能力与可用性。
-            </div>
-          </details>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-inner">
-          <h2>Core Skills / 核心能力</h2>
-          <div class="list">
-            <div class="item">
-              <div class="t">Modeling & Simulation</div>
-              <div class="m">MATLAB/Simulink, impedance modeling, multi-timescale coupling, electrolyzer dynamics</div>
-            </div>
-            <div class="item">
-              <div class="t">Control & Optimization</div>
-              <div class="m">MPC, DRL (DDPG / variants), NSGA-II multi-objective optimization, constraint handling</div>
-            </div>
-            <div class="item">
-              <div class="t">Engineering & Translation</div>
-              <div class="m">Prototype-oriented design, patent writing & drawings, academic writing (IEEE style), bilingual communication</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PUBLICATIONS -->
-    <section class="sec anchor" id="publications">
-      <div class="card">
-        <div class="card-inner">
-          <h2>Selected Publications / 代表性论文</h2>
-
-          <details open>
-            <summary>Journal Papers (selected) <span class="chev">▾</span></summary>
-            <div class="detail-body">
-              <ul>
-                <li><b>IEEE Transactions on Power Electronics (TPEL)</b> — “Fault Diagnosis and Fault-Tolerant Operation Strategy for Triple-Port Hydrogen Production System” (Accepted; scheduled: Vol.40 No.8, Aug 2025).</li>
-                <li><b>IEEE Transactions on Industrial Electronics (TIE)</b> — “A Novel DC–DC Converter for Electrolyzer With Low Ripple and High Step Down” (Published: Vol.71 No.10, Oct 2024).</li>
-                <li><b>International Journal of Hydrogen Energy</b> — “Overview of US patents for energy management of renewable energy systems with hydrogen” (2023, Vol.48, pp.9574–9591).</li>
-              </ul>
-              <div style="margin-top:10px;color:var(--muted2);font-size:12px">
-                * 可在此处继续补充你的完整论文列表（按年份/期刊分组）。
-              </div>
-            </div>
-          </details>
-
-          <details>
-            <summary>Preprints / Ongoing manuscripts <span class="chev">▾</span></summary>
-            <div class="detail-body">
-              你当前还在推进：弱电网稳定性、制氢系统安全运行边界、以及退化/寿命感知的多目标调度与强化学习框架等方向。
-              （建议：把每篇稿件写成 1 行：题目 + 状态 + 关键词）
-            </div>
-          </details>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-inner">
-          <h2>Patents & Translation / 专利与成果转化</h2>
-
-          <details open>
-            <summary>Patents (summary) <span class="chev">▾</span></summary>
-            <div class="detail-body">
-              <ul>
-                <li>Authorized invention patents: <b>30+</b> (incl. key technologies for hydrogen power supply and control).</li>
-                <li>Applied patents: <b>27+</b> (several as first inventor / major contributor).</li>
-                <li>Representative items (examples): distribution network state estimation (APSO-BP), fast switching for live-line operation, fault warning & trace maintenance, weak-loop identification for power transfer, etc.</li>
-              </ul>
-            </div>
-          </details>
-
-          <details>
-            <summary>Commercialization / 产业化 <span class="chev">▾</span></summary>
-            <div class="detail-body">
-              团队完成核心技术研发与生产落地，技术已在多家企业应用并形成长期合作；
-              商业模式包含：定制变换器、通用变换器、技术服务、装备租赁等。
-              （建议：这里放 3–5 个 bullet：应用数量、合作对象类型、典型场景、预期营收等）
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="sec anchor" id="projects">
-      <div class="card">
-        <div class="card-inner">
-          <h2>Projects / 科研项目</h2>
-
-          <details open>
-            <summary>National-level Projects (selected) <span class="chev">▾</span></summary>
-            <div class="detail-body">
-              <ul>
-                <li><b>NSFC General Program</b> (No.52077190, 2021-01-01 to 2024-12-31): Key problems of next-generation MV PV grid-connected inverters.</li>
-                <li><b>National Key R&D Program</b> (No.2022YFB4202200): Key technologies for compact renewable electricity-heat-hydrogen co-production modules.</li>
-              </ul>
-            </div>
-          </details>
-
-          <details>
-            <summary>Representative Work Packages <span class="chev">▾</span></summary>
-            <div class="detail-body">
-              <ul>
-                <li>Multi-timescale coupling model: renewable source ↔ hydrogen power supply ↔ electrolyzer dynamics.</li>
-                <li>Minute-level DRL scheduling integrating electrolyzer start/stop dynamic model.</li>
-                <li>Reliability constraints: power cycling intensity, start/stop counts, ramp rate constraints embedded into control/optimization.</li>
-              </ul>
-            </div>
-          </details>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-inner">
-          <h2>Professional Service / 学术与社会服务</h2>
-          <div class="list">
-            <div class="item">
-              <div class="t">Conference & Community</div>
-              <div class="m">Active in power electronics & hydrogen innovation community; frequent talks and nationwide sharing.</div>
-            </div>
-            <div class="item">
-              <div class="t">Mentorship / Leadership</div>
-              <div class="m">Experience in mentoring and project incubation (innovation competitions); team-driven technology translation.</div>
-            </div>
-            <div class="item">
-              <div class="t">Writing & Review</div>
-              <div class="m">IEEE-style academic writing; reviewer-style critical analysis; careful, non-absolute phrasing.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HONORS -->
-    <section class="sec anchor" id="honors">
-      <div class="card">
-        <div class="card-inner">
-          <h2>Honors & Awards / 荣誉奖励</h2>
-
-          <details open>
-            <summary>Major Awards (selected) <span class="chev">▾</span></summary>
-            <div class="detail-body">
-              <ul>
-                <li>China International “Internet+” Innovation & Entrepreneurship Competition — <b>National Gold Award</b> (7th & 8th).</li>
-                <li>“China Telecom Scholarship · Tianyi Award” (national-level recognition).</li>
-                <li>“Chinese College Student of Self-improvement Star”.</li>
-                <li>International Invention Exhibition (Geneva) — award (as listed in CV).</li>
-                <li>Graduate Energy Equipment Innovation Design Competition — national awards.</li>
-              </ul>
-              <div style="margin-top:10px;color:var(--muted2);font-size:12px">
-                * 你可以继续把“冀青之星/优秀学生干部/国家奖学金”等按类别补齐。
-              </div>
-            </div>
-          </details>
-
-          <details>
-            <summary>Media / Public Recognition <span class="chev">▾</span></summary>
-            <div class="detail-body">
-              先进事迹被多家媒体报道（可在此处添加媒体名称/报道链接）。
-            </div>
-          </details>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-inner anchor" id="contact">
-          <h2>Contact / 联系方式</h2>
-          <div class="list">
-            <div class="item">
-              <div class="t">Email</div>
-              <div class="m">（在此填写你的邮箱，例如：<span class="mono">yourname@domain.com</span>）</div>
-            </div>
-            <div class="item">
-              <div class="t">Google Scholar / ORCID / GitHub</div>
-              <div class="m">（在此填链接；建议放 3 个按钮）</div>
-              <div class="tags" style="margin-top:10px">
-                <a class="btn" href="javascript:void(0)">Scholar</a>
-                <a class="btn" href="javascript:void(0)">ORCID</a>
-                <a class="btn" href="javascript:void(0)">GitHub</a>
-              </div>
-            </div>
-            <div class="item">
-              <div class="t">Collaboration Interests</div>
-              <div class="m">Electrolyzer converters · Low-ripple current control · EMS with DRL/MPC · Weak-grid stability</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      © <span id="yy"></span> Shiqi Zhang (章仕起). Built as a single-file academic homepage.
-    </footer>
-  </div>
-
-  <script>
-    // year
-    document.getElementById("yy").textContent = new Date().getFullYear();
-
-    // smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const id = a.getAttribute('href');
-        const el = document.querySelector(id);
-        if(!el) return;
-        e.preventDefault();
-        el.scrollIntoView({behavior:'smooth', block:'start'});
-      })
+<script type="text/javascript">
+jQuery(document).ready(function() {
+    var offset = 220;
+    var duration = 500;
+    jQuery(window).scroll(function() {
+        if (jQuery(this).scrollTop() > offset) {
+            jQuery('.back-to-top').fadeIn(duration);
+        } else {
+            jQuery('.back-to-top').fadeOut(duration);
+    
+        }
     });
-  </script>
+    jQuery('.back-to-top').click(function(event) {
+        event.preventDefault();
+        jQuery('html, body').animate({scrollTop: 0}, duration);
+        return false;
+    })
+});
+</script>
+  <script>
+(function() {
+  const img = document.getElementById('profile-avatar');
+  const input = document.getElementById('avatarUpload');
+  if (!img || !input) return;
+
+  // Load saved avatar (if any)
+  try {
+    const saved = localStorage.getItem('profileAvatarDataUrl');
+    if (saved) img.src = saved;
+  } catch (e) {}
+
+  input.addEventListener('change', function(e) {
+    const file = (e.target.files && e.target.files[0]) ? e.target.files[0] : null;
+    if (!file) return;
+    if (!file.type || !file.type.startsWith('image/')) return;
+
+    const reader = new FileReader();
+    reader.onload = function() {
+      const dataUrl = reader.result;
+      img.src = dataUrl;
+      try { localStorage.setItem('profileAvatarDataUrl', dataUrl); } catch (e) {}
+    };
+    reader.readAsDataURL(file);
+  });
+})();
+</script>
 </body>
+
+<!--
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-60071442-1', 'auto');
+  ga('send', 'pageview');
+</script>
+-->
+
+<!--<script src="custom-pub.js"></script>-->
 </html>
