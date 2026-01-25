@@ -703,15 +703,15 @@ pre>code {
 }
 
 .shallow-bg {
-    /* background-image: url("images/background/my_cover2.jpg"); */
-    background-image: url("images/background/my_cover2.jpg");
+    /* background-image: url("images/background/my_cover2.png"); */
+    background-image: url("images/background/my_cover2.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center
 }
 
 .deep-bg {
-    background-image: url("images/background/my_cover2.jpg");
+    background-image: url("images/background/my_cover2.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center
