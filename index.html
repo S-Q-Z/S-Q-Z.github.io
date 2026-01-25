@@ -109,8 +109,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="cover shallow-bg img-responsive" id="profile-cover">
 <div class="profile-wrapper wrapper-light" id="profile-namecard">
 <div class="profile-col profile-col-1" id="my-pic">
-<img alt="Shiqi Zhang" class="circle-img border-dark" id="profile-avatar" src="images/avatar.jpg"/>
+  <img alt="Shiqi Zhang" class="circle-img border-dark" id="profile-avatar" src="images/avatar.jpg"/>
+  <input id="avatarUpload" type="file" accept="image/*" style="display:none;">
 </div>
+
 <div class="profile-col profile-col-2" id="my-contact">
 <div class="text-grey-dark" id="my-name">Shiqi Zhang (章仕起)<br/></div>
 <div class="text-grey" id="my-title">Ph.D. Candidate, Electrical Engineering, Yanshan University</div>
@@ -1028,27 +1030,44 @@ jQuery(document).ready(function() {
 });
 </script>
 <script id="avatar-upload-script">
-(function(){
+document.addEventListener('DOMContentLoaded', function () {
   const img = document.getElementById('profile-avatar');
   const input = document.getElementById('avatarUpload');
-  if(!img || !input) return;
-  const saved = localStorage.getItem('profileAvatarDataUrl');
-  if(saved){ img.src = saved; }
-  input.addEventListener('change', function(){
-    const file = this.files && this.files[0];
-    if(!file || !file.type || !file.type.startsWith('image/')) return;
+
+  if (!img) { console.error('[avatar] #profile-avatar not found'); return; }
+  if (!input) { console.error('[avatar] #avatarUpload not found'); return; }
+
+  // 读取已保存头像
+  try {
+    const saved = localStorage.getItem('profileAvatarDataUrl');
+    if (saved) img.src = saved;
+  } catch (e) {}
+
+  // 点击头像 -> 打开文件选择
+  img.style.cursor = 'pointer';
+  img.title = 'Click to change avatar';
+  img.addEventListener('click', function () {
+    input.click();
+  });
+
+  // 选择图片 -> 立刻显示并保存
+  input.addEventListener('change', function () {
+    const file = input.files && input.files[0];
+    if (!file) return;
+    if (!file.type || !file.type.startsWith('image/')) return;
+
     const reader = new FileReader();
-    reader.onload = function(e){
+    reader.onload = function (e) {
       const dataUrl = e.target.result;
       img.src = dataUrl;
-      try{ localStorage.setItem('profileAvatarDataUrl', dataUrl); }catch(err){}
+      try { localStorage.setItem('profileAvatarDataUrl', dataUrl); } catch (err) {}
+      input.value = ''; // 允许下次选同一张图也触发 change
     };
     reader.readAsDataURL(file);
   });
-})();
-</script></body>
-<!--
-  <script>
+});
+</script>
+
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
