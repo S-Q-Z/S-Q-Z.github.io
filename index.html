@@ -1,881 +1,538 @@
 <!DOCTYPE html>
-
-<html>
-	<style>
-.pub-list{
-  margin-top: 10px;
-}
-
-.pub-item{
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin: 10px 0;
-}
-
-.pub-idx{
-  width: 46px;
-  flex: 0 0 46px;
-  font-weight: 600;
-  line-height: 1.6;
-}
-
-.pub-text{
-  flex: 1;
-  line-height: 1.6;
-  text-align: justify;
-  text-justify: inter-word;
-}
-</style>
-
+<html lang="en">
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-RFR2GFKT75"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'G-RFR2GFKT75');
-  </script> -->
-<!-- Google Tag Manager -->
-<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  })(window,document,'script','dataLayer','GTM-NC38VTD');</script> -->
-<!-- End Google Tag Manager -->
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<!-- <meta http-equiv="refresh" content="0; URL=https://cs.stanford.edu/~leoyuan/"> -->
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<!-- <meta name="google-site-verification" content="u_--0s_Uw50r4zCgRrzltkmFhNCduYOJwPGlKVTuNJU" /> -->
-<title>Shiqi Zhang (章仕起) - Homepage</title>
-<meta content="This is an academic website for Will Hua" lang="en" name="description"/>
-<meta content="Jun CEN" lang="en" name="keywords"/>
-<link rel="icon" href="favicon.ico?v=1">
-<link href="main.css" rel="stylesheet"/>
-<link href="css/custom.css" rel="stylesheet"/>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
-<link href="css/academicons.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" rel="stylesheet">
-<script src="js/jquery-2.1.3.min.js"> </script>
-<!--[if lt IE 9]>
-<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
-</script>
-<![endif]-->
-<script type="text/javascript">
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+  <title>Shiqi Zhang (章仕起) - Homepage</title>
+  <meta content="This is an academic website for Shiqi Zhang" name="description"/>
+  <meta content="Shiqi Zhang, power electronics, hydrogen, electrolyzer" name="keywords"/>
+
+  <link rel="icon" href="favicon.ico?v=1">
+  <link href="main.css" rel="stylesheet"/>
+  <link href="css/custom.css" rel="stylesheet"/>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="css/academicons.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" rel="stylesheet">
+
+  <script src="js/jquery-2.1.3.min.js"></script>
+
+  <script type="text/javascript">
     function ShowHide(divId, linkDivId) {
-        if(document.getElementById(divId).style.display == 'none') {
-            document.getElementById(divId).style.display='block';
-            document.getElementById(linkDivId).style.display='none'; // Hide the "read more" link
-        }
-        else {
-            document.getElementById(divId).style.display = 'none';
-        }
+      if (document.getElementById(divId).style.display == 'none') {
+        document.getElementById(divId).style.display='block';
+        document.getElementById(linkDivId).style.display='none';
+      } else {
+        document.getElementById(divId).style.display='none';
+      }
     }
   </script>
 
-<style>
-/* 保证 Patents 内容与其他 section 左对齐 */
-#patents .bio-body{
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-#patent-cards{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  width:100%;
-  margin:0;
-  padding:0;
-}
-
-.patent-card{
-  width:100%;
-  margin:0;
-  box-sizing:border-box;
-}
-</style>
-</head>
-
-	
-<style>
-    /* 为所有列表项设置样式 */
-    li.indented {
-        position: relative;
-        padding-left: 90px; /* 这是对齐效果的关键，可以根据实际内容调整这个值 */
+  <!-- Publications layout -->
+  <style>
+    .pub-list{ margin-top:10px; }
+    .pub-item{
+      display:flex; align-items:flex-start; gap:12px;
+      margin:10px 0;
     }
+    .pub-idx{ width:46px; flex:0 0 46px; font-weight:600; line-height:1.6; }
+    .pub-text{ flex:1; line-height:1.6; text-align:justify; text-justify:inter-word; }
+  </style>
 
-    li.indented::before {
-        content: attr(data-date);
-        position: absolute;
-        left: 0;
-        top: 0;
-        white-space: nowrap;
+  <!-- Timeline list style -->
+  <style>
+    li.indented{
+      position:relative;
+      padding-left:90px;
+    }
+    li.indented::before{
+      content:attr(data-date);
+      position:absolute; left:0; top:0;
+      white-space:nowrap;
     }
   </style>
-</link><style id="avatar-upload-style">
-/* Minimal add-on: avatar upload button */
-.avatar-upload-btn{
-  display:inline-block;
-  margin-top:10px;
-  padding:6px 12px;
-  font-size:14px;
-  border-radius:999px;
-  background:rgba(255,255,255,0.85);
-  border:1px solid rgba(0,0,0,0.15);
-  cursor:pointer;
-  user-select:none;
-}
-.avatar-upload-btn:hover{ background:rgba(255,255,255,0.95); }
-</style></head>
+
+  <!-- Avatar upload button style -->
+  <style id="avatar-upload-style">
+    .avatar-upload-btn{
+      display:inline-block;
+      margin-top:10px;
+      padding:6px 12px;
+      font-size:14px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.85);
+      border:1px solid rgba(0,0,0,0.15);
+      cursor:pointer;
+      user-select:none;
+    }
+    .avatar-upload-btn:hover{ background:rgba(255,255,255,0.95); }
+  </style>
+
+  <!-- ===== Patents: FIX alignment + card layout (NO乱码) ===== -->
+  <style>
+    /* 关键：把 Patents 的 bio-body 左右 padding 清零，和其他 section 视觉对齐 */
+    #patents .bio-body{
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    #patent-cards{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      width:100%;
+      margin:0 !important;
+      padding:0 !important;
+    }
+
+    .patent-card{
+      width:100%;
+      box-sizing:border-box;
+      background:#fff;
+      border:1px solid rgba(0,0,0,0.12);
+      border-radius:12px;
+      padding:14px 16px;
+      box-shadow:0 1px 2px rgba(0,0,0,0.04);
+      text-align:left;
+      margin:0 !important;
+    }
+
+    .patent-card .row-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .patent-card .title-en{
+      font-weight:700;
+      font-size:16px;
+      line-height:1.35;
+      word-break:break-word;
+      overflow-wrap:anywhere;
+    }
+
+    .patent-card .title-cn{
+      margin-top:4px;
+      font-size:14px;
+      color:#444;
+      line-height:1.5;
+      word-break:break-word;
+      overflow-wrap:anywhere;
+    }
+
+    .patent-card .badge{
+      white-space:nowrap;
+      font-size:12px;
+      padding:4px 10px;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,0.15);
+      color:#555;
+      background:rgba(0,0,0,0.02);
+    }
+
+    .patent-card .meta{
+      margin-top:10px;
+      font-size:13px;
+      color:#666;
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      align-items:center;
+      word-break:break-word;
+      overflow-wrap:anywhere;
+    }
+    .patent-card .meta b{ color:#333; }
+  </style>
+</head>
+
 <body>
-<!-- Google Tag Manager (noscript) -->
-<!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NC38VTD"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
-<!-- End Google Tag Manager (noscript) -->
 <header class="site-header">
-<div class="wrapper">
-<nav class="site-nav">
-<a class="menu-icon" href="#">
-<svg viewbox="0 0 18 15">
-<path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" fill="#424242"></path>
-<path d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" fill="#424242"></path>
-<path d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" fill="#424242"></path>
-</svg>
-</a>
-<div class="trigger">
-<a class="page-link" href="#bio"><b>Biography</b></a>
-<a class="page-link" href="#timeline"><b>Experiences</b></a>
-<a class="page-link" href="#publications"><b>Publications</b></a>
-<a class="page-link" href="#patents"><b>Patents</b></a>
-<a class="page-link" href="#awards"><b>Honors &amp; Awards</b></a>
-<a class="page-link" href="#academicservices"><b>Academic Services </b></a>
-<!--<a class="page-link" href="#otherprojects">Projects</a>-->
-<!-- Button for Posts -->
-</div>
-</nav>
-</div>
+  <div class="wrapper">
+    <nav class="site-nav">
+      <a class="menu-icon" href="#">
+        <svg viewBox="0 0 18 15">
+          <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" fill="#424242"></path>
+          <path d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" fill="#424242"></path>
+          <path d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" fill="#424242"></path>
+        </svg>
+      </a>
+      <div class="trigger">
+        <a class="page-link" href="#bio"><b>Biography</b></a>
+        <a class="page-link" href="#timeline"><b>Experiences</b></a>
+        <a class="page-link" href="#publications"><b>Publications</b></a>
+        <a class="page-link" href="#patents"><b>Patents</b></a>
+        <a class="page-link" href="#awards"><b>Honors &amp; Awards</b></a>
+        <a class="page-link" href="#academicservices"><b>Academic Services</b></a>
+      </div>
+    </nav>
+  </div>
 </header>
+
 <div class="cover shallow-bg img-responsive" id="profile-cover">
-<div class="profile-wrapper wrapper-light" id="profile-namecard">
-<div class="profile-col profile-col-1" id="my-pic">
-  <img alt="Shiqi Zhang" class="circle-img border-dark" id="profile-avatar" src="images/avatar.jpg"/>
-  <input id="avatarUpload" type="file" accept="image/*" style="display:none;">
+  <div class="profile-wrapper wrapper-light" id="profile-namecard">
+    <div class="profile-col profile-col-1" id="my-pic">
+      <img alt="Shiqi Zhang" class="circle-img border-dark" id="profile-avatar" src="images/avatar.jpg"/>
+      <input id="avatarUpload" type="file" accept="image/*" style="display:none;">
+    </div>
+
+    <div class="profile-col profile-col-2" id="my-contact">
+      <div class="text-grey-dark" id="my-name">Shiqi Zhang (章仕起)<br/></div>
+      <div class="text-grey" id="my-title">Ph.D. Candidate, Electrical Engineering, Yanshan University</div>
+      <div class="text-grey-light" id="my-email">zf741741@126.com</div>
+    </div>
+
+    <div class="social-media">
+      <a class="icon-button linkedin" href="https://scholar.google.com/citations?user=f6Bvb1UAAAAJ&hl=zh-CN" target="_blank">
+        <i class="ai ai-google-scholar-square icon-linkedin"></i><span></span>
+      </a>
+
+      <a class="icon-button orcid" href="https://orcid.org/0000-0001-6602-6041" target="_blank" rel="noopener noreferrer">
+        <i class="ai ai-orcid icon-github"></i><span></span>
+      </a>
+
+      <a class="icon-button linkedin" href="https://www.linkedin.com/in/shiqi-zhang-9b76a1359/" target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-linkedin icon-linkedin"></i><span></span>
+      </a>
+
+      <a class="icon-button researchgate" href="https://www.researchgate.net/profile/Shiqi-Zhang-63" target="_blank" rel="noopener noreferrer">
+        <i class="ai ai-researchgate icon-linkedin"></i><span></span>
+      </a>
+
+      <a class="icon-button linkedin" href="mailto:zhangshiqi@ysu.edu.cn" target="_blank">
+        <i class="fa fa-envelope icon-linkedin"></i><span></span>
+      </a>
+
+      <a class="icon-button github" href="ShiqiZhang_CV_2025.pdf" target="_blank">
+        <i class="ai ai-cv icon-github"></i><span></span>
+      </a>
+    </div>
+  </div>
 </div>
 
-<div class="profile-col profile-col-2" id="my-contact">
-<div class="text-grey-dark" id="my-name">Shiqi Zhang (章仕起)<br/></div>
-<div class="text-grey" id="my-title">Ph.D. Candidate, Electrical Engineering, Yanshan University</div>
-<div class="text-grey-light" id="my-email">zf741741@126.com</div>
-</div>
-<div class="social-media">
-<a class="icon-button linkedin" href="https://scholar.google.com/citations?user=f6Bvb1UAAAAJ&hl=zh-CN" target="_blank">
-<i class="ai ai-google-scholar-square icon-linkedin"></i>
-<span></span>
-</a>
-<a class="icon-button orcid" href="https://orcid.org/0000-0001-6602-6041" target="_blank" rel="noopener noreferrer">
-  <i class="ai ai-orcid icon-github"></i>
-  <span></span>
-</a>
-
-<a class="icon-button linkedin" href="https://www.linkedin.com/in/shiqi-zhang-9b76a1359/" target="_blank" rel="noopener noreferrer">
-  <i class="fa fa-linkedin icon-linkedin"></i>
-  <span></span>
-</a>
-
-<!-- <a href="work/Resume_Jun_CEN.pdf" target="_blank" class="icon-button github">
-            <i class="ai ai-cv icon-github"></i>
-            <span></span>
-          </a> -->
-<a class="icon-button researchgate"
-   href="https://www.researchgate.net/profile/Shiqi-Zhang-63"
-   target="_blank" rel="noopener noreferrer">
-  <i class="ai ai-researchgate icon-linkedin"></i>
-  <span></span>
-</a>
-
-<a class="icon-button linkedin" href="mailto:zhangshiqi@ysu.edu.cn" target="_blank">
-<i class="fa fa-envelope icon-linkedin"></i>
-<span></span>
-</a>
-<a class="icon-button github" href="ShiqiZhang_CV_2025.pdf" target="_blank"><i class="ai ai-cv icon-github"></i><span></span></a></div>
-</div>
-<!-- <div id="my-desc" class="profile-col profile-col-2 hide">
-        <div id="my-desc-title">
-          Another me.
-        </div>
-        <div id="my-desc-content">
-          I enjoy running, traveling, hiking, movies, music and so much more<br>
-        </div>
-      </div> -->
-</div>
-<!-- <script type="text/javascript">
-    function deepFeature()
-    {
-      $('#profile-avatar').attr('src', 'images/self-portrait/deep-me.jpg');
-      $('#profile-avatar').removeClass('border-dark');
-      $('#profile-avatar').addClass('border-bright');
-
-      $('#profile-cover').removeClass('shallow-bg');
-      $('#profile-cover').addClass('deep-bg');
-      
-      $('#profile-namecard').removeClass('wrapper-light');
-      $('#profile-namecard').addClass('wrapper-dark');
-      
-      $('#my-desc').removeClass('hide');
-      $('#my-contact').addClass('hide');    
-      // console.log('Move in now...');
-    }
-
-    function shallowFeature()
-    {
-      $('#profile-avatar').attr('src', 'images/self-portrait/me.jpg');
-      $('#profile-avatar').removeClass('border-bright');
-      $('#profile-avatar').addClass('border-dark');
-
-      $('#profile-cover').removeClass('deep-bg');
-      $('#profile-cover').addClass('shallow-bg');
-      
-      $('#profile-namecard').removeClass('wrapper-dark');
-      $('#profile-namecard').addClass('wrapper-light');
-      
-      $('#my-contact').removeClass('hide');
-      $('#my-desc').addClass('hide');
-      // console.log('Move out now...');
-    }
-
-    $(function() { 
-      $('#my-pic').hover(deepFeature, shallowFeature);
-    })
-
-  </script> -->
 <div class="page-content">
-<div class="wrapper">
-<div class="bio" id="bio">
-<h1 class="md-heading text-left">
-<i aria-hidden="true" class="fa fa-id-card"></i>
-    About
-  </h1>
-<div class="bio-body" style="overflow:hidden;">
-<p>I am a Ph.D. candidate in Electrical Engineering at Yanshan University. My research focuses on power electronics and renewable-to-hydrogen systems, including electrolyzer power supplies, multi-port DC–DC converter topologies, impedance modeling &amp; stability under weak grids, and reliability-aware control.</p>
-<div style="width: 50%; float:left">
-<h3>
-<i aria-hidden="true" class="fa fa-star"></i>
-<strong>Interests</strong>
-</h3>
-<ul>
-  <li><b>Electrolyzer Power Electronics & Low-Ripple Converters</b></li>
-  <a href="javascript:void(0)">[Low-Ripple]</a><a href="javascript:void(0)">[High Step-Down]</a><a href="javascript:void(0)">[High Power Density]</a><a href="javascript:void(0)">[Electrolyzer Supply]</a>
+  <div class="wrapper">
+    <!-- About -->
+    <div class="bio" id="bio">
+      <h1 class="md-heading text-left"><i aria-hidden="true" class="fa fa-id-card"></i> About</h1>
+      <div class="bio-body" style="overflow:hidden;">
+        <p>
+          I am a Ph.D. candidate in Electrical Engineering at Yanshan University. My research focuses on power electronics and renewable-to-hydrogen systems, including electrolyzer power supplies, multi-port DC–DC converter topologies, impedance modeling &amp; stability under weak grids, and reliability-aware control.
+        </p>
 
-  <li><b>Multi-port DC–DC Converter Topologies for PV/Wind-to-Hydrogen</b></li>
-  <a href="javascript:void(0)">[TAB]</a><a href="javascript:void(0)">[DAB]</a><a href="javascript:void(0)">[Buck/Boost]</a><a href="javascript:void(0)">[Multi-port]</a>
+        <div style="width:50%; float:left">
+          <h3><i aria-hidden="true" class="fa fa-star"></i> <strong>Interests</strong></h3>
+          <ul>
+            <li><b>Electrolyzer Power Electronics & Low-Ripple Converters</b></li>
+            <a href="javascript:void(0)">[Low-Ripple]</a><a href="javascript:void(0)">[High Step-Down]</a><a href="javascript:void(0)">[High Power Density]</a><a href="javascript:void(0)">[Electrolyzer Supply]</a>
 
-  <li><b>Impedance Modeling & Stability in Weak/Converter-Dominated Grids</b></li>
-  <a href="javascript:void(0)">[Impedance]</a><a href="javascript:void(0)">[Stability]</a><a href="javascript:void(0)">[Weak Grid]</a><a href="javascript:void(0)">[PLL]</a>
+            <li><b>Multi-port DC–DC Converter Topologies for PV/Wind-to-Hydrogen</b></li>
+            <a href="javascript:void(0)">[TAB]</a><a href="javascript:void(0)">[DAB]</a><a href="javascript:void(0)">[Buck/Boost]</a><a href="javascript:void(0)">[Multi-port]</a>
 
-  <li><b>Reliability-Aware Control, Fault Diagnosis & Fault-Tolerant Operation</b></li>
-  <a href="javascript:void(0)">[Reliability]</a><a href="javascript:void(0)">[FDD]</a><a href="javascript:void(0)">[Fault-Tolerant]</a><a href="javascript:void(0)">[Protection]</a>
+            <li><b>Impedance Modeling & Stability in Weak/Converter-Dominated Grids</b></li>
+            <a href="javascript:void(0)">[Impedance]</a><a href="javascript:void(0)">[Stability]</a><a href="javascript:void(0)">[Weak Grid]</a><a href="javascript:void(0)">[PLL]</a>
 
-  <li><b>Optimization & DRL-based Energy Management for Hydrogen Microgrids</b></li>
-  <a href="javascript:void(0)">[DRL]</a><a href="javascript:void(0)">[EMS]</a><a href="javascript:void(0)">[Scheduling]</a><a href="javascript:void(0)">[Microgrid]</a>
-</ul>
+            <li><b>Reliability-Aware Control, Fault Diagnosis & Fault-Tolerant Operation</b></li>
+            <a href="javascript:void(0)">[Reliability]</a><a href="javascript:void(0)">[FDD]</a><a href="javascript:void(0)">[Fault-Tolerant]</a><a href="javascript:void(0)">[Protection]</a>
 
-</div>
-<div style="width: 50%; float:right">
-  <h3>
-    <i aria-hidden="true" class="fa fa-graduation-cap"></i>
-    <strong>Education</strong>
-  </h3>
-
-  <b>Yanshan University</b><br/>
-  <ul>
-    <li>Ph.D. in Electrical Engineering, Sep. 2022 - Present (Qinhuangdao, China)</li>
-    <li>Advisor: Prof. Xiaoqiang Guo</li>
-   
-  </ul>
-
-  <b>Curtin University</b><br/>
-  <ul>
-    <li>M.Eng. in Emerging Power Systems, Feb. 2021 - Feb. 2022 (Perth, Australia)</li>
-    <li>Advisor: Prof. Ahmed Abu-Siada</li>
-   
-  </ul>
-
-  <b>Shenyang Agricultural University</b><br/>
-  <ul>
-    <li>B.Eng. in Electrical Engineering and Automation, Sep. 2016 - Jun. 2020 (Shenyang, China)</li>
-    
-  </ul>
-</div>
-</div>
-</div>
-<!-- <div id="news" class="bio">
-  <h1 class="md-heading text-left">
-    <i class="fa fa-tasks" aria-hidden="true"></i>
-    News
-  </h1>  
-  <ul>
-    	<li class="indented" data-date="[Feb, 2024]"> Give a talk on <a href="https://arxiv.org/pdf/2402.03675.pdf">protein-protein interaction prediction</a> to <a href="https://jian-tang.com/students/">Jian Tang's group</a>. [<a href="files/ppiretrieval.pdf">Slide</a>]</li>
-	<li class="indented" data-date="[Dec, 2023]"> Give a talk on <a href="https://arxiv.org/pdf/2304.14621.pdf">structure-based molecule design</a> at LoG2023 Montreal. [<a href="files/mudiff.pdf">Slide</a>][<a href="https://www.youtube.com/watch?v=Z5l-gaV-DUo">Video</a>]</li>
-    	<li class="indented" data-date="[Nov, 2023]"> One paper accepted to 2nd Learning on Graphs Conference.</li>
-    	<li class="indented" data-date="[Oct, 2023]"> One paper accepted to 37th Conference on Neural Information Processing Systems.</li>
-    	<li class="indented" data-date="[Sep, 2023]"> One paper accepted to 12th International Conference on Complex Networks and their Applications.</li>
-   	<li class="indented" data-date="[Oct, 2022]"> One paper accepted to 36th Conference on Neural Information Processing Systems, GLFrontiers, and selected for <b><span style="color: red;">Oral</span></b> presentation.</li>
-   	<li class="indented" data-date="[Oct, 2022]"> Two papers accepted to 36th Conference on Neural Information Processing Systems, and one paper selected for <b><span style="color: red;">Spotlight</span></b> presentation.</li>
-  </ul>
-</div> -->
-<!-- <div class="wrapper"> -->
-<div class="timeline-brief" id="timeline" style="display:none;">
-
-<h1 class="md-heading text-left">
-<i aria-hidden="true" class="fa fa-tasks"></i>
-      Experiences
-    </h1>
-<div class="timeline-body">
-<div class="timeline-item">
-<div class="timeline-date">
-<img class="social-icon" src="images/damo_logo_2.avif"/>
-          Aug, 2024 - Now
+            <li><b>Optimization & DRL-based Energy Management for Hydrogen Microgrids</b></li>
+            <a href="javascript:void(0)">[DRL]</a><a href="javascript:void(0)">[EMS]</a><a href="javascript:void(0)">[Scheduling]</a><a href="javascript:void(0)">[Microgrid]</a>
+          </ul>
         </div>
-<div class="timeline-title">
-          Algorithm Expert @ <a href="https://damo.alibaba.com/?language=zh" target="_blank">DAMO Academy, Alibaba</a>
-</div>
-<div class="timeline-desc">
-<b> Join as <img class="social-icon" src="images/alistar.png" style="width:20px; height:20px; vertical-align:middle; position:relative; top:-2px;"/> <a href="https://talent.alibaba.com/activity/ali-star?lang=zh" target="_blank">AliStar,</a> focus on Embodied AI and VLA models. </b>
-<div class="timeline-host">
-<!-- Supervisor: <a href="https://prokia.github.io/">Shuangjia Zheng</a> -->
-</div>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-date">
-<img class="social-icon" src="images/MSRA_3.jpg"/>
-          Aug, 2023 - May, 2024
+
+        <div style="width:50%; float:right">
+          <h3><i aria-hidden="true" class="fa fa-graduation-cap"></i> <strong>Education</strong></h3>
+
+          <b>Yanshan University</b><br/>
+          <ul>
+            <li>Ph.D. in Electrical Engineering, Sep. 2022 - Present (Qinhuangdao, China)</li>
+            <li>Advisor: Prof. Xiaoqiang Guo</li>
+          </ul>
+
+          <b>Curtin University</b><br/>
+          <ul>
+            <li>M.Eng. in Emerging Power Systems, Feb. 2021 - Feb. 2022 (Perth, Australia)</li>
+            <li>Advisor: Prof. Ahmed Abu-Siada</li>
+          </ul>
+
+          <b>Shenyang Agricultural University</b><br/>
+          <ul>
+            <li>B.Eng. in Electrical Engineering and Automation, Sep. 2016 - Jun. 2020 (Shenyang, China)</li>
+          </ul>
         </div>
-<div class="timeline-title">
-          Research Intern @ <a href="https://www.msra.cn/" target="_blank">MSRA</a>
-</div>
-<div class="timeline-desc">
-<div class="timeline-host">
-            Supervisor: <a href="https://chenfei-wu.github.io//" target="_blank">Dr. Chenfei Wu</a>, <a href="https://nanduan.github.io//" target="_blank">Dr. Nan Duan</a>
-</div>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-date">
-<img class="social-icon" src="images/SUSTech_3.png"/>
-          Aug, 2023 - July, 2024
-        </div>
-<div class="timeline-title">
-          Visiting Student @ <a href="https://www.sustech.edu.cn/en/" target="_blank">SUSTech</a>
-</div>
-<div class="timeline-desc">
-<div class="timeline-host">
-            Supervisor: <a href="https://www.sustech.edu.cn/en/faculties/zhangjianguo.html" target="_blank">Prof. Jianguo Zhang</a>
-</div>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-date">
-<img class="social-icon" src="images/ntu_logo_2.png"/>
-          Mar, 2023 - Sep, 2023
-        </div>
-<div class="timeline-title">
-          Visiting Student @ <a href="https://www.mmlab-ntu.com/" target="_blank">MMLab, NTU</a>
-</div>
-<div class="timeline-desc">
-<div class="timeline-host">
-          Supervisor: <a href="https://liuziwei7.github.io/" target="_blank">Prof. Ziwei Liu</a>
-</div>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-date">
-<img class="social-icon" src="images/tongyi.png"/>
-            Mar, 2022 - Mar, 2023
-          </div>
-<div class="timeline-title">
-            Research Intern @ <a href="https://tongyi.aliyun.com/welcome" target="_blank">Tongyi Lab, Alibaba</a>
-</div>
-<div class="timeline-desc">
-<div class="timeline-host">
-              Supervisor: <a href="https://scholar.google.com/citations?user=ZO3OQ-8AAAAJ&amp;hl=en" target="_blank">Dr. Shiwei Zhang</a>
-</div>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-date">
-<img class="social-icon" src="images/hikvision.jpg"/>
-              Mar, 2020 - July, 2020
-            </div>
-<div class="timeline-title">
-              Algorithm Intern @ <a href="https://www.hikvision.com/en/" target="_blank">HIKVISION</a>
-</div>
-<div class="timeline-desc">
-<div class="timeline-host">
-                Supervisor: <a href="https://ieeexplore.ieee.org/author/37088529015" target="_blank"> Dr. Yushi Zhu</a>
-</div>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-date">
-<img class="social-icon" src="images/cuhk_logo.png"/>
-              Nov, 2019 - Feb, 2020
-            </div>
-<div class="timeline-title">
-              Research Assistant @ <a href="https://www.cuhk.edu.cn/en" target="_blank">CUHK(SZ)</a>
-</div>
-<div class="timeline-desc">
-<div class="timeline-host">
-                Supervisor: <a href="https://sites.google.com/view/zhouliguang" target="_blank">Dr. Liguang Zhou</a>, <a href="https://sites.google.com/site/lamtinlun" target="_blank">Prof. Tin Lun Lam</a>
-</div>
-</div>
-</div>
-<br/>
-</div>
-</div>
-<div class="wrapper">
-  <div class="bio" id="publications">
-    <h1 class="md-heading text-left">
-      <i aria-hidden="true" class="fa fa-file"></i>
-      Publications (
+
+        <div style="clear:both;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Publications -->
+  <div class="wrapper">
+    <div class="bio" id="publications">
+      <h1 class="md-heading text-left">
+        <i aria-hidden="true" class="fa fa-file"></i>
+        Publications (
         <button class="custom-button" id="show-selected-btn"> Show Representative </button>
         /
         <button class="custom-button" id="show-all-btn"> Show All </button>
-      )
-    </h1>
-<div class="pub-list">
-  <div class="pub-item">
-    <div class="pub-idx">[1]</div>
-    <div class="pub-text">S. Zhang, Y. Teng, H. Kong, N. Wang, Y. Liu, X. Guo, and C. Hua, “An industrial overview of variable-frequency drives for hydrogen compressors in hydrogen transportation,” <i>Renew. Sustain. Energy Rev.</i>, vol. 223, 116009, 2025.</div>
-  </div>
+        )
+      </h1>
 
-  <div class="pub-item">
-    <div class="pub-idx">[2]</div>
-    <div class="pub-text">S. Zhang, Z. Jiao, J. Su, N. Wang, Z. Li, X. Guo, and C. Hua, “Low-ripple modulation strategy for a photovoltaic-based triple-port hydrogen production system,” <i>IEEE Trans. Ind. Electron.</i>, Early Access, 2025.</div>
-  </div>
-
-  <div class="pub-item">
-    <div class="pub-idx">[3]</div>
-    <div class="pub-text">S. Zhang, Y. Teng, Y. Sun, F. Ding, N. Wang, X. Guo, and C. Hua, “Fault diagnosis and fault-tolerant operation strategy for triple-port hydrogen production system,” <i>IEEE Trans. Power Electron.</i>, vol. 40, no. 8, pp. 11526–11536, 2025.</div>
-  </div>
-
-  <div class="pub-item">
-    <div class="pub-idx">[4]</div>
-    <div class="pub-text">S. Zhang, Y. Wei, X. Guo, Z. Li, X. Song, and F. Blaabjerg, “Overview of US patents for energy management of renewable energy systems with hydrogen,” <i>Int. J. Hydrogen Energy</i>, vol. 48, no. 26, pp. 9574–9591, 2023.</div>
-  </div>
-
-  <div class="pub-item">
-    <div class="pub-idx">[5]</div>
-    <div class="pub-text">X. Guo, S. Zhang (Corresponding Author), F. Ding, J. Zhu, and H. Bai, “A novel DC–DC converter for electrolyzer with low ripple and high step down,” <i>IEEE Trans. Ind. Electron.</i>, vol. 71, no. 10, pp. 12476–12486, 2024.</div>
-  </div>
-
-  <div class="pub-item">
-    <div class="pub-idx">[6]</div>
-    <div class="pub-text">X. Guo, S. Zhang (Corresponding Author), Z. Yan, Y. Wei, and X. Hu, “A novel phase-locked loop structure to enhance converter stability in weak grids,” <i>IEEE Trans. Power Electron.</i>, vol. 38, no. 11, pp. 13855–13865, 2023.</div>
-  </div>
-
-  <div class="pub-item">
-    <div class="pub-idx">[7]</div>
-    <div class="pub-text">X. Guo, S. Zhang, Z. Liu, L. Sun, Z. Lu, C. Hua, and J. Guerrero, “A new multi-mode fault-tolerant operation control strategy of multiphase stacked interleaved Buck converter for green hydrogen production,” <i>Int. J. Hydrogen Energy</i>, vol. 47, no. 71, pp. 30359–30370, 2022.</div>
-  </div>
-
-  <div class="pub-item">
-    <div class="pub-idx">[8]</div>
-    <div class="pub-text">X. Guo, S. Zhang (Corresponding Author), Y. Gao, Y. Teng, N. Diao, C. Hua, and V. Terzija, “Advancements in photovoltaic electrolysis for green hydrogen production: A comprehensive review and comparative analysis of modeling approaches,” <i>IEEE Trans. Power Electron.</i>, vol. 40, no. 7, pp. 10000–10026, 2025.</div>
-  </div>
-
-  <div class="pub-item">
-    <div class="pub-idx">[9]</div>
-    <div class="pub-text">W. Fang, Y. Teng, S. Zhang (Corresponding Author), H. Kong, H. Wang, and X. Guo, “Impedance modeling and stability analysis of electrolysis system for hydrogen production under weak grid,” <i>Fuel</i>, vol. 374, 132403, 2024.</div>
-  </div>
-
-  <div class="pub-item">
-    <div class="pub-idx">[10]</div>
-    <div class="pub-text">X. Guo, F. Ding, S. Zhang (Corresponding Author), Y. Teng, N. Diao, and V. Terzija, “Enhanced green hydrogen production using a novel converter with extremely low current ripple and high step-down ratio,” <i>Fuel</i>, vol. 398, 135424, 2025.</div>
-  </div>
-
-  <div class="pub-item">
-    <div class="pub-idx">[11]</div>
-    <div class="pub-text">X. Guo, X. Hu, and S. Zhang (Corresponding Author), “Application status of variable-frequency drive in hydrogen fuel cell air compressors from an industrial viewpoint: A review,” <i>Sustain. Energy Technol. Assess.</i>, vol. 64, 103716, 2024.</div>
-  </div>
-
-  <div class="pub-item">
-    <div class="pub-idx">[12]</div>
-    <div class="pub-text">X. Guo, H. Zhu, and S. Zhang (Corresponding Author), “Overview of electrolyser and hydrogen production power supply from industrial perspective,” <i>Int. J. Hydrogen Energy</i>, vol. 49, pp. 1048–1059, 2024.</div>
+      <div class="bio-body">
+        <div class="pub-list">
+          <div class="pub-item"><div class="pub-idx">[1]</div><div class="pub-text">S. Zhang, Y. Teng, H. Kong, N. Wang, Y. Liu, X. Guo, and C. Hua, “An industrial overview of variable-frequency drives for hydrogen compressors in hydrogen transportation,” <i>Renew. Sustain. Energy Rev.</i>, vol. 223, 116009, 2025.</div></div>
+          <div class="pub-item"><div class="pub-idx">[2]</div><div class="pub-text">S. Zhang, Z. Jiao, J. Su, N. Wang, Z. Li, X. Guo, and C. Hua, “Low-ripple modulation strategy for a photovoltaic-based triple-port hydrogen production system,” <i>IEEE Trans. Ind. Electron.</i>, Early Access, 2025.</div></div>
+          <div class="pub-item"><div class="pub-idx">[3]</div><div class="pub-text">S. Zhang, Y. Teng, Y. Sun, F. Ding, N. Wang, X. Guo, and C. Hua, “Fault diagnosis and fault-tolerant operation strategy for triple-port hydrogen production system,” <i>IEEE Trans. Power Electron.</i>, vol. 40, no. 8, pp. 11526–11536, 2025.</div></div>
+          <div class="pub-item"><div class="pub-idx">[4]</div><div class="pub-text">S. Zhang, Y. Wei, X. Guo, Z. Li, X. Song, and F. Blaabjerg, “Overview of US patents for energy management of renewable energy systems with hydrogen,” <i>Int. J. Hydrogen Energy</i>, vol. 48, no. 26, pp. 9574–9591, 2023.</div></div>
+          <div class="pub-item"><div class="pub-idx">[5]</div><div class="pub-text">X. Guo, S. Zhang (Corresponding Author), F. Ding, J. Zhu, and H. Bai, “A novel DC–DC converter for electrolyzer with low ripple and high step down,” <i>IEEE Trans. Ind. Electron.</i>, vol. 71, no. 10, pp. 12476–12486, 2024.</div></div>
+          <div class="pub-item"><div class="pub-idx">[6]</div><div class="pub-text">X. Guo, S. Zhang (Corresponding Author), Z. Yan, Y. Wei, and X. Hu, “A novel phase-locked loop structure to enhance converter stability in weak grids,” <i>IEEE Trans. Power Electron.</i>, vol. 38, no. 11, pp. 13855–13865, 2023.</div></div>
+          <div class="pub-item"><div class="pub-idx">[7]</div><div class="pub-text">X. Guo, S. Zhang, Z. Liu, L. Sun, Z. Lu, C. Hua, and J. Guerrero, “A new multi-mode fault-tolerant operation control strategy of multiphase stacked interleaved Buck converter for green hydrogen production,” <i>Int. J. Hydrogen Energy</i>, vol. 47, no. 71, pp. 30359–30370, 2022.</div></div>
+          <div class="pub-item"><div class="pub-idx">[8]</div><div class="pub-text">X. Guo, S. Zhang (Corresponding Author), Y. Gao, Y. Teng, N. Diao, C. Hua, and V. Terzija, “Advancements in photovoltaic electrolysis for green hydrogen production: A comprehensive review and comparative analysis of modeling approaches,” <i>IEEE Trans. Power Electron.</i>, vol. 40, no. 7, pp. 10000–10026, 2025.</div></div>
+          <div class="pub-item"><div class="pub-idx">[9]</div><div class="pub-text">W. Fang, Y. Teng, S. Zhang (Corresponding Author), H. Kong, H. Wang, and X. Guo, “Impedance modeling and stability analysis of electrolysis system for hydrogen production under weak grid,” <i>Fuel</i>, vol. 374, 132403, 2024.</div></div>
+          <div class="pub-item"><div class="pub-idx">[10]</div><div class="pub-text">X. Guo, F. Ding, S. Zhang (Corresponding Author), Y. Teng, N. Diao, and V. Terzija, “Enhanced green hydrogen production using a novel converter with extremely low current ripple and high step-down ratio,” <i>Fuel</i>, vol. 398, 135424, 2025.</div></div>
+          <div class="pub-item"><div class="pub-idx">[11]</div><div class="pub-text">X. Guo, X. Hu, and S. Zhang (Corresponding Author), “Application status of variable-frequency drive in hydrogen fuel cell air compressors from an industrial viewpoint: A review,” <i>Sustain. Energy Technol. Assess.</i>, vol. 64, 103716, 2024.</div></div>
+          <div class="pub-item"><div class="pub-idx">[12]</div><div class="pub-text">X. Guo, H. Zhu, and S. Zhang (Corresponding Author), “Overview of electrolyser and hydrogen production power supply from industrial perspective,” <i>Int. J. Hydrogen Energy</i>, vol. 49, pp. 1048–1059, 2024.</div></div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<!-- JavaScript to handle button clicks -->
-<script>
-  // Get the buttons and publications
-  const showSelectedBtn = document.getElementById('show-selected-btn');
-  const showAllBtn = document.getElementById('show-all-btn');
-  const publications = document.querySelectorAll('.pub-item');
 
+  <!-- Publications buttons script -->
+  <script>
+    const showSelectedBtn = document.getElementById('show-selected-btn');
+    const showAllBtn = document.getElementById('show-all-btn');
+    const publications = document.querySelectorAll('.pub-item');
 
-  // Add event listener to 'Show Selected Publication' button
-  showSelectedBtn.addEventListener('click', function() {
-    publications.forEach(pub => {
-      if (pub.getAttribute('data-selected') === 'true') {
-        pub.style.display = 'block';  // Show selected publication
-      } else {
-        pub.style.display = 'none';  // Hide other publications
+    showSelectedBtn.addEventListener('click', function() {
+      publications.forEach(pub => {
+        if (pub.getAttribute('data-selected') === 'true') pub.style.display = 'flex';
+        else pub.style.display = 'none';
+      });
+    });
+
+    showAllBtn.addEventListener('click', function() {
+      publications.forEach(pub => pub.style.display = 'flex');
+    });
+  </script>
+
+  <!-- Patents -->
+  <div class="wrapper">
+    <div class="bio" id="patents">
+      <h1 class="md-heading text-left">
+        <i aria-hidden="true" class="fa fa-gavel"></i>
+        Patents / 专利
+      </h1>
+
+      <div class="bio-body">
+        <div id="patent-cards"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Patents render script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const patents = [
+        { en:"Electrolysis hydrogen production system model", cn:"一种电解制氢系统模型", no:"CN117037928B", date:"2023-11-10", status:"Granted" },
+        { en:"Hydrogen production power converter", cn:"一种制氢变流器", no:"CN117040267B", date:"2023-11-10", status:"Granted" },
+        { en:"Control and fault-tolerant method for multiphase interleaved parallel converters", cn:"一种多相交错并联变换器控制和容错方法", no:"CN115347774B", date:"2023-05-23", status:"Granted" },
+        { en:"Fault diagnosis and recovery control for interleaved Buck circuits", cn:"一种交错并联Buck电路的故障诊断及恢复控制方法", no:"CN115065243B", date:"2022-12-30", status:"Granted" },
+        { en:"Multi-mode dual-layer fault diagnosis method for fuel cell systems", cn:"一种燃料电池系统多模式双层故障诊断方法", no:"CN113962259B", date:"2022-06-03", status:"Granted" },
+        { en:"Energy management method for renewable energy systems", cn:"一种可再生能源系统的能量管理方法", no:"CN115411770B", date:"2022-11-29", status:"Granted" },
+        { en:"Energy management method for microgrids with hydrogen energy storage", cn:"一种含氢储能微电网的能量管理方法", no:"CN115085229B", date:"2022-12-30", status:"Granted" },
+        { en:"Multi-objective optimization method for distributed generation considering power constraints", cn:"一种考虑电源设置条件的多目标分布式电源优化配置方法", no:"CN113890094B", date:"2022-06-03", status:"Granted" },
+        { en:"Intelligent optimization control for satellite power fault reconstruction based on wild goat algorithm", cn:"基于野山羊算法的卫星电源故障重构的智能优化控制方法", no:"CN115079571B", date:"2022-12-30", status:"Granted" },
+        { en:"Improved transformerless three-phase multilevel inverter and control method", cn:"一种改进的无变压器三相多电平逆变器及其控制方法", no:"CN115987127B", date:"2023-09-19", status:"Granted" }
+      ];
+
+      const container = document.getElementById('patent-cards');
+      if (!container) return;
+
+      container.innerHTML = patents.map(p => `
+        <div class="patent-card">
+          <div class="row-top">
+            <div>
+              <div class="title-en">${escapeHtml(p.en)}</div>
+              <div class="title-cn">${escapeHtml(p.cn)}</div>
+            </div>
+            <div class="badge">${escapeHtml(p.status)}</div>
+          </div>
+          <div class="meta">
+            <span><b>No.</b> ${escapeHtml(p.no)}</span>
+            <span><b>Date</b> ${escapeHtml(p.date)}</span>
+          </div>
+        </div>
+      `).join('');
+
+      function escapeHtml(s){
+        return String(s)
+          .replaceAll('&','&amp;')
+          .replaceAll('<','&lt;')
+          .replaceAll('>','&gt;')
+          .replaceAll('"','&quot;')
+          .replaceAll("'","&#39;");
       }
     });
-  });
+  </script>
 
-  // Add event listener to 'Show All' button
-  showAllBtn.addEventListener('click', function() {
-    publications.forEach(pub => {
-      pub.style.display = 'block';  // Show all publications
-    });
-  });
-</script>
+  <!-- Awards -->
+  <div class="wrapper">
+    <div class="bio" id="awards">
+      <h1 class="md-heading text-left">
+        <i aria-hidden="true" class="fa fa-tasks"></i>
+        Selected Honors &amp; Awards
+      </h1>
 
-<div class="wrapper">
-  <div class="bio" id="patents">
-    <h1 class="md-heading text-left">
-      <i aria-hidden="true" class="fa fa-gavel"></i>
-      Patents / 专利
-    </h1>
-    <div class="bio-body">
-    <div id="patent-cards"></div>
-    </div>
-  </div>
-</div>
-	/* 让专利内容与其他 section 内容左对齐 */
-#patents .card-container,
-#patent-cards{
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* 如果 card-container 还设置了缩进/缩小宽度，也一并覆盖 */
-#patents .card-container{
-  max-width: 100% !important;
-  width: 100% !important;
-}
-
-	
-/* ===== Patents layout: responsive, no cut off ===== */
-#patent-cards{
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
-}
-
-/* 卡片：始终占满容器宽度 */
-.patent-card{
-  width: 100%;
-  box-sizing: border-box;
-  background:#fff;
-  border:1px solid rgba(0,0,0,0.12);
-  border-radius:12px;
-  padding:14px 16px;
-  box-shadow:0 1px 2px rgba(0,0,0,0.04);
-  text-align: left;
-  margin: 0;
-}
-
-/* 顶部行：左标题 + 右 badge；手机上允许换行 */
-.patent-card .row-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:12px;
-  flex-wrap: wrap;
-}
-
-/* 标题：允许换行、避免长词溢出 */
-.patent-card .title-en{
-  font-weight:700;
-  font-size:16px;
-  line-height:1.35;
-  word-break: break-word;
-  overflow-wrap: anywhere;
-}
-
-.patent-card .title-cn{
-  margin-top:4px;
-  font-size:14px;
-  color:#444;
-  line-height:1.5;
-  word-break: break-word;
-  overflow-wrap: anywhere;
-}
-
-.patent-card .badge{
-  white-space:nowrap;
-  font-size:12px;
-  padding:4px 10px;
-  border-radius:999px;
-  border:1px solid rgba(0,0,0,0.15);
-  color:#555;
-  background:rgba(0,0,0,0.02);
-}
-
-/* meta：两列信息在手机上自动换行 */
-.patent-card .meta{
-  margin-top:10px;
-  font-size:13px;
-  color:#666;
-  display:flex;
-  flex-wrap:wrap;
-  gap:14px;
-  align-items:center;
-  word-break: break-word;
-  overflow-wrap: anywhere;
-}
-
-.patent-card .meta b{ color:#333; }
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const patents = [
-    { en:"Electrolysis hydrogen production system model", cn:"一种电解制氢系统模型", no:"CN117037928B", date:"2023-11-10", status:"Granted" },
-    { en:"Hydrogen production power converter", cn:"一种制氢变流器", no:"CN117040267B", date:"2023-11-10", status:"Granted" },
-    { en:"Control and fault-tolerant method for multiphase interleaved parallel converters", cn:"一种多相交错并联变换器控制和容错方法", no:"CN115347774B", date:"2023-05-23", status:"Granted" },
-    { en:"Fault diagnosis and recovery control for interleaved Buck circuits", cn:"一种交错并联Buck电路的故障诊断及恢复控制方法", no:"CN115065243B", date:"2022-12-30", status:"Granted" },
-    { en:"Multi-mode dual-layer fault diagnosis method for fuel cell systems", cn:"一种燃料电池系统多模式双层故障诊断方法", no:"CN113962259B", date:"2022-06-03", status:"Granted" },
-    { en:"Energy management method for renewable energy systems", cn:"一种可再生能源系统的能量管理方法", no:"CN115411770B", date:"2022-11-29", status:"Granted" },
-    { en:"Energy management method for microgrids with hydrogen energy storage", cn:"一种含氢储能微电网的能量管理方法", no:"CN115085229B", date:"2022-12-30", status:"Granted" },
-    { en:"Multi-objective optimization method for distributed generation considering power constraints", cn:"一种考虑电源设置条件的多目标分布式电源优化配置方法", no:"CN113890094B", date:"2022-06-03", status:"Granted" },
-    { en:"Intelligent optimization control for satellite power fault reconstruction based on wild goat algorithm", cn:"基于野山羊算法的卫星电源故障重构的智能优化控制方法", no:"CN115079571B", date:"2022-12-30", status:"Granted" },
-    { en:"Improved transformerless three-phase multilevel inverter and control method", cn:"一种改进的无变压器三相多电平逆变器及其控制方法", no:"CN115987127B", date:"2023-09-19", status:"Granted" }
-  ];
-
-  const container = document.getElementById('patent-cards');
-  if (!container) { console.error('[patents] #patent-cards not found'); return; }
-
-  container.innerHTML = patents.map(p => `
-    <div class="patent-card">
-      <div class="row-top">
-        <div>
-          <div class="title-en">${escapeHtml(p.en)}</div>
-          <div class="title-cn">${escapeHtml(p.cn)}</div>
-        </div>
-        <div class="badge">${escapeHtml(p.status)}</div>
-      </div>
-      <div class="meta">
-        <span><b>No.</b> ${escapeHtml(p.no)}</span>
-        <span><b>Date</b> ${escapeHtml(p.date)}</span>
+      <div class="bio-body">
+        <ul>
+          <li><a href="images/award_internetplus_gold.jpg" target="_blank">National Gold Award, China International College Students’ Innovation Competition (“Internet+”), 7th &amp; 8th Editions.</a></li>
+          <li>Silver Medal, 49th International Exhibition of Inventions of Geneva.</li>
+          <li>Runner-up (National), 11th China Graduate Energy Equipment Innovation Design Competition.</li>
+          <li>First Prize (National), 9th China Graduate Energy Equipment Innovation Design Competition.</li>
+          <li>First Prize (National), 12th “Mitsubishi Electric Cup” National Competition of Electrical Engineering &amp; Automation.</li>
+          <li>Second Prize (National Finals), 10th National Optoelectronic Design Competition.</li>
+          <li>National Role Model of Graduate Party Members (Top 100), 3rd Cohort.</li>
+          <li>China Self-strengthening Star (中国大学生自强之星).</li>
+          <li>China Telecom Scholarship · Tianyi Award (Top 98 nationwide).</li>
+          <li>Hebei “Youth Star” Model (冀青之星标兵), 2023; Hebei “Youth Star” (冀青之星), 2021.</li>
+          <li>Outstanding Student Leader, Hebei Province; Outstanding Graduate, Liaoning Province.</li>
+          <li>National Scholarship (Ph.D.); National Scholarship (Master’s).</li>
+        </ul>
       </div>
     </div>
-  `).join('');
-
-  function escapeHtml(s){
-    return String(s)
-      .replaceAll('&','&amp;')
-      .replaceAll('<','&lt;')
-      .replaceAll('>','&gt;')
-      .replaceAll('"','&quot;')
-      .replaceAll("'","&#39;");
-  }
-});
-</script>
-
-
-</div>
-</div>
-</div>
-</div>
-<div class="wrapper">
-  <div class="bio" id="awards">
-    <h1 class="md-heading text-left">
-      <i aria-hidden="true" class="fa fa-tasks"></i>
-      Selected Honors &amp; Awards
-    </h1>
-
-    <ul>
-      <li><a href="images/award_internetplus_gold.jpg" target="_blank">National Gold Award, China International College Students’ Innovation Competition (“Internet+”), 7th &amp; 8th Editions.</a></li>
-      <li>Silver Medal, 49th International Exhibition of Inventions of Geneva.</li>
-      <li>Runner-up (National), 11th China Graduate Energy Equipment Innovation Design Competition.</li>
-      <li>First Prize (National), 9th China Graduate Energy Equipment Innovation Design Competition.</li>
-      <li>First Prize (National), 12th “Mitsubishi Electric Cup” National Competition of Electrical Engineering &amp; Automation.</li>
-      <li>Second Prize (National Finals), 10th National Optoelectronic Design Competition.</li>
-      <li>National Role Model of Graduate Party Members (Top 100), 3rd Cohort.</li>
-      <li>China Self-strengthening Star (中国大学生自强之星).</li>
-      <li>China Telecom Scholarship · Tianyi Award (Top 98 nationwide).</li>
-      <li>Hebei “Youth Star” Model (冀青之星标兵), 2023; Hebei “Youth Star” (冀青之星), 2021.</li>
-      <li>Outstanding Student Leader, Hebei Province; Outstanding Graduate, Liaoning Province.</li>
-      <li>National Scholarship (Ph.D.); National Scholarship (Master’s).</li>
-    </ul>
   </div>
-</div>
 
-
-<style>
-  .reviewer-section {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 8px;
-  }
-
-  .reviewer-column {
-    flex: 1 1 50%;
-    box-sizing: border-box;
-    padding-right: 20px;
-    font-size: 0.85em; /* 字体略微变小 */
-    line-height: 1.6;
-    position: relative;
-    padding-left: 1em;
-    margin-bottom: 4px;
-  }
-
-  .reviewer-column::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #555;
-  }
-
-  @media (max-width: 600px) {
+  <!-- Reviewer -->
+  <style>
+    .reviewer-section { display:flex; flex-wrap:wrap; margin-top:8px; }
     .reviewer-column {
-      flex: 1 1 100%;
+      flex:1 1 50%;
+      box-sizing:border-box;
+      padding-right:20px;
+      font-size:0.85em;
+      line-height:1.6;
+      position:relative;
+      padding-left:1em;
+      margin-bottom:4px;
     }
-  }
+    .reviewer-column::before { content:"•"; position:absolute; left:0; color:#555; }
+    @media (max-width:600px){ .reviewer-column{ flex:1 1 100%; } }
+    .reviewer-title{ margin-top:12px; font-weight:bold; }
+  </style>
 
-  .reviewer-title {
-    margin-top: 12px;
-    font-weight: bold;
-  }
-</style>
-<div class="wrapper">
-<div class="reviewer-title">Conference Reviewer:</div>
-<div class="reviewer-section">
-  <div class="reviewer-column">IEEE Applied Power Electronics Conference and Exposition (APEC)</div>
-  <div class="reviewer-column">IEEE Energy Conversion Congress and Exposition (ECCE)</div>
+  <div class="wrapper" id="academicservices">
+    <div class="reviewer-title">Conference Reviewer:</div>
+    <div class="reviewer-section">
+      <div class="reviewer-column">IEEE Applied Power Electronics Conference and Exposition (APEC)</div>
+      <div class="reviewer-column">IEEE Energy Conversion Congress and Exposition (ECCE)</div>
+    </div>
+
+    <div class="reviewer-title">Journal Reviewer:</div>
+    <div class="reviewer-section">
+      <div class="reviewer-column">Nature Communications</div>
+      <div class="reviewer-column">IEEE Transactions on Power Electronics (TPEL)</div>
+      <div class="reviewer-column">Energy</div>
+      <div class="reviewer-column">Energy Conversion and Management (ECM)</div>
+      <div class="reviewer-column">Fuel</div>
+      <div class="reviewer-column">IEEE Journal of Emerging and Selected Topics in Power Electronics (JESTPE)</div>
+      <div class="reviewer-column">International Journal of Hydrogen Energy (IJHE)</div>
+    </div>
+  </div>
+
+</div><!-- /page-content -->
+
+<!-- Clustrmaps -->
+<div style="display:flex; justify-content:center; align-items:center;">
+  <div style="max-width:400px; width:100%;">
+    <script id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=K9NLvpbM7GH1cTCvhvVlo4LW5p-d2mRZYw6UhrAFw0g&amp;cl=ffffff&amp;w=a" type="text/javascript"></script>
+  </div>
 </div>
 
-<div class="reviewer-title">Journal Reviewer:</div>
-<div class="reviewer-section">
-  <div class="reviewer-column">Nature Communications</div>
-  <div class="reviewer-column">IEEE Transactions on Power Electronics (TPEL)</div>
-
-  <div class="reviewer-column">Energy</div>
-  <div class="reviewer-column">Energy Conversion and Management (ECM)</div>
-
-  <div class="reviewer-column">Fuel</div>
-  <div class="reviewer-column">IEEE Journal of Emerging and Selected Topics in Power Electronics (JESTPE)</div>
-
-  <div class="reviewer-column">International Journal of Hydrogen Energy (IJHE)</div>
-</div>
-
-</div>
-</div>
-</div>
-<div style="display: flex; justify-content: center; align-items: center;">
-<div style="max-width: 400px; width: 100%;">
-<script id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=K9NLvpbM7GH1cTCvhvVlo4LW5p-d2mRZYw6UhrAFw0g&amp;cl=ffffff&amp;w=a" type="text/javascript"></script>
-</div>
-</div>
 <footer class="site-footer">
-<div class="wrapper">
-<div class="footer-col-wrapper">
-<div class="footer-col footer-col-1">
-<ul class="contact-list">
-<li>Personal Email:</li>
-<li><a href="mailto:">jcenaa [at] connect.ust.hk</a></li>
-</ul>
-</div>
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Personal Email:</li>
+          <li><a href="mailto:zf741741@126.com">zf741741@126.com</a></li>
+        </ul>
+      </div>
 
-<div class="footer-col footer-col-2">
-  <!-- Google Scholar（换成你的 Scholar ID；如果你想用你上面那条 f6Bvb1UAAAAJ，就改这里） -->
-  <a class="icon-button github" href="https://scholar.google.com/citations?user=f6Bvb1UAAAAJ&hl=zh-CN" target="_blank" rel="noopener noreferrer">
-    <i class="ai ai-google-scholar-square icon-github"></i>
-    <span></span>
-  </a>
+      <div class="footer-col footer-col-2">
+        <a class="icon-button github" href="https://scholar.google.com/citations?user=f6Bvb1UAAAAJ&hl=zh-CN" target="_blank" rel="noopener noreferrer">
+          <i class="ai ai-google-scholar-square icon-github"></i><span></span>
+        </a>
+        <a class="icon-button orcid" href="https://orcid.org/0000-0001-6602-6041" target="_blank" rel="noopener noreferrer">
+          <i class="ai ai-orcid icon-github"></i><span></span>
+        </a>
+        <a class="icon-button linkedin" href="https://www.linkedin.com/in/shiqi-zhang-9b76a1359/" target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-linkedin icon-linkedin"></i><span></span>
+        </a>
+        <a aria-label="ResearchGate" class="icon-button researchgate" href="https://www.researchgate.net/profile/Shiqi-Zhang-63" target="_blank" rel="noopener noreferrer">
+          <i class="ai ai-researchgate icon-linkedin"></i><span></span>
+        </a>
+      </div>
 
-  <!-- ORCID（替换 GitHub） -->
-  <a class="icon-button orcid" href="https://orcid.org/0000-0001-6602-6041" target="_blank" rel="noopener noreferrer">
-    <i class="ai ai-orcid icon-github"></i>
-    <span></span>
-  </a>
-
-  <!-- LinkedIn（换成你的） -->
-  <a class="icon-button linkedin" href="https://www.linkedin.com/in/shiqi-zhang-9b76a1359/" target="_blank" rel="noopener noreferrer">
-    <i class="fa fa-linkedin icon-linkedin"></i>
-    <span></span>
-  </a>
-
-  <!-- ResearchGate（替换 小红书，并换 logo） -->
-  <a aria-label="ResearchGate" class="icon-button researchgate" href="https://www.researchgate.net/profile/Shiqi-Zhang-63" target="_blank" rel="noopener noreferrer">
-    <i class="ai ai-researchgate icon-linkedin"></i>
-    <span></span>
-  </a>
-</div>
-
-<div class="footer-col footer-col-3">
-<!--<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fwillhua127.github.io&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a> -->
-<!-- <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?user=Lxe71v4AAAAJ&hl=en&url=https%3A%2F%2Fscholar.google.com%2Fcitations&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a> -->
-<p class="text">Last updated: Aug, 2025.<br/>The style of this website is borrowed from <a href="https://leoyuan.site/" target="_blank">Zeqing Yuan's</a>.</p>
-</div>
-</div>
-</div>
+      <div class="footer-col footer-col-3">
+        <p class="text">
+          Last updated: Aug, 2025.<br/>
+          The style of this website is borrowed from <a href="https://leoyuan.site/" target="_blank">Zeqing Yuan's</a>.
+        </p>
+      </div>
+    </div>
+  </div>
 </footer>
+
 <div class="back-to-top">Top</div>
+
 <script type="text/javascript">
-jQuery(document).ready(function() {
+  jQuery(document).ready(function() {
     var offset = 220;
     var duration = 500;
     jQuery(window).scroll(function() {
-        if (jQuery(this).scrollTop() > offset) {
-            jQuery('.back-to-top').fadeIn(duration);
-        } else {
-            jQuery('.back-to-top').fadeOut(duration);
-    
-        }
+      if (jQuery(this).scrollTop() > offset) jQuery('.back-to-top').fadeIn(duration);
+      else jQuery('.back-to-top').fadeOut(duration);
     });
     jQuery('.back-to-top').click(function(event) {
-        event.preventDefault();
-        jQuery('html, body').animate({scrollTop: 0}, duration);
-        return false;
-    })
-});
+      event.preventDefault();
+      jQuery('html, body').animate({scrollTop: 0}, duration);
+      return false;
+    });
+  });
 </script>
+
 <script id="avatar-upload-script">
-document.addEventListener('DOMContentLoaded', function () {
-  const img = document.getElementById('profile-avatar');
-  const input = document.getElementById('avatarUpload');
+  document.addEventListener('DOMContentLoaded', function () {
+    const img = document.getElementById('profile-avatar');
+    const input = document.getElementById('avatarUpload');
+    if (!img || !input) return;
 
-  if (!img) { console.error('[avatar] #profile-avatar not found'); return; }
-  if (!input) { console.error('[avatar] #avatarUpload not found'); return; }
+    try {
+      const saved = localStorage.getItem('profileAvatarDataUrl');
+      if (saved) img.src = saved;
+    } catch (e) {}
 
-  // 读取已保存头像
-  try {
-    const saved = localStorage.getItem('profileAvatarDataUrl');
-    if (saved) img.src = saved;
-  } catch (e) {}
+    img.style.cursor = 'pointer';
+    img.title = 'Click to change avatar';
+    img.addEventListener('click', function () { input.click(); });
 
-  // 点击头像 -> 打开文件选择
-  img.style.cursor = 'pointer';
-  img.title = 'Click to change avatar';
-  img.addEventListener('click', function () {
-    input.click();
+    input.addEventListener('change', function () {
+      const file = input.files && input.files[0];
+      if (!file || !file.type || !file.type.startsWith('image/')) return;
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const dataUrl = e.target.result;
+        img.src = dataUrl;
+        try { localStorage.setItem('profileAvatarDataUrl', dataUrl); } catch (err) {}
+        input.value = '';
+      };
+      reader.readAsDataURL(file);
+    });
   });
-
-  // 选择图片 -> 立刻显示并保存
-  input.addEventListener('change', function () {
-    const file = input.files && input.files[0];
-    if (!file) return;
-    if (!file.type || !file.type.startsWith('image/')) return;
-
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      const dataUrl = e.target.result;
-      img.src = dataUrl;
-      try { localStorage.setItem('profileAvatarDataUrl', dataUrl); } catch (err) {}
-      input.value = ''; // 允许下次选同一张图也触发 change
-    };
-    reader.readAsDataURL(file);
-  });
-});
 </script>
 
+</body>
 </html>
