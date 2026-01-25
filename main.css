@@ -2052,3 +2052,83 @@ div.paginate-container li:nth-last-child(2) a:after {
     height: 16px;
     margin-right: 4px;
   }
+/* =========================
+   Mobile Fix Pack (Append to END of CSS)
+   解决：手机端头像/名片被顶出、cover高度不够、横向溢出、font-color无效
+   ========================= */
+
+/* 1) 修正无效的 font-color（CSS 没有这个属性） */
+.sm-heading { color: #9b3022 !important; }
+.md-heading { color: #9b3022 !important; }
+.lg-heading { color: #9b3022 !important; }
+
+/* 2) 背景图：保持你现在的设定（只做兜底，避免某些页面类名缺失） */
+.cover.shallow-bg,
+.cover.deep-bg,
+.shallow-bg,
+.deep-bg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* 3) 手机端：让 cover 自动增高，保证头像+名片一定完整显示 */
+@media screen and (max-width: 600px){
+  .cover{
+    height: auto !important;      /* 不要写死 400px */
+    min-height: 560px !important; /* 兜底高度，防止内容放不下 */
+    padding: 18px 0 !important;
+  }
+
+  /* 避免 top:% 在不同手机上把名片顶偏 */
+  .profile-wrapper{
+    top: 0 !important;
+    width: 92% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* 防止头像过大或被挤压 */
+  .circle-img,
+  .circle-img-light{
+    width: 140px !important;
+    max-width: 140px !important;
+    height: auto !important;
+  }
+
+  /* 名片两列在手机上改为一列，更稳 */
+  .profile-col{
+    float: none !important;
+    width: 100% !important;
+    margin: 10px auto !important;
+  }
+  .profile-col-1,
+  .profile-col-2{
+    width: 100% !important;
+  }
+
+  /* 标题在手机上不要太大，避免把头像挤出去 */
+  #my-name{ font-size: 26px !important; }
+  #my-title{ font-size: 16px !important; display: block !important; }
+  #my-email{ font-size: 14px !important; }
+}
+
+/* 4) 防止手机横向溢出（你写死了 940px 会溢出） */
+@media screen and (max-width: 800px){
+  .card-container{
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 12px !important;
+    box-sizing: border-box !important;
+  }
+  .github-card{
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* 5) 可选：背景预加载那段重复，做个最小化（不影响显示） */
+body:after{
+  content: url("images/background/my_cover3.jpg") !important;
+}
