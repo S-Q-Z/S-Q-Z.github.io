@@ -523,6 +523,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <style>
+
+	/* 让专利内容与其他 section 内容左对齐 */
+#patents .card-container,
+#patent-cards{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 如果 card-container 还设置了缩进/缩小宽度，也一并覆盖 */
+#patents .card-container{
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+	
 /* ===== Patents layout: responsive, no cut off ===== */
 #patent-cards{
   display: flex;
