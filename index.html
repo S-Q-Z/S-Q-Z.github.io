@@ -75,6 +75,32 @@
         }
     }
   </script>
+
+<style>
+/* 保证 Patents 内容与其他 section 左对齐 */
+#patents .bio-body{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+#patent-cards{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  width:100%;
+  margin:0;
+  padding:0;
+}
+
+.patent-card{
+  width:100%;
+  margin:0;
+  box-sizing:border-box;
+}
+</style>
+</head>
+
+	
 <style>
     /* 为所有列表项设置样式 */
     li.indented {
@@ -514,16 +540,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="bio" id="patents">
     <h1 class="md-heading text-left">
       <i aria-hidden="true" class="fa fa-gavel"></i>
-
-        Patents / 专利
+      Patents / 专利
     </h1>
-
-    <div class="card-container" id="patent-cards"></div>
+    <div class="bio-body">
+    <div id="patent-cards"></div>
+    </div>
   </div>
 </div>
-
-<style>
-
 	/* 让专利内容与其他 section 内容左对齐 */
 #patents .card-container,
 #patent-cards{
