@@ -1,577 +1,2056 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-  <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
-  <title>Shiqi Zhang (章仕起) - Homepage</title>
-  <meta content="This is an academic website for Shiqi Zhang" name="description"/>
-  <meta content="Shiqi Zhang, power electronics, hydrogen, electrolyzer" name="keywords"/>
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+hr,
+dl,
+dd,
+ol,
+ul,
+figure {
+    margin: 0;
+    padding: 0
+}
 
-  <link rel="icon" href="favicon.ico?v=1">
-  <link href="main.css" rel="stylesheet"/>
-  <link href="css/custom.css" rel="stylesheet"/>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
-  <link href="css/academicons.css" rel="stylesheet"/>
-  <link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" rel="stylesheet">
+hr {
+    display: block;
+    -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0.5em;
+    -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+    border-style: inset;
+    border-width: 1px
+}
 
-  <script src="js/jquery-2.1.3.min.js"></script>
+body,
+html {
+    height: 100%
+}
 
-  <script type="text/javascript">
-    function ShowHide(divId, linkDivId) {
-      if (document.getElementById(divId).style.display == 'none') {
-        document.getElementById(divId).style.display='block';
-        document.getElementById(linkDivId).style.display='none';
-      } else {
-        document.getElementById(divId).style.display='none';
-      }
+body {
+    z-index: initial;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 300;
+    color: #111;
+    background-color: #f9f9f9;
+    -webkit-text-size-adjust: 100%
+}
+
+body:after {
+    display: none;
+    content: url("images/background/background-2.jpg") url("images/background/background-2.jpg")
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+ul,
+ol,
+dl,
+figure,
+.highlight {
+    margin-bottom: 15px
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle
+}
+
+figure>img {
+    display: block
+}
+
+figcaption {
+    font-size: 14px
+}
+
+ul,
+ol {
+    margin-left: 30px
+}
+
+li>ul,
+li>ol {
+    margin-bottom: 0
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 300
+}
+
+a {
+    color: #2a7ae2;
+    text-decoration: none
+}
+
+a:visited {
+    color: #1756a9
+}
+
+a:hover {
+    color: #111;
+    text-decoration: underline
+}
+
+blockquote {
+    color: #828282;
+    border-left: 4px solid #e8e8e8;
+    padding-left: 15px;
+    font-size: 18px;
+    letter-spacing: -1px;
+    font-style: italic
+}
+
+blockquote>:last-child {
+    margin-bottom: 0
+}
+
+pre,
+code {
+    font-size: 15px;
+    border: 1px solid #e8e8e8;
+    border-radius: 3px;
+    background-color: #eef
+}
+
+code {
+    padding: 1px 5px
+}
+
+pre {
+    padding: 8px 12px;
+    overflow-x: scroll
+}
+
+pre>code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0
+}
+
+.wrapper {
+    max-width: -webkit-calc(1024px - (30px * 2));
+    max-width: calc(1024px - (30px * 2));
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 30px;
+    padding-left: 30px
+}
+
+@media screen and (max-width: 800px) {
+    .wrapper {
+        max-width: -webkit-calc(1024px - (30px));
+        max-width: calc(1024px - (30px));
+        padding-right: 15px;
+        padding-left: 15px
     }
-  </script>
+}
 
-  <!-- Publications layout -->
-  <style>
-    .pub-list{ margin-top:10px; }
-    .pub-item{ display:flex; align-items:flex-start; gap:12px; margin:10px 0; }
-    .pub-idx{ width:46px; flex:0 0 46px; font-weight:600; line-height:1.6; }
-    .pub-text{ flex:1; line-height:1.6; text-align:justify; text-justify:inter-word; }
-  </style>
+.wrapper:after,
+.footer-col-wrapper:after,
+.cover:after,
+.profile-wrapper:after {
+    content: "";
+    display: table;
+    clear: both
+}
 
-  <!-- Timeline list style -->
-  <style>
-    li.indented{ position:relative; padding-left:90px; }
-    li.indented::before{ content:attr(data-date); position:absolute; left:0; top:0; white-space:nowrap; }
-  </style>
+.text-grey-light {
+    color: #e8e8e8
+}
 
-  <!-- Avatar upload button style -->
-  <style id="avatar-upload-style">
-    .avatar-upload-btn{
-      display:inline-block; margin-top:10px; padding:6px 12px; font-size:14px;
-      border-radius:999px; background:rgba(255,255,255,0.85);
-      border:1px solid rgba(0,0,0,0.15); cursor:pointer; user-select:none;
-    }
-    .avatar-upload-btn:hover{ background:rgba(255,255,255,0.95); }
-  </style>
+.text-grey-bright {
+    color: #fff
+}
 
-  <!-- ===== Patents: FIX alignment + card layout (NO乱码) ===== -->
-  <style>
-    #patents .bio-body{ padding-left: 0 !important; padding-right: 0 !important; }
-    #patent-cards{ display:flex; flex-direction:column; gap:12px; width:100%; margin:0 !important; padding:0 !important; }
-    .patent-card{
-      width:100%; box-sizing:border-box; background:#fff;
-      border:1px solid rgba(0,0,0,0.12); border-radius:12px;
-      padding:14px 16px; box-shadow:0 1px 2px rgba(0,0,0,0.04);
-      text-align:left; margin:0 !important;
-    }
-    .patent-card .row-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; }
-    .patent-card .title-en{ font-weight:700; font-size:16px; line-height:1.35; word-break:break-word; overflow-wrap:anywhere; }
-    .patent-card .title-cn{ margin-top:4px; font-size:14px; color:#444; line-height:1.5; word-break:break-word; overflow-wrap:anywhere; }
-    .patent-card .badge{
-      white-space:nowrap; font-size:12px; padding:4px 10px; border-radius:999px;
-      border:1px solid rgba(0,0,0,0.15); color:#555; background:rgba(0,0,0,0.02);
-    }
-    .patent-card .meta{
-      margin-top:10px; font-size:13px; color:#666; display:flex; flex-wrap:wrap;
-      gap:14px; align-items:center; word-break:break-word; overflow-wrap:anywhere;
-    }
-    .patent-card .meta b{ color:#333; }
-  </style>
+.text-grey {
+    color: #828282
+}
 
-  <!-- ===== Mobile-first responsive fixes (不改 icon/logo 颜色) ===== -->
-  <style>
-    html{
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
-      scroll-behavior: smooth;
-    }
-    body{
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
-    img{ max-width:100%; height:auto; }
+.site-header {
+    border-top: 3px solid #9b3022;
+    border-bottom: 1px solid #9b3022;
+    min-height: 56px;
+    position: relative
+}
 
-    /* 让封面区域在手机不“挤/糊/溢出” */
-    #profile-cover{
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      padding-top: 72px;   /* 预留顶部导航高度，避免遮挡 */
-      padding-bottom: 22px;
-    }
+.site-title {
+    font-size: 26px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif, Helvetica;
+    line-height: 56px;
+    letter-spacing: -1px;
+    margin-bottom: 0;
+    float: left
+}
 
-    /* namecard 在不同屏幕居中且不溢出 */
-    #profile-namecard{
-      width: min(980px, 92vw);
-      margin: 0 auto;
-      box-sizing: border-box;
-      padding: 18px 18px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 16px 22px;
+.site-title,
+.site-title:visited {
+    color: #002336
+}
+
+.site-nav {
+    display: flex;
+    justify-content: center; /* This centers the links horizontally */
+    align-items: center;      /* Aligns them vertically */
+    line-height: 56px;
+    z-index: 3;
+}
+
+/* .site-nav {
+    float: right;
+    line-height: 56px;
+    z-index: 3
+} */
+
+.site-nav .menu-icon {
+    display: none
+}
+
+.site-nav .page-link {
+    font-weight: 400;
+    color: #002336;
+    line-height: 1.5
+}
+
+.site-nav .page-link:not(:first-child) {
+    margin-left: 20px
+}
+
+@media screen and (max-width: 600px) {
+    .site-nav {
+        position: absolute;
+        top: 9px;
+        right: 30px;
+        background-color: #f9f9f9;
+        border: 1px solid #e8e8e8;
+        border-radius: 5px;
+        text-align: right
     }
 
-    #my-pic{
-      display:flex;
-      align-items:center;
-      justify-content:center;
+    .site-nav .menu-icon {
+        display: block;
+        float: right;
+        width: 36px;
+        height: 26px;
+        line-height: 0;
+        padding-top: 10px;
+        text-align: center
     }
 
-    /* 头像固定像素，避免被拉伸导致“糊” */
-    #profile-avatar{
-      width: 168px;
-      height: 168px;
-      object-fit: cover;
-      image-rendering: auto;
-      transform: translateZ(0); /* 某些手机浏览器减少渲染抖动 */
+    .site-nav .menu-icon>svg {
+        width: 18px;
+        height: 15px
     }
 
-    /* 联系信息区 */
-    #my-contact{
-      min-width: 260px;
-      max-width: 560px;
-    }
-    #my-name{
-      line-height: 1.15;
-      word-break: break-word;
-    }
-    #my-title, #my-email{
-      line-height: 1.35;
-      word-break: break-word;
+    .site-nav .menu-icon>svg path {
+        fill: #113f7c
     }
 
-    /* 社交图标换行更自然（不动颜色） */
-    .social-media{
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px 10px;
-      align-items:center;
+    .site-nav .trigger {
+        clear: both;
+        display: none
     }
 
-    /* About 两列：桌面两列，手机一列 */
-    .two-col{
-      display:flex;
-      gap: 22px;
-      align-items:flex-start;
-    }
-    .two-col .col{
-      flex: 1 1 0;
-      min-width: 280px;
+    .site-nav:hover .trigger {
+        display: block;
+        padding-bottom: 5px
     }
 
-    /* Pub：手机端改为上下结构更好读 */
-    @media (max-width: 720px){
-      #profile-namecard{
-        width: min(980px, 94vw);
-        padding: 16px 14px;
-      }
-      #profile-avatar{
-        width: 148px;
-        height: 148px;
-      }
-      #my-contact{
-        min-width: 0;
-        max-width: 100%;
-        text-align:center;
-      }
-      .social-media{
-        justify-content:center;
-      }
-
-      .two-col{
-        flex-direction: column;
-        gap: 10px;
-      }
-      .two-col .col{
-        min-width: 0;
-      }
-
-      .pub-item{
-        flex-direction: column;
-        gap: 6px;
-      }
-      .pub-idx{
-        width:auto;
-        flex: 0 0 auto;
-      }
-
-      /* 专利卡片在手机更紧凑 */
-      .patent-card{ padding: 12px 12px; border-radius: 12px; }
-      .patent-card .title-en{ font-size: 15px; }
-      .patent-card .title-cn{ font-size: 13.5px; }
+    .site-nav .page-link {
+        font-weight: 400;
+        display: block;
+        padding: 5px 10px
     }
-  </style>
-</head>
+}
 
-<body>
+.site-footer {
+    border-top: 1px solid #9b3022;
+    padding: 30px 0
+}
 
-<header class="site-header">
-  <div class="wrapper">
-    <nav class="site-nav">
-      <a class="menu-icon" href="#">
-        <svg viewBox="0 0 18 15">
-          <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" fill="#424242"></path>
-          <path d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" fill="#424242"></path>
-          <path d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" fill="#424242"></path>
-        </svg>
-      </a>
-      <div class="trigger">
-        <a class="page-link" href="#bio"><b>Biography</b></a>
-        <a class="page-link" href="#timeline"><b>Experiences</b></a>
-        <a class="page-link" href="#publications"><b>Publications</b></a>
-        <a class="page-link" href="#patents"><b>Patents</b></a>
-        <a class="page-link" href="#awards"><b>Honors &amp; Awards</b></a>
-        <a class="page-link" href="#academicservices"><b>Academic Services</b></a>
-      </div>
-    </nav>
-  </div>
-</header>
+.footer-heading {
+    font-size: 18px;
+    margin-bottom: 15px
+}
 
-<div class="cover shallow-bg img-responsive" id="profile-cover">
-  <div class="profile-wrapper wrapper-light" id="profile-namecard">
-    <div class="profile-col profile-col-1" id="my-pic">
-      <img alt="Shiqi Zhang" class="circle-img border-dark" id="profile-avatar" src="images/avatar.jpg"/>
-      <input id="avatarUpload" type="file" accept="image/*" style="display:none;">
-    </div>
+.contact-list,
+.social-media-list {
+    list-style: none;
+    margin-left: 0
+}
 
-    <div class="profile-col profile-col-2" id="my-contact">
-      <div class="text-grey-dark" id="my-name">Shiqi Zhang (章仕起)<br/></div>
-      <div class="text-grey" id="my-title">博士</div>
-      <div class="text-grey-light" id="my-email">zf741741@126.com</div>
-    </div>
+.footer-col-wrapper {
+    font-size: 15px;
+    color: #828282;
+    margin-left: -15px
+}
 
-    <div class="social-media">
-      <a class="icon-button linkedin" href="https://scholar.google.com/citations?user=f6Bvb1UAAAAJ&hl=zh-CN" target="_blank">
-        <i class="ai ai-google-scholar-square icon-linkedin"></i><span></span>
-      </a>
-      <a class="icon-button orcid" href="https://orcid.org/0000-0001-6602-6041" target="_blank" rel="noopener noreferrer">
-        <i class="ai ai-orcid icon-github"></i><span></span>
-      </a>
-      <a class="icon-button linkedin" href="https://www.linkedin.com/in/shiqi-zhang-9b76a1359/" target="_blank" rel="noopener noreferrer">
-        <i class="fa fa-linkedin icon-linkedin"></i><span></span>
-      </a>
-      <a class="icon-button researchgate" href="https://www.researchgate.net/profile/Shiqi-Zhang-63" target="_blank" rel="noopener noreferrer">
-        <i class="ai ai-researchgate icon-linkedin"></i><span></span>
-      </a>
-      <a class="icon-button linkedin" href="mailto:zhangshiqi@ysu.edu.cn" target="_blank">
-        <i class="fa fa-envelope icon-linkedin"></i><span></span>
-      </a>
-      <a class="icon-button github" href="ShiqiZhang_CV_2025.pdf" target="_blank">
-        <i class="ai ai-cv icon-github"></i><span></span>
-      </a>
-    </div>
-  </div>
-</div>
+.footer-col {
+    float: left;
+    margin-bottom: 15px;
+    padding-left: 15px
+}
 
-<div class="page-content">
-  <div class="wrapper">
+.footer-col-1 {
+    width: -webkit-calc(25% - (30px / 2));
+    width: calc(25% - (30px / 2))
+}
 
-    <!-- About -->
-    <div class="bio" id="bio">
-      <h1 class="md-heading text-left"><i aria-hidden="true" class="fa fa-id-card"></i> About</h1>
-      <div class="bio-body" style="overflow:hidden;">
-        <p>
-          I am a Ph.D. candidate in Electrical Engineering at Yanshan University. My research focuses on power electronics and renewable-to-hydrogen systems,
-          including electrolyzer power supplies, multi-port DC–DC converter topologies, impedance modeling &amp; stability under weak grids, and reliability-aware control.
-        </p>
+.footer-col-2 {
+    width: -webkit-calc(35% - (30px / 2));
+    width: calc(35% - (30px / 2))
+}
 
-        <div class="two-col">
-          <div class="col">
-            <h3><i aria-hidden="true" class="fa fa-star"></i> <strong>Interests</strong></h3>
-            <ul>
-              <li><b>Electrolyzer Power Electronics & Low-Ripple Converters</b></li>
-              <a href="javascript:void(0)">[Low-Ripple]</a><a href="javascript:void(0)">[High Step-Down]</a><a href="javascript:void(0)">[High Power Density]</a><a href="javascript:void(0)">[Electrolyzer Supply]</a>
-              <li><b>Multi-port DC–DC Converter Topologies for PV/Wind-to-Hydrogen</b></li>
-              <a href="javascript:void(0)">[TAB]</a><a href="javascript:void(0)">[DAB]</a><a href="javascript:void(0)">[Buck/Boost]</a><a href="javascript:void(0)">[Multi-port]</a>
-              <li><b>Impedance Modeling & Stability in Weak/Converter-Dominated Grids</b></li>
-              <a href="javascript:void(0)">[Impedance]</a><a href="javascript:void(0)">[Stability]</a><a href="javascript:void(0)">[Weak Grid]</a><a href="javascript:void(0)">[PLL]</a>
-              <li><b>Reliability-Aware Control, Fault Diagnosis & Fault-Tolerant Operation</b></li>
-              <a href="javascript:void(0)">[Reliability]</a><a href="javascript:void(0)">[FDD]</a><a href="javascript:void(0)">[Fault-Tolerant]</a><a href="javascript:void(0)">[Protection]</a>
-              <li><b>Optimization & DRL-based Energy Management for Hydrogen Microgrids</b></li>
-              <a href="javascript:void(0)">[DRL]</a><a href="javascript:void(0)">[EMS]</a><a href="javascript:void(0)">[Scheduling]</a><a href="javascript:void(0)">[Microgrid]</a>
-            </ul>
-          </div>
+.footer-col-3 {
+    width: -webkit-calc(40% - (30px / 2));
+    width: calc(40% - (30px / 2))
+}
 
-          <div class="col">
-            <h3><i aria-hidden="true" class="fa fa-graduation-cap"></i> <strong>Education</strong></h3>
-            <b>Yanshan University</b><br/>
-            <ul>
-              <li>Ph.D. in Electrical Engineering, Sep. 2022 - Present (Qinhuangdao, China)</li>
-              <li>Advisor: Prof. Xiaoqiang Guo</li>
-            </ul>
-            <b>Curtin University</b><br/>
-            <ul>
-              <li>M.Eng. in Emerging Power Systems, Feb. 2021 - Feb. 2022 (Perth, Australia)</li>
-              <li>Advisor: Prof. Ahmed Abu-Siada</li>
-            </ul>
-            <b>Shenyang Agricultural University</b><br/>
-            <ul>
-              <li>B.Eng. in Electrical Engineering and Automation, Sep. 2016 - Jun. 2020 (Shenyang, China)</li>
-            </ul>
-          </div>
-        </div>
+@media screen and (max-width: 800px) {
 
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- Publications -->
-<div class="wrapper">
-  <div class="bio" id="publications">
-    <h1 class="md-heading text-left">
-      <i aria-hidden="true" class="fa fa-file"></i>
-      Publications (
-      <button class="custom-button" id="show-selected-btn"> Show Representative </button> /
-      <button class="custom-button" id="show-all-btn"> Show All </button>
-      )
-    </h1>
-
-    <div class="bio-body">
-      <div class="pub-list">
-        <div class="pub-item"><div class="pub-idx">[1]</div><div class="pub-text">S. Zhang, Y. Teng, H. Kong, N. Wang, Y. Liu, X. Guo, and C. Hua, “An industrial overview of variable-frequency drives for hydrogen compressors in hydrogen transportation,” <i>Renew. Sustain. Energy Rev.</i>, vol. 223, 116009, 2025.</div></div>
-        <div class="pub-item"><div class="pub-idx">[2]</div><div class="pub-text">S. Zhang, Z. Jiao, J. Su, N. Wang, Z. Li, X. Guo, and C. Hua, “Low-ripple modulation strategy for a photovoltaic-based triple-port hydrogen production system,” <i>IEEE Trans. Ind. Electron.</i>, Early Access, 2025.</div></div>
-        <div class="pub-item"><div class="pub-idx">[3]</div><div class="pub-text">S. Zhang, Y. Teng, Y. Sun, F. Ding, N. Wang, X. Guo, and C. Hua, “Fault diagnosis and fault-tolerant operation strategy for triple-port hydrogen production system,” <i>IEEE Trans. Power Electron.</i>, vol. 40, no. 8, pp. 11526–11536, 2025.</div></div>
-        <div class="pub-item"><div class="pub-idx">[4]</div><div class="pub-text">S. Zhang, Y. Wei, X. Guo, Z. Li, X. Song, and F. Blaabjerg, “Overview of US patents for energy management of renewable energy systems with hydrogen,” <i>Int. J. Hydrogen Energy</i>, vol. 48, no. 26, pp. 9574–9591, 2023.</div></div>
-        <div class="pub-item"><div class="pub-idx">[5]</div><div class="pub-text">X. Guo, S. Zhang (Corresponding Author), F. Ding, J. Zhu, and H. Bai, “A novel DC–DC converter for electrolyzer with low ripple and high step down,” <i>IEEE Trans. Ind. Electron.</i>, vol. 71, no. 10, pp. 12476–12486, 2024.</div></div>
-        <div class="pub-item"><div class="pub-idx">[6]</div><div class="pub-text">X. Guo, S. Zhang (Corresponding Author), Z. Yan, Y. Wei, and X. Hu, “A novel phase-locked loop structure to enhance converter stability in weak grids,” <i>IEEE Trans. Power Electron.</i>, vol. 38, no. 11, pp. 13855–13865, 2023.</div></div>
-        <div class="pub-item"><div class="pub-idx">[7]</div><div class="pub-text">X. Guo, S. Zhang, Z. Liu, L. Sun, Z. Lu, C. Hua, and J. Guerrero, “A new multi-mode fault-tolerant operation control strategy of multiphase stacked interleaved Buck converter for green hydrogen production,” <i>Int. J. Hydrogen Energy</i>, vol. 47, no. 71, pp. 30359–30370, 2022.</div></div>
-        <div class="pub-item"><div class="pub-idx">[8]</div><div class="pub-text">X. Guo, S. Zhang (Corresponding Author), Y. Gao, Y. Teng, N. Diao, C. Hua, and V. Terzija, “Advancements in photovoltaic electrolysis for green hydrogen production: A comprehensive review and comparative analysis of modeling approaches,” <i>IEEE Trans. Power Electron.</i>, vol. 40, no. 7, pp. 10000–10026, 2025.</div></div>
-        <div class="pub-item"><div class="pub-idx">[9]</div><div class="pub-text">W. Fang, Y. Teng, S. Zhang (Corresponding Author), H. Kong, H. Wang, and X. Guo, “Impedance modeling and stability analysis of electrolysis system for hydrogen production under weak grid,” <i>Fuel</i>, vol. 374, 132403, 2024.</div></div>
-        <div class="pub-item"><div class="pub-idx">[10]</div><div class="pub-text">X. Guo, F. Ding, S. Zhang (Corresponding Author), Y. Teng, N. Diao, and V. Terzija, “Enhanced green hydrogen production using a novel converter with extremely low current ripple and high step-down ratio,” <i>Fuel</i>, vol. 398, 135424, 2025.</div></div>
-        <div class="pub-item"><div class="pub-idx">[11]</div><div class="pub-text">X. Guo, X. Hu, and S. Zhang (Corresponding Author), “Application status of variable-frequency drive in hydrogen fuel cell air compressors from an industrial viewpoint: A review,” <i>Sustain. Energy Technol. Assess.</i>, vol. 64, 103716, 2024.</div></div>
-        <div class="pub-item"><div class="pub-idx">[12]</div><div class="pub-text">X. Guo, H. Zhu, and S. Zhang (Corresponding Author), “Overview of electrolyser and hydrogen production power supply from industrial perspective,” <i>Int. J. Hydrogen Energy</i>, vol. 49, pp. 1048–1059, 2024.</div></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Publications buttons script -->
-<script>
-  const showSelectedBtn = document.getElementById('show-selected-btn');
-  const showAllBtn = document.getElementById('show-all-btn');
-  const publications = document.querySelectorAll('.pub-item');
-
-  showSelectedBtn.addEventListener('click', function() {
-    publications.forEach(pub => {
-      if (pub.getAttribute('data-selected') === 'true') pub.style.display = 'flex';
-      else pub.style.display = 'none';
-    });
-  });
-
-  showAllBtn.addEventListener('click', function() {
-    publications.forEach(pub => pub.style.display = 'flex');
-  });
-</script>
-
-<!-- Patents -->
-<div class="wrapper">
-  <div class="bio" id="patents">
-    <h1 class="md-heading text-left">
-      <i aria-hidden="true" class="fa fa-gavel"></i> Patents / 专利
-    </h1>
-    <div class="bio-body">
-      <div id="patent-cards"></div>
-    </div>
-  </div>
-</div>
-
-<!-- Patents render script (已修复模板字符串，避免渲染报错/乱码) -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const patents = [
-      { en:"Electrolysis hydrogen production system model", cn:"一种电解制氢系统模型", no:"CN117037928B", date:"2023-11-10", status:"Granted" },
-      { en:"Hydrogen production power converter", cn:"一种制氢变流器", no:"CN117040267B", date:"2023-11-10", status:"Granted" },
-      { en:"Control and fault-tolerant method for multiphase interleaved parallel converters", cn:"一种多相交错并联变换器控制和容错方法", no:"CN115347774B", date:"2023-05-23", status:"Granted" },
-      { en:"Fault diagnosis and recovery control for interleaved Buck circuits", cn:"一种交错并联Buck电路的故障诊断及恢复控制方法", no:"CN115065243B", date:"2022-12-30", status:"Granted" },
-      { en:"Multi-mode dual-layer fault diagnosis method for fuel cell systems", cn:"一种燃料电池系统多模式双层故障诊断方法", no:"CN113962259B", date:"2022-06-03", status:"Granted" },
-      { en:"Energy management method for renewable energy systems", cn:"一种可再生能源系统的能量管理方法", no:"CN115411770B", date:"2022-11-29", status:"Granted" },
-      { en:"Energy management method for microgrids with hydrogen energy storage", cn:"一种含氢储能微电网的能量管理方法", no:"CN115085229B", date:"2022-12-30", status:"Granted" },
-      { en:"Multi-objective optimization method for distributed generation considering power constraints", cn:"一种考虑电源设置条件的多目标分布式电源优化配置方法", no:"CN113890094B", date:"2022-06-03", status:"Granted" },
-      { en:"Intelligent optimization control for satellite power fault reconstruction based on wild goat algorithm", cn:"基于野山羊算法的卫星电源故障重构的智能优化控制方法", no:"CN115079571B", date:"2022-12-30", status:"Granted" },
-      { en:"Improved transformerless three-phase multilevel inverter and control method", cn:"一种改进的无变压器三相多电平逆变器及其控制方法", no:"CN115987127B", date:"2023-09-19", status:"Granted" }
-    ];
-
-    const container = document.getElementById('patent-cards');
-    if (!container) return;
-
-    container.innerHTML = patents.map(p => `
-      <div class="patent-card">
-        <div class="row-top">
-          <div>
-            <div class="title-en">${escapeHtml(p.en)}</div>
-            <div class="title-cn">${escapeHtml(p.cn)}</div>
-          </div>
-          <div class="badge">${escapeHtml(p.status)}</div>
-        </div>
-        <div class="meta">
-          <span><b>No.</b> ${escapeHtml(p.no)}</span>
-          <span><b>Date</b> ${escapeHtml(p.date)}</span>
-        </div>
-      </div>
-    `).join('');
-
-    function escapeHtml(s){
-      return String(s)
-        .replaceAll('&','&amp;')
-        .replaceAll('<','&lt;')
-        .replaceAll('>','&gt;')
-        .replaceAll('"','&quot;')
-        .replaceAll("'","&#39;");
+    .footer-col-1,
+    .footer-col-2 {
+        width: -webkit-calc(50% - (30px / 2));
+        width: calc(50% - (30px / 2))
     }
-  });
-</script>
 
-<!-- Awards -->
-<div class="wrapper">
-  <div class="bio" id="awards">
-    <h1 class="md-heading text-left">
-      <i aria-hidden="true" class="fa fa-tasks"></i> Selected Honors &amp; Awards
-    </h1>
-    <div class="bio-body">
-      <ul>
-        <li><a href="images/award_internetplus_gold.jpg" target="_blank">National Gold Award, China International College Students’ Innovation Competition (“Internet+”), 7th &amp; 8th Editions.</a></li>
-        <li>Silver Medal, 49th International Exhibition of Inventions of Geneva.</li>
-        <li>Runner-up (National), 11th China Graduate Energy Equipment Innovation Design Competition.</li>
-        <li>First Prize (National), 9th China Graduate Energy Equipment Innovation Design Competition.</li>
-        <li>First Prize (National), 12th “Mitsubishi Electric Cup” National Competition of Electrical Engineering &amp; Automation.</li>
-        <li>Second Prize (National Finals), 10th National Optoelectronic Design Competition.</li>
-        <li>National Role Model of Graduate Party Members (Top 100), 3rd Cohort.</li>
-        <li>China Self-strengthening Star (中国大学生自强之星).</li>
-        <li>China Telecom Scholarship · Tianyi Award (Top 98 nationwide).</li>
-        <li>Hebei “Youth Star” Model (冀青之星标兵), 2023; Hebei “Youth Star” (冀青之星), 2021.</li>
-        <li>Outstanding Student Leader, Hebei Province; Outstanding Graduate, Liaoning Province.</li>
-        <li>National Scholarship (Ph.D.); National Scholarship (Master’s).</li>
-      </ul>
-    </div>
-  </div>
-</div>
+    .footer-col-3 {
+        width: -webkit-calc(100% - (30px / 2));
+        width: calc(100% - (30px / 2))
+    }
+}
 
-<!-- Reviewer -->
-<style>
-  .reviewer-section { display:flex; flex-wrap:wrap; margin-top:8px; }
-  .reviewer-column {
-    flex:1 1 50%; box-sizing:border-box; padding-right:20px;
-    font-size:0.85em; line-height:1.6; position:relative; padding-left:1em; margin-bottom:4px;
+@media screen and (max-width: 600px) {
+    .footer-col {
+        float: none;
+        width: -webkit-calc(100% - (30px / 2));
+        width: calc(100% - (30px / 2))
+    }
+}
+
+.page-content {
+    padding: 30px 0
+}
+
+.text-center {
+    text-align: center
+}
+
+.sm-heading {
+    font-size: 20px;
+    font-color: #9b3022;
+    font-weight: 300
+}
+
+.md-heading {
+    font-size: 24px;
+    font-color: #9b3022;
+    font-weight: 400
+}
+
+.lg-heading {
+    font-size: 30px;
+    font-color: #9b3022;
+    font-weight: 600
+}
+
+.custom-button {
+    font-size: 20px; /* Larger font size */
+    background-color: transparent; /* Transparent background */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer cursor on hover */
+    color: #0077B5; /* Text color */
+    padding: 5px 5px; /* Add padding */
+    outline: none; /* Remove focus outline */
+}
+
+.custom-button:hover {
+    color: #0056b3; /* Darker color on hover */
+    text-decoration: none; /* Remove underline on hover */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+
+.button {
+    padding: 10px;
+    margin-top: 25px
+}
+
+.button a {
+    border: solid 1px #e0e0e0;
+    border-radius: 0.2rem;
+    color: #868686;
+    display: inline-block;
+    text-align: center;
+    padding: 0.5rem 2.0rem;
+    text-decoration: none
+}
+
+.button em {
+    border: solid 1px #e0e0e0;
+    border-radius: 0.2rem;
+    color: #868686;
+    display: inline-block;
+    text-align: center;
+    padding: 0.5rem 0.9rem
+}
+
+.button>.heading>a:hover {
+    color: #fff;
+    background-color: #292929;
+    border: solid 1px #292929
+}
+
+.highlight {
+    background: #fff
+}
+
+.highlight .c {
+    color: #998;
+    font-style: italic
+}
+
+.highlight .err {
+    color: #a61717;
+    background-color: #e3d2d2
+}
+
+.highlight .k {
+    font-weight: bold
+}
+
+.highlight .o {
+    font-weight: bold
+}
+
+.highlight .cm {
+    color: #998;
+    font-style: italic
+}
+
+.highlight .cp {
+    color: #999;
+    font-weight: bold
+}
+
+.highlight .c1 {
+    color: #998;
+    font-style: italic
+}
+
+.highlight .cs {
+    color: #999;
+    font-weight: bold;
+    font-style: italic
+}
+
+.highlight .gd {
+    color: #000;
+    background-color: #fdd
+}
+
+.highlight .gd .x {
+    color: #000;
+    background-color: #faa
+}
+
+.highlight .ge {
+    font-style: italic
+}
+
+.highlight .gr {
+    color: #a00
+}
+
+.highlight .gh {
+    color: #999
+}
+
+.highlight .gi {
+    color: #000;
+    background-color: #dfd
+}
+
+.highlight .gi .x {
+    color: #000;
+    background-color: #afa
+}
+
+.highlight .go {
+    color: #888
+}
+
+.highlight .gp {
+    color: #555
+}
+
+.highlight .gs {
+    font-weight: bold
+}
+
+.highlight .gu {
+    color: #aaa
+}
+
+.highlight .gt {
+    color: #a00
+}
+
+.highlight .kc {
+    font-weight: bold
+}
+
+.highlight .kd {
+    font-weight: bold
+}
+
+.highlight .kp {
+    font-weight: bold
+}
+
+.highlight .kr {
+    font-weight: bold
+}
+
+.highlight .kt {
+    color: #458;
+    font-weight: bold
+}
+
+.highlight .m {
+    color: #099
+}
+
+.highlight .s {
+    color: #d14
+}
+
+.highlight .na {
+    color: teal
+}
+
+.highlight .nb {
+    color: #0086B3
+}
+
+.highlight .nc {
+    color: #458;
+    font-weight: bold
+}
+
+.highlight .no {
+    color: teal
+}
+
+.highlight .ni {
+    color: purple
+}
+
+.highlight .ne {
+    color: #900;
+    font-weight: bold
+}
+
+.highlight .nf {
+    color: #900;
+    font-weight: bold
+}
+
+.highlight .nn {
+    color: #555
+}
+
+.highlight .nt {
+    color: navy
+}
+
+.highlight .nv {
+    color: teal
+}
+
+.highlight .ow {
+    font-weight: bold
+}
+
+.highlight .w {
+    color: #bbb
+}
+
+.highlight .mf {
+    color: #099
+}
+
+.highlight .mh {
+    color: #099
+}
+
+.highlight .mi {
+    color: #099
+}
+
+.highlight .mo {
+    color: #099
+}
+
+.highlight .sb {
+    color: #d14
+}
+
+.highlight .sc {
+    color: #d14
+}
+
+.highlight .sd {
+    color: #d14
+}
+
+.highlight .s2 {
+    color: #d14
+}
+
+.highlight .se {
+    color: #d14
+}
+
+.highlight .sh {
+    color: #d14
+}
+
+.highlight .si {
+    color: #d14
+}
+
+.highlight .sx {
+    color: #d14
+}
+
+.highlight .sr {
+    color: #009926
+}
+
+.highlight .s1 {
+    color: #d14
+}
+
+.highlight .ss {
+    color: #990073
+}
+
+.highlight .bp {
+    color: #999
+}
+
+.highlight .vc {
+    color: teal
+}
+
+.highlight .vg {
+    color: teal
+}
+
+.highlight .vi {
+    color: teal
+}
+
+.highlight .il {
+    color: #099
+}
+
+.cover {
+    max-width: 100%;
+    height: 320px;
+    z-index: initial;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 0px;
+    padding-left: 0px
+}
+
+@media screen and (max-width: 800px) {
+    .cover {
+        max-width: -webkit-calc(1024px - (30px));
+        max-width: calc(1024px - (30px));
+        padding-right: 15px;
+        padding-left: 15px
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .cover {
+        height: 400px
+    }
+}
+
+.shallow-bg {
+    /* background-image: url("images/background/background-2.jpg"); */
+    background-image: url("images/background/background-2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center
+}
+
+.deep-bg {
+    background-image: url("images/background/background-2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center
+}
+
+.profile-wrapper {
+    border-radius: 25px;
+    position: relative;
+    top: 20%;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto
+}
+
+@media screen and (max-width: 600px) {
+    .profile-wrapper {
+        top: 5%;
+        border-radius: 25px;
+        position: relative;
+        width: -webkit-calc(90% - (30px / 2));
+        width: calc(90% - (30px / 2));
+        margin-left: auto;
+        margin-right: auto
+    }
+}
+
+.wrapper-light {
+    background-color: rgba(255, 255, 255, 0.8)
+}
+
+.wrapper-dark {
+    background-color: rgba(150, 150, 150, 0.8)
+}
+
+.profile-col {
+    float: left !important;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center
+}
+
+.profile-col-1 {
+    width: -webkit-calc(40% - (30px / 2));
+    width: calc(40% - (30px / 2))
+}
+
+.profile-col-2 {
+    width: -webkit-calc(60% - (30px / 2));
+    width: calc(60% - (30px / 2))
+}
+
+@media screen and (max-width: 800px) {
+
+    .profile-col-1,
+    .profile-col-2 {
+        width: -webkit-calc(50% - (30px / 2));
+        width: calc(50% - (30px / 2))
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .profile-col {
+        position: relative;
+        margin: 10px auto;
+        float: none;
+        width: -webkit-calc(100%);
+        width: calc(100%)
+    }
+}
+
+.circle-img {
+    margin: 0px auto;
+    width: 168px;
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 50%
+}
+
+.border-dark {
+    border-color: #292929
+}
+
+.border-bright {
+    border-color: #fff
+}
+
+.border-light {
+    border-color: #e8e8e8
+}
+
+.circle-img-light {
+    margin: 0px auto;
+    width: 168px;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 50%
+}
+
+#my-name {
+    font-size: 32px;
+    font-weight: bold;
+    color: #292929
+}
+
+#my-title {
+    font-size: 20px;
+    color: #292929;
+    font-weight: 200
+}
+
+#my-email {
+    font-size: 16px;
+    color: #292929;
+    font-weight: 160
+}
+
+#my-desc-title {
+    font-size: 28px;
+    color: #fff;
+    font-weight: bold
+}
+
+#my-desc-content {
+    font-size: 18px;
+    color: #e8e8e8;
+    font-weight: 200
+}
+
+@media screen and (max-width: 600px) {
+    #my-title {
+        display: none
+    }
+}
+
+.preview {
+    text-overflow: ellipsis;
+    overflow: hidden
+}
+
+.hide {
+    display: none
+}
+
+.maxim {
+    background-color: #e8e8e8;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 20px;
+    border-radius: 4px;
+    color: #002336
+}
+
+@media screen and (max-width: 600px) {
+    .maxim {
+        padding: 2px;
+        margin: 2px
+    }
+}
+
+.maxim>div>strong,
+.maxim>p>strong,
+.maxim>strong {
+    color: #9b3022
+}
+
+.maxim>div>b,
+.maxim>p>b,
+.maxim>b {
+    color: #00a200
+}
+
+.maxim>div>s,
+.maxim>s {
+    color: #00a200
+}
+
+.maxim>div>em,
+.maxim>em {
+    color: #002336;
+    font-weight: 400
+}
+
+.maxim>div>i,
+.maxim>i {
+    color: #0077B5;
+    font-weight: 400
+}
+
+.maxim>div>u,
+.maxim>u {
+    color: #4d004d;
+    font-weight: 400
+}
+
+.maxim>div {
+    margin: 5px
+}
+
+.text-right {
+    text-align: right
+}
+
+.text-left {
+    text-align: left
+}
+
+.text-center {
+    text-align: center
+}
+
+hr.soft {
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
+    background-image: -moz-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
+    background-image: -ms-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
+    background-image: -o-linear-gradient(left, transparent, rgba(0, 0, 0, 0.75), transparent);
+    padding: 0;
+    margin: 0
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 2em;
+    right: 0px;
+    text-decoration: none;
+    color: #35DACA;
+    background-color: rgba(235, 235, 235, 0.8);
+    font-size: 16px;
+    font-weight: bold;
+    padding: 1em;
+    display: none
+}
+
+.back-to-top:hover {
+    background-color: rgba(135, 135, 135, 0.5)
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: inline-block
+}
+
+.icon-button {
+    background-color: white;
+    border-radius: 3.6rem;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 2.0rem;
+    height: 3.6rem;
+    line-height: 3.6rem;
+    margin: 0 5px;
+    position: relative;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 3.6rem
+}
+
+.icon-button span {
+    border-radius: 0;
+    display: block;
+    height: 0;
+    left: 50%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    width: 0
+}
+
+.icon-button:hover span {
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 3.6rem;
+    margin: -1.8rem
+}
+
+.twitter span {
+    background-color: #4099ff
+}
+
+.facebook span {
+    background-color: #3B5998
+}
+
+.linkedin span {
+    background-color: #0077B5
+}
+
+.github span {
+    background-color: #000
+}
+
+.icon-button i {
+    background: none;
+    color: white;
+    height: 3.6rem;
+    left: 0;
+    line-height: 3.6rem;
+    position: absolute;
+    top: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    width: 3.6rem;
+    z-index: 10
+}
+
+.icon-button .icon-twitter {
+    color: #4099ff
+}
+
+.icon-button .icon-facebook {
+    color: #3B5998
+}
+
+.icon-button .icon-github {
+    color: #000
+}
+
+.icon-button .icon-linkedin {
+    color: #0077B5
+}
+
+
+.icon-button:hover .icon-twitter,
+.icon-button:hover .icon-facebook,
+.icon-button:hover .icon-github,
+.icon-button:hover .icon-linkedin {
+    color: white
+}
+
+.timeline-brief,
+.timeline {
+    font-family: 'Roboto', sans-serif, Helvetica;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 400
+}
+
+.timeline-body {
+    padding: 0
+}
+
+.timeline-start {
+    width: -webkit-calc(100% - 2 * (20px));
+    width: calc(100% - 2 * (20px));
+    text-align: center;
+    padding: 20px
+}
+
+.timeline-item:before {
+    width: 11px;
+    height: 11px;
+    background: #333;
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 5px
+}
+
+.timeline-item {
+    width: -webkit-calc(50% - (20px));
+    width: calc(50% - (20px));
+    position: relative
+}
+
+.timeline-item:nth-child(odd):before {
+    left: -8px
+}
+
+.timeline-item:nth-child(odd):after {
+    left: -8px;
+    bottom: 0
+}
+
+.timeline-item:nth-child(odd) {
+    margin-left: 50%;
+    padding-left: 20px;
+    border-left: 5px solid #333;
+    text-align: left
+}
+
+.timeline-item:nth-child(even) {
+    margin-right: -webkit-calc(50% + (20px));
+    margin-right: calc(50% + (20px));
+    padding-right: 20px;
+    border-right: 5px solid #333;
+    text-align: right
+}
+
+.timeline-item:nth-child(even):before {
+    right: -8px
+}
+
+.timeline-item:nth-child(even):after {
+    right: -8px
+}
+
+.timeline-date {
+    font-size: 16px;
+    font-weight: 600;
+    color: #113f7c
+}
+
+.timeline-title {
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    color: #9b3022
+}
+
+.timeline-desc {
+    font-size: 16px;
+    font-weight: 200
+}
+
+.timeline-host {
+    font-size: 14px;
+    font-weight: 400
+}
+
+.timeline>.timeline-body>.timeline-item:last-child:after {
+    bottom: 0;
+    width: 11px;
+    height: 11px;
+    background: #333;
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 5px
+}
+
+.timeline>.timeline-body>.timeline-item:last-child:nth-child(even) {
+    vertical-align: middle;
+    min-height: 200px;
+    border-right: 5px dashed #333
+}
+
+.timeline>.timeline-body>.timeline-item:last-child:nth-child(odd) {
+    vertical-align: middle;
+    min-height: 200px;
+    border-left: 5px dashed #333
+}
+
+@media screen and (max-width: 600px) {
+    .timeline-start {
+        min-height: 50px;
+        padding: 0 0 0 5px;
+        text-align: left;
+        border-left: 5px dashed #333;
+        width: 100%;
+        padding-left: 5px;
+        margin-left: 5px
+    }
+
+    .timeline-start:after {
+        left: 17px;
+        width: 11px;
+        height: 11px;
+        background: #333;
+        content: "";
+        display: block;
+        position: absolute;
+        border-radius: 5px
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        min-height: 0;
+        text-align: left;
+        border-left: 5px solid #333;
+        border-right: 0px;
+        width: 100%;
+        padding-left: 5px;
+        margin-left: 5px;
+        margin-right: 0px;
+        padding-right: 0px
+    }
+
+    .timeline>.timeline-body>.timeline-item:last-child:nth-child(odd),
+    .timeline>.timeline-body>.timeline-item:last-child:nth-child(even) {
+        min-height: 0;
+        text-align: left;
+        border-left: 5px solid #333;
+        border-right: 0px;
+        width: 100%;
+        padding-left: 5px;
+        margin-left: 5px;
+        margin-right: 0px;
+        padding-right: 0px
+    }
+
+    .timeline-item:before {
+        left: -8px
+    }
+
+    .timeline-item:after {
+        left: -8px
+    }
+
+    .timeline-date {
+        font-size: 14px
+    }
+
+    .timeline-title {
+        font-size: 16px
+    }
+
+    .timeline-desc {
+        font-size: 12px
+    }
+
+    .timeline-host {
+        font-size: 10px
+    }
+}
+
+.toy-list {
+    margin-left: 0;
+    list-style: none
+}
+
+.toy-list>li {
+    margin-bottom: 30px
+}
+
+.toy-heading {
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: -1px;
+    line-height: 1.5;
+    border-bottom: 2px solid #424242
+}
+
+.toy-item {
+    border: thin solid #c0c0c0;
+    text-align: center
+}
+
+.toy-meta {
+    font-size: 14px;
+    color: #828282
+}
+
+.toy-link {
+    display: block;
+    font-size: 24px
+}
+
+.toy-header {
+    margin-bottom: 30px
+}
+
+.toy-title {
+    font-size: 42px;
+    letter-spacing: -1px;
+    line-height: 1
+}
+
+@media screen and (max-width: 800px) {
+    .toy-title {
+        font-size: 36px
+    }
+}
+
+.toy-content {
+    margin-bottom: 30px
+}
+
+.toy-content h2 {
+    font-size: 32px
+}
+
+@media screen and (max-width: 800px) {
+    .toy-content h2 {
+        font-size: 28px
+    }
+}
+
+.toy-content h3 {
+    font-size: 26px
+}
+
+@media screen and (max-width: 800px) {
+    .toy-content h3 {
+        font-size: 22px
+    }
+}
+
+.toy-content h4 {
+    font-size: 20px
+}
+
+@media screen and (max-width: 800px) {
+    .toy-content h4 {
+        font-size: 18px
+    }
+}
+
+.count-down-digit {
+    font-size: 28px
+}
+
+@media screen and (max-width: 800px) {
+    .count-down-digit {
+        font-size: 20px
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .count-down-digit {
+        font-size: 24px
+    }
+}
+
+.count-down-heading {
+    font-size: 50px
+}
+
+@media screen and (max-width: 800px) {
+    .count-down-heading {
+        font-size: 40px
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .count-down-heading {
+        font-size: 30px
+    }
+}
+
+.count-down {
+    width: 100%;
+    height: 40%;
+    text-align: center;
+    font-size: 20px
+}
+
+.hidden {
+    display: none
+}
+
+li.float-right {
+    float: right
+}
+
+li.float-left {
+    float: left
+}
+
+div.paginate-container {
+    background: #f9f9f9;
+    padding: 1rem;
+    margin-top: 3rem;
+    border-radius: 0.2rem;
+    text-align: center;
+    width: -webkit-calc(100% - 2rem);
+    width: calc(100% - 2rem)
+}
+
+div.paginate-container ul {
+    width: 100%;
+    margin: 0px;
+    padding-left: 0px
+}
+
+.pagination>ul,
+.pagination>ul>li {
+    list-style: none;
+    display: inline-block;
+    padding-left: 0px
+}
+
+.pagination>ul>li:hover a {
+    color: #fff;
+    background-color: #292929;
+    border: solid 1px #292929
+}
+
+.pagination>ul>li.active a {
+    color: #fff;
+    background-color: #292929;
+    border: solid 1px #292929
+}
+
+.pagination>ul>li.deactive a {
+    background-color: #e8e8e8;
+    border: solid 1px #f2f2f2
+}
+
+.pagination>ul>li a {
+    border: solid 1px #e0e0e0;
+    border-radius: 0.2rem;
+    color: #868686;
+    display: inline-block;
+    text-align: center;
+    padding: 0.5rem 0.9rem
+}
+
+.pagination>ul>li em {
+    border: solid 1px #e0e0e0;
+    border-radius: 0.2rem;
+    color: #868686;
+    display: inline-block;
+    text-align: center;
+    padding: 0.5rem 0.9rem
+}
+
+div.paginate-container li:first-child a {
+    display: inline-block
+}
+
+div.paginate-container li:first-child a:after {
+    content: "First page"
+}
+
+div.paginate-container li:nth-child(2) a {
+    display: inline-block
+}
+
+div.paginate-container li:nth-child(3) a {
+    display: inline-block
+}
+
+div.paginate-container li:nth-child(4) a {
+    display: inline-block
+}
+
+div.paginate-container li:nth-child(5) a {
+    display: inline-block
+}
+
+div.paginate-container li:nth-child(6) a {
+    display: inline-block
+}
+
+div.paginate-container li:nth-child(7) a {
+    display: inline-block
+}
+
+div.paginate-container li:nth-child(8) a {
+    display: inline-block
+}
+
+div.paginate-container li:nth-child(9) a {
+    display: inline-block
+}
+
+div.paginate-container li:nth-child(10) a {
+    display: inline-block
+}
+
+div.paginate-container li:nth-child(11) a {
+    display: inline-block
+}
+
+div.paginate-container li:nth-child(12) a {
+    display: inline-block
+}
+
+div.paginate-container li:nth-child(2) a {
+    display: inline-block
+}
+
+div.paginate-container li:nth-child(2) a:after {
+    content: "<"
+}
+
+div.paginate-container li:last-child a {
+    display: inline-block
+}
+
+div.paginate-container li:last-child a:after {
+    content: ">"
+}
+
+div.paginate-container li:nth-last-child(2) a {
+    display: inline-block
+}
+
+div.paginate-container li:nth-last-child(2) a:after {
+    content: "Last page"
+}
+
+@media screen and (max-width: 800px) {
+    div.paginate-container li:first-child {
+        display: inline-block
+    }
+
+    div.paginate-container li:first-child a:after {
+        content: "First"
+    }
+
+    div.paginate-container li:nth-child(2) {
+        display: inline-block
+    }
+
+    div.paginate-container li:nth-child(2) a:after {
+        content: "<"
+    }
+
+    div.paginate-container li:last-child {
+        display: inline-block
+    }
+
+    div.paginate-container li:last-child a:after {
+        content: ">"
+    }
+
+    div.paginate-container li:nth-last-child(2) {
+        display: inline-block
+    }
+
+    div.paginate-container li:nth-last-child(2) a:after {
+        content: "Last"
+    }
+}
+
+@media screen and (max-width: 600px) {
+    div.paginate-container li {
+        display: none
+    }
+
+    div.paginate-container li:nth-child(2) a {
+        display: inline-block
+    }
+
+    div.paginate-container li:nth-child(3) a {
+        display: inline-block
+    }
+
+    div.paginate-container li:nth-child(4) a {
+        display: inline-block
+    }
+
+    div.paginate-container li:nth-child(5) a {
+        display: inline-block
+    }
+
+    div.paginate-container li.active {
+        display: inline
+    }
+
+    div.paginate-container li:first-child {
+        display: inline
+    }
+
+    div.paginate-container li:first-child a:after {
+        content: "First"
+    }
+
+    div.paginate-container li:nth-last-child(2) {
+        display: inline
+    }
+
+    div.paginate-container li:nth-last-child(2) a:after {
+        content: "Last"
+    }
+
+    div.paginate-container li:nth-child(2) {
+        display: inline
+    }
+
+    div.paginate-container li:nth-child(2) a:after {
+        content: "<"
+    }
+
+    div.paginate-container li:last-child {
+        display: inline
+    }
+
+    div.paginate-container li:last-child a:after {
+        content: ">"
+    }
+}
+
+.publications {
+    max-width: -webkit-calc(100% - (30px / 2));
+    max-width: calc(100% - (30px / 2));
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif, Helvetica
+}
+
+.pub-list {
+    overflow: auto
+}
+
+.pub {
+    /* border-top: thin solid #c0c0c0; */
+    /* radius: 15px; */
+    /* float: left !important; */
+    margin-top: 5px;
+    margin-bottom: 15px;
+    /* padding-top: 15px; */
+    overflow: auto
+}
+
+.pub-left {
+    float: left;
+    width: -webkit-calc(40% - (30px / 2));
+    width: calc(40% - (30px / 2));
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto
+}
+
+/* .pub-left>.intro-img {
+    width: 280px;
+    border-style: solid;
+    border-color: #9b3022
+} */
+
+.pub-left > .intro-img {
+    width: 280px; /* Set your desired width */
+    height: 130px; /* Set your desired height */
+    border-style: solid;
+    border-color: #9b3022;
+    object-fit: contain; /* Ensures the image fills the container while maintaining aspect ratio */
+    object-position: center; /* Centers the image inside the container */
+}
+
+
+.pub-right {
+    float: right;
+    width: -webkit-calc(60% - (30px / 2));
+    width: calc(60% - (30px / 2))
+}
+
+@media screen and (max-width: 800px) {
+
+    .pub-left,
+    .pub-right {
+        float: none;
+        margin: 10px auto;
+        width: -webkit-calc(100% - (30px / 2));
+        width: calc(100% - (30px / 2))
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .pub {
+        position: relative;
+        margin: 10px auto;
+        float: none;
+        width: -webkit-calc(100% - (30px / 2));
+        width: calc(100% - (30px / 2))
+    }
+}
+
+.pub-right>.title {
+    font-weight: 600
+}
+
+.pub-right>.authors>.author {
+    color: #0077B5;
+    font-weight: 400
+}
+
+.pub-right>.tags>.tag {
+    color: #9b3022;
+    font-weight: 500;
+    font-size: 14px
+}
+
+.pub-right>.desc>p {
+    margin: auto
+}
+
+.pub-right>.publish {
+    float: right
+}
+
+.pub-right>.publish>.publisher {
+    color: #002336;
+    font-size: 16px
+}
+
+.pub-right>.publish>.status {
+    color: #9b3022;
+    font-weight: 800;
+    font-size: 16px
+}
+
+@media screen and (max-width: 600px) {
+    .pub-right>.publish>.status {
+        display: none
+    }
+}
+
+.pub-right>.publish>.place {
+    color: #0077B5;
+    font-weight: 500;
+    font-size: 16px
+}
+
+@media screen and (max-width: 600px) {
+    .pub-right>.publish>.place {
+        display: none
+    }
+}
+
+.bio {
+    max-width: -webkit-calc(100% - (30px / 2));
+    max-width: calc(100% - (30px / 2));
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto
+}
+
+@media screen and (max-width: 600px) {
+    .bio {
+        max-width: -webkit-calc(100% - (30px / 2));
+        max-width: calc(100% - (30px / 2))
+    }
+}
+
+.bio-body {
+    margin: 5px;
+    padding: 0px
+}
+
+.posts {
+    max-width: -webkit-calc(96% - (30px / 2));
+    max-width: calc(96% - (30px / 2));
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto
+}
+
+@media screen and (max-width: 600px) {
+    .posts {
+        max-width: -webkit-calc(100% - (30px / 2));
+        max-width: calc(100% - (30px / 2))
+    }
+}
+
+.post-list {
+    margin-left: 0;
+    list-style: none
+}
+
+.post-list>li {
+    margin-bottom: 30px
+}
+
+.post-item {
+    border-top: thin solid #c0c0c0
+}
+
+.post-meta {
+    font-size: 14px;
+    color: #828282
+}
+
+.post-link {
+    display: block;
+    font-size: 24px
+}
+
+.post-header {
+    margin-bottom: 30px
+}
+
+.post-title {
+    font-size: 42px;
+    letter-spacing: -1px;
+    line-height: 1
+}
+
+@media screen and (max-width: 800px) {
+    .post-title {
+        font-size: 36px
+    }
+}
+
+.post-content {
+    margin-bottom: 30px
+}
+
+.post-content h2 {
+    font-size: 32px
+}
+
+@media screen and (max-width: 800px) {
+    .post-content h2 {
+        font-size: 28px
+    }
+}
+
+.post-content h3 {
+    font-size: 26px
+}
+
+@media screen and (max-width: 800px) {
+    .post-content h3 {
+        font-size: 22px
+    }
+}
+
+.post-content h4 {
+    font-size: 20px
+}
+
+@media screen and (max-width: 800px) {
+    .post-content h4 {
+        font-size: 18px
+    }
+}
+
+.project-header {
+    max-width: -webkit-calc(96% - (30px / 2));
+    max-width: calc(96% - (30px / 2))
+}
+
+@media screen and (max-width: 600px) {
+    .project-header {
+        max-width: -webkit-calc(100% - (30px / 2));
+        max-width: calc(100% - (30px / 2))
+    }
+}
+
+.project-header>h1 {
+    font-size: 20pt;
+    font-weight: 800;
+    text-align: center
+}
+
+.project-header>.project-meta {
+    font-size: 14px;
+    color: #292929;
+    float: right
+}
+
+.project-header>.project-contributors {
+    margin-left: auto;
+    margin-right: auto;
+    width: -webkit-calc(96% - (30px / 4));
+    width: -calc(96%-30px / 4)
+}
+
+.project-contributor {
+    margin-left: 5pt;
+    margin-right: 5pt;
+    float: left;
+    font-weight: 600;
+    color: #0077B5
+}
+
+.footnote {
+    font-size: 14px;
+    color: #828282;
+    float: left
+}
+
+.project-thumbnail,
+.project-figure {
+    margin-top: 10pt;
+    margin-bottom: 10pt;
+    margin: auto;
+    width: -webkit-calc(96%);
+    width: -calc(96%)
+}
+
+.project-figure>img {
+    align: middle
+}
+
+.project-thumbnail>img {
+    align: middle;
+    border: solid
+}
+
+.project-desc {
+    background-color: #e8e8e8;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 20px;
+    border-radius: 4px;
+    color: #002336
+}
+
+@media screen and (max-width: 600px) {
+    .project-desc {
+        padding: 2px;
+        margin: 2px
+    }
+}
+
+.project-desc>div>strong,
+.project-desc>p>strong,
+.project-desc>strong {
+    color: #9b3022
+}
+
+.project-desc>.tags {
+    font-weight: 600
+}
+
+.project-desc>.tag,
+.project-desc>.tags>.tag {
+    color: #9b3022
+}
+
+.publisher {
+    color: #00a200;
+    font-size: 14px;
+    font-weight: 600
+}
+
+.project-content {
+    margin-bottom: 30px
+}
+
+.project-content h2 {
+    font-size: 32px
+}
+
+@media screen and (max-width: 800px) {
+    .project-content h2 {
+        font-size: 28px
+    }
+}
+
+.project-content h3 {
+    font-size: 26px
+}
+
+@media screen and (max-width: 800px) {
+    .project-content h3 {
+        font-size: 22px
+    }
+}
+
+.project-content h4 {
+    font-size: 20px
+}
+
+@media screen and (max-width: 800px) {
+    .project-content h4 {
+        font-size: 18px
+    }
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 4px 2px;  /* row gap 24px, column gap 32px */
+    flex-wrap: wrap;
+    width: 940px; /* 控制最大宽度，2列布局 */
+    margin: 0 auto;
   }
-  .reviewer-column::before { content:"•"; position:absolute; left:0; color:#555; }
-  @media (max-width:600px){ .reviewer-column{ flex:1 1 100%; padding-right:0; } }
-  .reviewer-title{ margin-top:12px; font-weight:bold; }
-</style>
+  
+  .github-card {
+    border: 1.5px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: white;
+    margin-bottom: 2px;
+    width: 430px;
+    font-family: system-ui, sans-serif;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .github-card a {
+    color: #1a1a1a;
+    text-decoration: none;
+  }
+  
+  .github-card a:hover {
+    color: #2563eb;
+    text-decoration: underline;
+  }
+  
+  .github-card .repo-link {
+    font-weight: 500;
+    font-size: 14px;
+  }
+  
+  .github-card .label {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 9999px;
+    font-size: 12px;
+    color: #6b7280;
+  }
+  
+  .github-card .description {
+    margin-top: 8px;
+    font-size: 11px;
+    color: #6b7280;
+  }
+  
+  .github-card .meta {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    color: #6b7280;
+  }
+  
+  .github-card .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #2563eb;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+  
+  .github-card .meta a {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 16px;
+    color: #6b7280;
+  }
+  
+  .github-card .meta a:hover {
+    color: #2563eb;
+  }
+  
+  .github-card svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+  }
 
-<div class="wrapper" id="academicservices">
-  <div class="reviewer-title">Conference Reviewer:</div>
-  <div class="reviewer-section">
-    <div class="reviewer-column">IEEE Applied Power Electronics Conference and Exposition (APEC)</div>
-    <div class="reviewer-column">IEEE Energy Conversion Congress and Exposition (ECCE)</div>
-  </div>
-
-  <div class="reviewer-title">Journal Reviewer:</div>
-  <div class="reviewer-section">
-    <div class="reviewer-column">Nature Communications</div>
-    <div class="reviewer-column">IEEE Transactions on Power Electronics (TPEL)</div>
-    <div class="reviewer-column">Energy</div>
-    <div class="reviewer-column">Energy Conversion and Management (ECM)</div>
-    <div class="reviewer-column">Fuel</div>
-    <div class="reviewer-column">IEEE Journal of Emerging and Selected Topics in Power Electronics (JESTPE)</div>
-    <div class="reviewer-column">International Journal of Hydrogen Energy (IJHE)</div>
-  </div>
-</div>
-
-<!-- Clustrmaps -->
-<div style="display:flex; justify-content:center; align-items:center;">
-  <div style="max-width:400px; width:100%;">
-    <script id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=K9NLvpbM7GH1cTCvhvVlo4LW5p-d2mRZYw6UhrAFw0g&amp;cl=ffffff&amp;w=a" type="text/javascript"></script>
-  </div>
-</div>
-
-<footer class="site-footer">
-  <div class="wrapper">
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li>Personal Email:</li>
-          <li><a href="mailto:zf741741@126.com">zf741741@126.com</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-2">
-        <a class="icon-button github" href="https://scholar.google.com/citations?user=f6Bvb1UAAAAJ&hl=zh-CN" target="_blank" rel="noopener noreferrer">
-          <i class="ai ai-google-scholar-square icon-github"></i><span></span>
-        </a>
-        <a class="icon-button orcid" href="https://orcid.org/0000-0001-6602-6041" target="_blank" rel="noopener noreferrer">
-          <i class="ai ai-orcid icon-github"></i><span></span>
-        </a>
-        <a class="icon-button linkedin" href="https://www.linkedin.com/in/shiqi-zhang-9b76a1359/" target="_blank" rel="noopener noreferrer">
-          <i class="fa fa-linkedin icon-linkedin"></i><span></span>
-        </a>
-        <a aria-label="ResearchGate" class="icon-button researchgate" href="https://www.researchgate.net/profile/Shiqi-Zhang-63" target="_blank" rel="noopener noreferrer">
-          <i class="ai ai-researchgate icon-linkedin"></i><span></span>
-        </a>
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p class="text">
-          Last updated: Aug, 2025.<br/>
-          The style of this website is borrowed from <a href="https://leoyuan.site/" target="_blank">Zeqing Yuan's</a>.
-        </p>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<div class="back-to-top">Top</div>
-
-<script type="text/javascript">
-  jQuery(document).ready(function() {
-    var offset = 220;
-    var duration = 500;
-    jQuery(window).scroll(function() {
-      if (jQuery(this).scrollTop() > offset) jQuery('.back-to-top').fadeIn(duration);
-      else jQuery('.back-to-top').fadeOut(duration);
-    });
-    jQuery('.back-to-top').click(function(event) {
-      event.preventDefault();
-      jQuery('html, body').animate({scrollTop: 0}, duration);
-      return false;
-    });
-  });
-</script>
-
-<script id="avatar-upload-script">
-  document.addEventListener('DOMContentLoaded', function () {
-    const img = document.getElementById('profile-avatar');
-    const input = document.getElementById('avatarUpload');
-    if (!img || !input) return;
-
-    try {
-      const saved = localStorage.getItem('profileAvatarDataUrl');
-      if (saved) img.src = saved;
-    } catch (e) {}
-
-    img.style.cursor = 'pointer';
-    img.title = 'Click to change avatar';
-    img.addEventListener('click', function () {
-      input.click();
-    });
-
-    input.addEventListener('change', function () {
-      const file = input.files && input.files[0];
-      if (!file || !file.type || !file.type.startsWith('image/')) return;
-
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        const dataUrl = e.target.result;
-        img.src = dataUrl;
-        try { localStorage.setItem('profileAvatarDataUrl', dataUrl); } catch (err) {}
-        input.value = '';
-      };
-      reader.readAsDataURL(file);
-    });
-  });
-</script>
-
-</body>
-</html>
+}
