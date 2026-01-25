@@ -488,7 +488,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // Get the buttons and publications
   const showSelectedBtn = document.getElementById('show-selected-btn');
   const showAllBtn = document.getElementById('show-all-btn');
-  const publications = document.querySelectorAll('.pub');
+  const publications = document.querySelectorAll('.pub-item');
+
 
   // Add event listener to 'Show Selected Publication' button
   showSelectedBtn.addEventListener('click', function() {
@@ -522,7 +523,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <style>
-/* 让整个卡片容器不要居中 */
 /* ===== Patents layout: responsive, no cut off ===== */
 #patent-cards{
   display: flex;
@@ -550,7 +550,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   justify-content:space-between;
   align-items:flex-start;
   gap:12px;
-  flex-wrap: wrap;              /* 关键：窄屏时 badge 另起一行 */
+  flex-wrap: wrap;
 }
 
 /* 标题：允许换行、避免长词溢出 */
@@ -559,7 +559,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   font-size:16px;
   line-height:1.35;
   word-break: break-word;
-  overflow-wrap: anywhere;       /* 关键：长英文也能断 */
+  overflow-wrap: anywhere;
 }
 
 .patent-card .title-cn{
@@ -593,86 +593,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   word-break: break-word;
   overflow-wrap: anywhere;
 }
+
 .patent-card .meta b{ color:#333; }
+</style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  // 你给的“专利名称”——我按“英文名 + 中文名 + 号 + 日期/状态”整理
   const patents = [
-    {
-      en: "Electrolysis hydrogen production system model",
-      cn: "一种电解制氢系统模型",
-      no: "CN117037928B",
-      date: "2023-11-10 (Granted)",
-      status: "Granted"
-    },
-    {
-      en: "Hydrogen production power converter",
-      cn: "一种制氢变流器",
-      no: "CN117040267B",
-      date: "Granted 2023-11-10",
-      status: "Granted"
-    },
-    {
-      en: "Control and fault-tolerant method for multiphase interleaved parallel converters",
-      cn: "一种多相交错并联变换器控制和容错方法",
-      no: "CN115347774B",
-      date: "Granted 2023-05-23",
-      status: "Granted"
-    },
-    {
-      en: "Fault diagnosis and recovery control for interleaved Buck circuits",
-      cn: "一种交错并联Buck电路的故障诊断及恢复控制方法",
-      no: "CN115065243B",
-      date: "Granted 2022-12-30",
-      status: "Granted"
-    },
-    {
-      en: "Multi-mode dual-layer fault diagnosis method for fuel cell systems",
-      cn: "一种燃料电池系统多模式双层故障诊断方法",
-      no: "CN113962259B",
-      date: "Granted 2022-06-03",
-      status: "Granted"
-    },
-    {
-      en: "Energy management method for renewable energy systems",
-      cn: "一种可再生能源系统的能量管理方法",
-      no: "CN115411770B",
-      date: "Granted 2022-11-29)",
-      status: "Granted"
-    },
-    {
-      en: "Energy management method for microgrids with hydrogen energy storage",
-      cn: "一种含氢储能微电网的能量管理方法",
-      no: "CN115085229B",
-      date: "Granted 2022-12-30",
-      status: "Granted"
-    },
-    {
-      en: "Multi-objective optimization method for distributed generation considering power constraints",
-      cn: "一种考虑电源设置条件的多目标分布式电源优化配置方法",
-      no: "CN113890094B",
-      date: "Granted 2022-06-03",
-      status: "Granted"
-    },
-    {
-      en: "Intelligent optimization control for satellite power fault reconstruction based on wild goat algorithm",
-      cn: "基于野山羊算法的卫星电源故障重构的智能优化控制方法",
-      no: "CN115079571B",
-      date: "Granted 2022-12-30",
-      status: "Granted"
-    },
-    {
-      en: "Improved transformerless three-phase multilevel inverter and control method",
-      cn: "一种改进的无变压器三相多电平逆变器及其控制方法",
-      no: "CN115987127B",
-      date: "Granted 2023-09-19",
-      status: "Granted"
-    }
+    { en:"Electrolysis hydrogen production system model", cn:"一种电解制氢系统模型", no:"CN117037928B", date:"2023-11-10", status:"Granted" },
+    { en:"Hydrogen production power converter", cn:"一种制氢变流器", no:"CN117040267B", date:"2023-11-10", status:"Granted" },
+    { en:"Control and fault-tolerant method for multiphase interleaved parallel converters", cn:"一种多相交错并联变换器控制和容错方法", no:"CN115347774B", date:"2023-05-23", status:"Granted" },
+    { en:"Fault diagnosis and recovery control for interleaved Buck circuits", cn:"一种交错并联Buck电路的故障诊断及恢复控制方法", no:"CN115065243B", date:"2022-12-30", status:"Granted" },
+    { en:"Multi-mode dual-layer fault diagnosis method for fuel cell systems", cn:"一种燃料电池系统多模式双层故障诊断方法", no:"CN113962259B", date:"2022-06-03", status:"Granted" },
+    { en:"Energy management method for renewable energy systems", cn:"一种可再生能源系统的能量管理方法", no:"CN115411770B", date:"2022-11-29", status:"Granted" },
+    { en:"Energy management method for microgrids with hydrogen energy storage", cn:"一种含氢储能微电网的能量管理方法", no:"CN115085229B", date:"2022-12-30", status:"Granted" },
+    { en:"Multi-objective optimization method for distributed generation considering power constraints", cn:"一种考虑电源设置条件的多目标分布式电源优化配置方法", no:"CN113890094B", date:"2022-06-03", status:"Granted" },
+    { en:"Intelligent optimization control for satellite power fault reconstruction based on wild goat algorithm", cn:"基于野山羊算法的卫星电源故障重构的智能优化控制方法", no:"CN115079571B", date:"2022-12-30", status:"Granted" },
+    { en:"Improved transformerless three-phase multilevel inverter and control method", cn:"一种改进的无变压器三相多电平逆变器及其控制方法", no:"CN115987127B", date:"2023-09-19", status:"Granted" }
   ];
 
   const container = document.getElementById('patent-cards');
-  if (!container) return;
+  if (!container) { console.error('[patents] #patent-cards not found'); return; }
 
   container.innerHTML = patents.map(p => `
     <div class="patent-card">
@@ -700,6 +641,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 </script>
+
 
 </div>
 </div>
@@ -905,7 +847,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
   ga('create', 'UA-60071442-1', 'auto');
   ga('send', 'pageview');
-</script>
--->
-<!--<script src="custom-pub.js"></script>-->
+
 </html>
