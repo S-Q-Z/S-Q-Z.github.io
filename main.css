@@ -703,7 +703,7 @@ pre>code {
 }
 
 .shallow-bg {
-    /* background-image: url("images/background/background1.JPG"); */
+    /* background-image: url("images/background/my_cover.jpg"); */
     background-image: url("images/background/background_hkust_2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
