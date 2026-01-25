@@ -411,11 +411,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <br/>
 </div>
 </div>
-<div class="publications" id="publications">
-<h1 class="md-heading text-left">
-<i aria-hidden="true" class="fa fa-file"></i>
-    Publications (<button class="custom-button" id="show-selected-btn"> Show Representative </button> / <button class="custom-button" id="show-all-btn"> Show All </button>)
-  </h1>
+<div class="wrapper">
+  <div class="bio" id="publications">
+    <h1 class="md-heading text-left">
+      <i aria-hidden="true" class="fa fa-file"></i>
+      Publications (
+        <button class="custom-button" id="show-selected-btn"> Show Representative </button>
+        /
+        <button class="custom-button" id="show-all-btn"> Show All </button>
+      )
+    </h1>
 <div class="pub-list">
   <div class="pub-item">
     <div class="pub-idx">[1]</div>
@@ -475,9 +480,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="pub-item">
     <div class="pub-idx">[12]</div>
     <div class="pub-text">X. Guo, H. Zhu, and S. Zhang (Corresponding Author), “Overview of electrolyser and hydrogen production power supply from industrial perspective,” <i>Int. J. Hydrogen Energy</i>, vol. 49, pp. 1048–1059, 2024.</div>
+    </div>
   </div>
-</div>
-
 </div>
 <!-- JavaScript to handle button clicks -->
 <script>
@@ -507,94 +511,89 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="wrapper">
   <div class="bio" id="patents">
-    <div class="bio-body" style="overflow:hidden;">
-      <h1 class="md-heading text-left">
-        <i aria-hidden="true" class="fa fa-gavel"></i>
+    <h1 class="md-heading text-left">
+      <i aria-hidden="true" class="fa fa-gavel"></i>
 
         Patents / 专利
-      </h1>
+    </h1>
 
-      <div class="card-container" id="patent-cards"></div>
-    </div>
+    <div class="card-container" id="patent-cards"></div>
   </div>
 </div>
 
 <style>
 /* 让整个卡片容器不要居中 */
+/* ===== Patents layout: responsive, no cut off ===== */
 #patent-cards{
-  justify-items: stretch;   /* grid item 拉满 */
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
 }
 
-/* 卡片本身：左对齐 + 不要自己居中 */
+/* 卡片：始终占满容器宽度 */
 .patent-card{
+  width: 100%;
+  box-sizing: border-box;
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.12);
+  border-radius:12px;
+  padding:14px 16px;
+  box-shadow:0 1px 2px rgba(0,0,0,0.04);
   text-align: left;
-  margin: 0;               /* 防止被 auto margin 居中 */
-  width: 100%;             /* 充满 grid 单元 */
+  margin: 0;
 }
 
-/* 顶部行：标题块靠左，badge 靠右 */
+/* 顶部行：左标题 + 右 badge；手机上允许换行 */
 .patent-card .row-top{
-  align-items: flex-start;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  flex-wrap: wrap;              /* 关键：窄屏时 badge 另起一行 */
 }
 
-/* 标题和中文：明确左对齐 */
-.patent-card .title-en,
-.patent-card .title-cn,
+/* 标题：允许换行、避免长词溢出 */
+.patent-card .title-en{
+  font-weight:700;
+  font-size:16px;
+  line-height:1.35;
+  word-break: break-word;
+  overflow-wrap: anywhere;       /* 关键：长英文也能断 */
+}
+
+.patent-card .title-cn{
+  margin-top:4px;
+  font-size:14px;
+  color:#444;
+  line-height:1.5;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.patent-card .badge{
+  white-space:nowrap;
+  font-size:12px;
+  padding:4px 10px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,0.15);
+  color:#555;
+  background:rgba(0,0,0,0.02);
+}
+
+/* meta：两列信息在手机上自动换行 */
 .patent-card .meta{
-  text-align: left;
+  margin-top:10px;
+  font-size:13px;
+  color:#666;
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  align-items:center;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
-
-/* meta 行更像“信息行”，避免看起来居中 */
-.patent-card .meta{
-  justify-content: flex-start;
-}
-
-	/* 复用你 GitHub 卡片风格 */
-  .patent-card{
-    background:#fff;
-    border:1px solid rgba(0,0,0,0.12);
-    border-radius:12px;
-    padding:14px 16px;
-    box-shadow:0 1px 2px rgba(0,0,0,0.04);
-  }
-  .patent-card .row-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    gap:12px;
-  }
-  .patent-card .title-en{
-    font-weight:700;
-    font-size:16px;
-    line-height:1.35;
-  }
-  .patent-card .title-cn{
-    margin-top:4px;
-    font-size:14px;
-    color:#444;
-    line-height:1.5;
-  }
-  .patent-card .badge{
-    white-space:nowrap;
-    font-size:12px;
-    padding:4px 10px;
-    border-radius:999px;
-    border:1px solid rgba(0,0,0,0.15);
-    color:#555;
-    background:rgba(0,0,0,0.02);
-  }
-  .patent-card .meta{
-    margin-top:10px;
-    font-size:13px;
-    color:#666;
-    display:flex;
-    flex-wrap:wrap;
-    gap:14px;
-    align-items:center;
-  }
-  .patent-card .meta b{ color:#333; }
-</style>
+.patent-card .meta b{ color:#333; }
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
