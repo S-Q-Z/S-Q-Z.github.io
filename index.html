@@ -1,6 +1,33 @@
 <!DOCTYPE html>
 
 <html>
+	<style>
+.pub-list{
+  margin-top: 10px;
+}
+
+.pub-item{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 10px 0;
+}
+
+.pub-idx{
+  width: 46px;
+  flex: 0 0 46px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.pub-text{
+  flex: 1;
+  line-height: 1.6;
+  text-align: justify;
+  text-justify: inter-word;
+}
+</style>
+
 <head>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-RFR2GFKT75"></script>
@@ -389,9 +416,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <i aria-hidden="true" class="fa fa-file"></i>
     Publications (<button class="custom-button" id="show-selected-btn"> Show Representative </button> / <button class="custom-button" id="show-all-btn"> Show All </button>)
   </h1>
-<div class="pub-list"><div class="pub"><div class="pub-info"><p>[1] S. Zhang, Y. Teng, H. Kong, N. Wang, Y. Liu, X. Guo, and C. Hua, “An industrial overview of variable-frequency drives for hydrogen compressors in hydrogen transportation,” Renew. Sustain. Energy Rev., vol. 223, 116009, 2025.</p></div></div><div class="pub"><div class="pub-info"><p>[2] S. Zhang, Z. Jiao, J. Su, N. Wang, Z. Li, X. Guo, and C. Hua, “Low-ripple modulation strategy for a photovoltaic-based triple-port hydrogen production system,” IEEE Trans. Ind. Electron., Early Access, 2025.</p></div></div><div class="pub"><div class="pub-info"><p>[3] S. Zhang, Y. Teng, Y. Sun, F. Ding, N. Wang, X. Guo, and C. Hua, “Fault diagnosis and fault-tolerant operation strategy for triple-port hydrogen production system,” IEEE Trans. Power Electron., vol. 40, no. 8, pp. 11526–11536, 2025.</p></div></div><div class="pub"><div class="pub-info"><p>[4] S. Zhang, Y. Wei, X. Guo, Z. Li, X. Song, and F. Blaabjerg, “Overview of US patents for energy management of renewable energy systems with hydrogen,” Int. J. Hydrogen Energy, vol. 48, no. 26, pp. 9574–9591, 2023.</p></div></div><div class="pub"><div class="pub-info"><p>[5] X. Guo, S. Zhang (Corresponding Author), F. Ding, J. Zhu, and H. Bai, “A novel DC–DC converter for electrolyzer with low ripple and high step down,” IEEE Trans. Ind. Electron., vol. 71, no. 10, pp. 12476–12486, 2024.</p></div></div><div class="pub"><div class="pub-info"><p>[6] X. Guo, S. Zhang (Corresponding Author), Z. Yan, Y. Wei, and X. Hu, “A novel phase-locked loop structure to enhance converter stability in weak grids,” IEEE Trans. Power Electron., vol. 38, no. 11, pp. 13855–13865, 2023.</p></div></div><div class="pub"><div class="pub-info"><p>[7] X. Guo, S. Zhang, Z. Liu, L. Sun, Z. Lu, C. Hua, and J. Guerrero, “A new multi-mode fault-tolerant operation control strategy of multiphase stacked interleaved Buck converter for green hydrogen production,” Int. J. Hydrogen Energy, vol. 47, no. 71, pp. 30359–30370, 2022.</p></div></div><div class="pub"><div class="pub-info"><p>[8] X. Guo, S. Zhang (Corresponding Author), Y. Gao, Y. Teng, N. Diao, C. Hua, and V. Terzija, “Advancements in photovoltaic electrolysis for green hydrogen production: A comprehensive review and comparative analysis of modeling approaches,” IEEE Trans. Power Electron., vol. 40, no. 7, pp. 10000–10026, 2025.</p></div></div><div class="pub"><div class="pub-info"><p>[9] W. Fang, Y. Teng, S. Zhang (Corresponding Author), H. Kong, H. Wang, and X. Guo, “Impedance modeling and stability analysis of electrolysis system for hydrogen production under weak grid,” Fuel, vol. 374, 132403, 2024.</p></div></div><div class="pub"><div class="pub-info"><p>[10] X. Guo, F. Ding, S. Zhang (Corresponding Author), Y. Teng, N. Diao, and V. Terzija, “Enhanced green hydrogen production using a novel converter with extremely low current ripple and high step-down ratio,” Fuel, vol. 398, 135424, 2025.</p></div></div><div class="pub"><div class="pub-info"><p>[11] X. Guo, X. Hu, and S. Zhang (Corresponding Author), “Application status of variable-frequency drive in hydrogen fuel cell air compressors from an industrial viewpoint: A review,” Sustain. Energy Technol. Assess., vol. 64, 103716, 2024.</p></div></div><div class="pub"><div class="pub-info"><p>[12] X. Guo, H. Zhu, and S. Zhang (Corresponding Author), “Overview of electrolyser and hydrogen production power supply from industrial perspective,” Int. J. Hydrogen Energy, vol. 49, pp. 1048–1059, 2024. -</p></div></div></div>
+<div class="pub-list">
+  <div class="pub-item">
+    <div class="pub-idx">[1]</div>
+    <div class="pub-text">S. Zhang, Y. Teng, H. Kong, N. Wang, Y. Liu, X. Guo, and C. Hua, “An industrial overview of variable-frequency drives for hydrogen compressors in hydrogen transportation,” <i>Renew. Sustain. Energy Rev.</i>, vol. 223, 116009, 2025.</div>
+  </div>
+
+  <div class="pub-item">
+    <div class="pub-idx">[2]</div>
+    <div class="pub-text">S. Zhang, Z. Jiao, J. Su, N. Wang, Z. Li, X. Guo, and C. Hua, “Low-ripple modulation strategy for a photovoltaic-based triple-port hydrogen production system,” <i>IEEE Trans. Ind. Electron.</i>, Early Access, 2025.</div>
+  </div>
+
+  <div class="pub-item">
+    <div class="pub-idx">[3]</div>
+    <div class="pub-text">S. Zhang, Y. Teng, Y. Sun, F. Ding, N. Wang, X. Guo, and C. Hua, “Fault diagnosis and fault-tolerant operation strategy for triple-port hydrogen production system,” <i>IEEE Trans. Power Electron.</i>, vol. 40, no. 8, pp. 11526–11536, 2025.</div>
+  </div>
+
+  <div class="pub-item">
+    <div class="pub-idx">[4]</div>
+    <div class="pub-text">S. Zhang, Y. Wei, X. Guo, Z. Li, X. Song, and F. Blaabjerg, “Overview of US patents for energy management of renewable energy systems with hydrogen,” <i>Int. J. Hydrogen Energy</i>, vol. 48, no. 26, pp. 9574–9591, 2023.</div>
+  </div>
+
+  <div class="pub-item">
+    <div class="pub-idx">[5]</div>
+    <div class="pub-text">X. Guo, S. Zhang (Corresponding Author), F. Ding, J. Zhu, and H. Bai, “A novel DC–DC converter for electrolyzer with low ripple and high step down,” <i>IEEE Trans. Ind. Electron.</i>, vol. 71, no. 10, pp. 12476–12486, 2024.</div>
+  </div>
+
+  <div class="pub-item">
+    <div class="pub-idx">[6]</div>
+    <div class="pub-text">X. Guo, S. Zhang (Corresponding Author), Z. Yan, Y. Wei, and X. Hu, “A novel phase-locked loop structure to enhance converter stability in weak grids,” <i>IEEE Trans. Power Electron.</i>, vol. 38, no. 11, pp. 13855–13865, 2023.</div>
+  </div>
+
+  <div class="pub-item">
+    <div class="pub-idx">[7]</div>
+    <div class="pub-text">X. Guo, S. Zhang, Z. Liu, L. Sun, Z. Lu, C. Hua, and J. Guerrero, “A new multi-mode fault-tolerant operation control strategy of multiphase stacked interleaved Buck converter for green hydrogen production,” <i>Int. J. Hydrogen Energy</i>, vol. 47, no. 71, pp. 30359–30370, 2022.</div>
+  </div>
+
+  <div class="pub-item">
+    <div class="pub-idx">[8]</div>
+    <div class="pub-text">X. Guo, S. Zhang (Corresponding Author), Y. Gao, Y. Teng, N. Diao, C. Hua, and V. Terzija, “Advancements in photovoltaic electrolysis for green hydrogen production: A comprehensive review and comparative analysis of modeling approaches,” <i>IEEE Trans. Power Electron.</i>, vol. 40, no. 7, pp. 10000–10026, 2025.</div>
+  </div>
+
+  <div class="pub-item">
+    <div class="pub-idx">[9]</div>
+    <div class="pub-text">W. Fang, Y. Teng, S. Zhang (Corresponding Author), H. Kong, H. Wang, and X. Guo, “Impedance modeling and stability analysis of electrolysis system for hydrogen production under weak grid,” <i>Fuel</i>, vol. 374, 132403, 2024.</div>
+  </div>
+
+  <div class="pub-item">
+    <div class="pub-idx">[10]</div>
+    <div class="pub-text">X. Guo, F. Ding, S. Zhang (Corresponding Author), Y. Teng, N. Diao, and V. Terzija, “Enhanced green hydrogen production using a novel converter with extremely low current ripple and high step-down ratio,” <i>Fuel</i>, vol. 398, 135424, 2025.</div>
+  </div>
+
+  <div class="pub-item">
+    <div class="pub-idx">[11]</div>
+    <div class="pub-text">X. Guo, X. Hu, and S. Zhang (Corresponding Author), “Application status of variable-frequency drive in hydrogen fuel cell air compressors from an industrial viewpoint: A review,” <i>Sustain. Energy Technol. Assess.</i>, vol. 64, 103716, 2024.</div>
+  </div>
+
+  <div class="pub-item">
+    <div class="pub-idx">[12]</div>
+    <div class="pub-text">X. Guo, H. Zhu, and S. Zhang (Corresponding Author), “Overview of electrolyser and hydrogen production power supply from industrial perspective,” <i>Int. J. Hydrogen Energy</i>, vol. 49, pp. 1048–1059, 2024.</div>
+  </div>
 </div>
-</div>
+
 </div>
 <!-- JavaScript to handle button clicks -->
 <script>
