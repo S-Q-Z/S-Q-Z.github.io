@@ -2130,5 +2130,5 @@ div.paginate-container li:nth-last-child(2) a:after {
 
 /* 5) 可选：背景预加载那段重复，做个最小化（不影响显示） */
 body:after{
-  content: url("images/background/my_cover3.jpg") !important;
+  content: url("images/background/background-2.jpg") !important;
 }
