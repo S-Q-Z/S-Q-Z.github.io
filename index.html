@@ -423,7 +423,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="bio" id="patents">
     <div class="bio-body" style="overflow:hidden;">
       <h1 class="md-heading text-left">
-        <i aria-hidden="true" class="fa fa-certificate"></i>
+        <i aria-hidden="true" class="fa fa-gavel"></i>
+
         Patents / 专利
       </h1>
 
@@ -433,7 +434,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <style>
-  /* 复用你 GitHub 卡片风格 */
+/* 让整个卡片容器不要居中 */
+#patent-cards{
+  justify-items: stretch;   /* grid item 拉满 */
+  align-items: start;
+}
+
+/* 卡片本身：左对齐 + 不要自己居中 */
+.patent-card{
+  text-align: left;
+  margin: 0;               /* 防止被 auto margin 居中 */
+  width: 100%;             /* 充满 grid 单元 */
+}
+
+/* 顶部行：标题块靠左，badge 靠右 */
+.patent-card .row-top{
+  align-items: flex-start;
+}
+
+/* 标题和中文：明确左对齐 */
+.patent-card .title-en,
+.patent-card .title-cn,
+.patent-card .meta{
+  text-align: left;
+}
+
+/* meta 行更像“信息行”，避免看起来居中 */
+.patent-card .meta{
+  justify-content: flex-start;
+}
+
+	/* 复用你 GitHub 卡片风格 */
   .patent-card{
     background:#fff;
     border:1px solid rgba(0,0,0,0.12);
