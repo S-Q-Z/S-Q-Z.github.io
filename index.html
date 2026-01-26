@@ -252,7 +252,7 @@
   <div class="profile-wrapper wrapper-light" id="profile-namecard">
     <div class="profile-col profile-col-1" id="my-pic">
       <img alt="Shiqi Zhang" class="circle-img border-dark" id="profile-avatar" src="images/avatar.jpg"/>
-      <input id="avatarUpload" type="file" accept="image/*" style="display:none;">
+   
     </div>
 
     <div class="profile-col profile-col-2" id="my-contact">
@@ -555,39 +555,6 @@
       event.preventDefault();
       jQuery('html, body').animate({scrollTop: 0}, duration);
       return false;
-    });
-  });
-</script>
-
-<script id="avatar-upload-script">
-  document.addEventListener('DOMContentLoaded', function () {
-    const img = document.getElementById('profile-avatar');
-    const input = document.getElementById('avatarUpload');
-    if (!img || !input) return;
-
-    try {
-      const saved = localStorage.getItem('profileAvatarDataUrl');
-      if (saved) img.src = saved;
-    } catch (e) {}
-
-    img.style.cursor = 'pointer';
-    img.title = 'Click to change avatar';
-    img.addEventListener('click', function () {
-      input.click();
-    });
-
-    input.addEventListener('change', function () {
-      const file = input.files && input.files[0];
-      if (!file || !file.type || !file.type.startsWith('image/')) return;
-
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        const dataUrl = e.target.result;
-        img.src = dataUrl;
-        try { localStorage.setItem('profileAvatarDataUrl', dataUrl); } catch (err) {}
-        input.value = '';
-      };
-      reader.readAsDataURL(file);
     });
   });
 </script>
