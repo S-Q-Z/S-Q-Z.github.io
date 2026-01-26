@@ -90,26 +90,44 @@
     }
     img{ max-width:100%; height:auto; }
 
-    /* 让封面区域在手机不“挤/糊/溢出” */
+    /* ===== 关键修复：cover 不要固定高度，否则名片溢出会遮挡下面 ===== */
     #profile-cover{
+      height: auto !important;       /* 覆盖 main.css 的 .cover height:320/400 */
+      min-height: 320px;
+      padding-top: 84px;             /* 预留顶部导航高度，避免被 header 压住 */
+      padding-bottom: 64px;          /* 给足空间，避免 social icons 溢出遮挡 About */
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
-      padding-top: 72px;   /* 预留顶部导航高度，避免遮挡 */
-      padding-bottom: 22px;
+      box-sizing: border-box;
+    }
+    @media (max-width: 600px){
+      #profile-cover{
+        min-height: 420px;           /* 手机端更高一点，避免挤压 */
+        padding-top: 78px;
+        padding-bottom: 70px;
+      }
     }
 
-    /* namecard 在不同屏幕居中且不溢出 */
+    /* ===== 关键修复：取消 main.css 对 profile-col 的 float:left !important ===== */
     #profile-namecard{
-      width: min(980px, 92vw);
+      top: 0 !important;             /* 覆盖 main.css 的 .profile-wrapper top:20% */
+      width: min(980px, 92vw) !important;
       margin: 0 auto;
-      box-sizing: border-box;
       padding: 18px 18px;
+      box-sizing: border-box;
+
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
       gap: 16px 22px;
+    }
+    #profile-namecard .profile-col{
+      float: none !important;        /* 盖掉 main.css 的 float:left !important */
+      width: auto !important;
+      margin: 0 !important;
+      text-align: center;
     }
 
     #my-pic{
@@ -124,7 +142,7 @@
       height: 168px;
       object-fit: cover;
       image-rendering: auto;
-      transform: translateZ(0); /* 某些手机浏览器减少渲染抖动 */
+      transform: translateZ(0);
     }
 
     /* 联系信息区 */
@@ -147,6 +165,13 @@
       flex-wrap:wrap;
       gap: 10px 10px;
       align-items:center;
+      justify-content: center;
+      margin-top: 6px;
+    }
+
+    /* 让 About 区域不会贴着 cover（进一步防遮挡） */
+    .page-content{
+      padding-top: 18px;
     }
 
     /* About 两列：桌面两列，手机一列 */
@@ -160,11 +185,11 @@
       min-width: 280px;
     }
 
-    /* Pub：手机端改为上下结构更好读 */
     @media (max-width: 720px){
       #profile-namecard{
-        width: min(980px, 94vw);
+        width: min(980px, 94vw) !important;
         padding: 16px 14px;
+        gap: 12px 16px;
       }
       #profile-avatar{
         width: 148px;
@@ -175,10 +200,6 @@
         max-width: 100%;
         text-align:center;
       }
-      .social-media{
-        justify-content:center;
-      }
-
       .two-col{
         flex-direction: column;
         gap: 10px;
@@ -196,7 +217,6 @@
         flex: 0 0 auto;
       }
 
-      /* 专利卡片在手机更紧凑 */
       .patent-card{ padding: 12px 12px; border-radius: 12px; }
       .patent-card .title-en{ font-size: 15px; }
       .patent-card .title-cn{ font-size: 13.5px; }
@@ -272,8 +292,9 @@
       <h1 class="md-heading text-left"><i aria-hidden="true" class="fa fa-id-card"></i> About</h1>
       <div class="bio-body" style="overflow:hidden;">
         <p>
-          I am a Ph.D. candidate in Electrical Engineering at Yanshan University. My research focuses on power electronics and renewable-to-hydrogen systems,
-          including electrolyzer power supplies, multi-port DC–DC converter topologies, impedance modeling &amp; stability under weak grids, and reliability-aware control.
+          I work in Electrical Engineering, focusing on power electronics and renewable-to-hydrogen systems,
+          including electrolyzer power supplies, multi-port DC–DC converter topologies, impedance modeling &amp; stability under weak grids,
+          and reliability-aware control.
         </p>
 
         <div class="two-col">
@@ -348,7 +369,6 @@
   </div>
 </div>
 
-<!-- Publications buttons script -->
 <script>
   const showSelectedBtn = document.getElementById('show-selected-btn');
   const showAllBtn = document.getElementById('show-all-btn');
@@ -378,7 +398,6 @@
   </div>
 </div>
 
-<!-- Patents render script (已修复模板字符串，避免渲染报错/乱码) -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const patents = [
