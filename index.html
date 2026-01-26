@@ -9,26 +9,10 @@
   <meta content="Shiqi Zhang, power electronics, hydrogen, electrolyzer" name="keywords"/>
 
   <link rel="icon" href="favicon.ico?v=1">
-<link href="main.css" rel="stylesheet"/>
-<link href="css/custom.css" rel="stylesheet"/>
+  <link href="main.css" rel="stylesheet"/>
 
-<style>
-  .intro-justify{
-    text-align: justify;
-    text-justify: inter-word;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    overflow-wrap: break-word;
-  }
-  @media (max-width: 720px){
-    .intro-justify{
-      text-align: left;
-    }
-  }
-</style>
-
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
-
+  <!-- Font / icons -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
   <link href="css/academicons.css" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" rel="stylesheet">
 
@@ -45,12 +29,50 @@
     }
   </script>
 
-  <!-- Publications layout -->
+  <!-- ===== Intro justify (fixed placement) ===== -->
+  <style>
+    .intro-justify{
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+      overflow-wrap: break-word;
+    }
+    @media (max-width: 720px){
+      .intro-justify{ text-align: justify; }
+    }
+  </style>
+
+  <!-- ===== Publications layout (desktop + mobile FIX: idx not alone) ===== -->
   <style>
     .pub-list{ margin-top:10px; }
-    .pub-item{ display:flex; align-items:flex-start; gap:12px; margin:10px 0; }
-    .pub-idx{ width:46px; flex:0 0 46px; font-weight:600; line-height:1.6; }
-    .pub-text{ flex:1; line-height:1.6; text-align:justify; text-justify:inter-word; }
+    .pub-item{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      margin:10px 0;
+      flex-wrap: nowrap;              /* KEY: keep [n] + text same row */
+    }
+    .pub-idx{
+      width:46px;
+      flex:0 0 46px;
+      font-weight:600;
+      line-height:1.6;
+    }
+    .pub-text{
+      flex:1;
+      min-width:0;                    /* KEY: allow text wrap inside flex */
+      line-height:1.6;
+      text-align:justify;
+      text-justify:inter-word;
+      overflow-wrap:anywhere;
+      hyphens:auto;
+      -webkit-hyphens:auto;
+    }
+    @media (max-width: 720px){
+      .pub-item{ gap:10px; }
+      .pub-idx{ width:38px; flex:0 0 38px; }
+    }
   </style>
 
   <!-- Timeline list style -->
@@ -69,21 +91,35 @@
     .avatar-upload-btn:hover{ background:rgba(255,255,255,0.95); }
   </style>
 
-  <!-- ===== Patents: FIX alignment + card layout (NO乱码) ===== -->
+  <!-- ===== Patents: card layout + FIX badge alignment (grid) ===== -->
   <style>
     #patents .bio-body{ padding-left: 0 !important; padding-right: 0 !important; }
     #patent-cards{ display:flex; flex-direction:column; gap:12px; width:100%; margin:0 !important; padding:0 !important; }
+
     .patent-card{
       width:100%; box-sizing:border-box; background:#fff;
       border:1px solid rgba(0,0,0,0.12); border-radius:12px;
       padding:14px 16px; box-shadow:0 1px 2px rgba(0,0,0,0.04);
       text-align:left; margin:0 !important;
     }
-    .patent-card .row-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; }
+
+    /* KEY: stable badge positioning on mobile */
+    .patent-card .row-top{
+      display:grid;
+      grid-template-columns: 1fr auto;   /* left title, right badge */
+      column-gap:12px;
+      align-items:start;
+    }
+    .patent-card .row-top > div:first-child{ min-width:0; }
+
     .patent-card .title-en{ font-weight:700; font-size:16px; line-height:1.35; word-break:break-word; overflow-wrap:anywhere; }
     .patent-card .title-cn{ margin-top:4px; font-size:14px; color:#444; line-height:1.5; word-break:break-word; overflow-wrap:anywhere; }
+
     .patent-card .badge{
-      white-space:nowrap; font-size:12px; padding:4px 10px; border-radius:999px;
+      justify-self:end;                 /* KEY: always right */
+      align-self:start;
+      white-space:nowrap;
+      font-size:12px; padding:4px 10px; border-radius:999px;
       border:1px solid rgba(0,0,0,0.15); color:#555; background:rgba(0,0,0,0.02);
     }
     .patent-card .meta{
@@ -91,9 +127,15 @@
       gap:14px; align-items:center; word-break:break-word; overflow-wrap:anywhere;
     }
     .patent-card .meta b{ color:#333; }
+
+    @media (max-width: 720px){
+      .patent-card{ padding:12px 12px; border-radius:12px; }
+      .patent-card .title-en{ font-size:15px; }
+      .patent-card .title-cn{ font-size:13.5px; }
+    }
   </style>
 
-  <!-- ===== Mobile-first responsive fixes (不改 icon/logo 颜色) ===== -->
+  <!-- ===== Mobile-first responsive fixes (and Awards justify) ===== -->
   <style>
     html{
       -webkit-text-size-adjust: 100%;
@@ -107,12 +149,12 @@
     }
     img{ max-width:100%; height:auto; }
 
-    /* ===== 关键修复：cover 不要固定高度，否则名片溢出会遮挡下面 ===== */
+    /* cover height */
     #profile-cover{
-      height: auto !important;       /* 覆盖 main.css 的 .cover height:320/400 */
+      height: auto !important;
       min-height: 320px;
-      padding-top: 84px;             /* 预留顶部导航高度，避免被 header 压住 */
-      padding-bottom: 64px;          /* 给足空间，避免 social icons 溢出遮挡 About */
+      padding-top: 84px;
+      padding-bottom: 64px;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -120,15 +162,15 @@
     }
     @media (max-width: 600px){
       #profile-cover{
-        min-height: 420px;           /* 手机端更高一点，避免挤压 */
+        min-height: 420px;
         padding-top: 78px;
         padding-bottom: 70px;
       }
     }
 
-    /* ===== 关键修复：取消 main.css 对 profile-col 的 float:left !important ===== */
+    /* namecard */
     #profile-namecard{
-      top: 0 !important;             /* 覆盖 main.css 的 .profile-wrapper top:20% */
+      top: 0 !important;
       width: min(980px, 92vw) !important;
       margin: 0 auto;
       padding: 18px 18px;
@@ -141,19 +183,18 @@
       gap: 16px 22px;
     }
     #profile-namecard .profile-col{
-      float: none !important;        /* 盖掉 main.css 的 float:left !important */
+      float: none !important;
       width: auto !important;
       margin: 0 !important;
       text-align: center;
     }
-
     #my-pic{
       display:flex;
       align-items:center;
       justify-content:center;
     }
 
-    /* 头像固定像素，避免被拉伸导致“糊” */
+    /* avatar */
     #profile-avatar{
       width: 168px;
       height: 168px;
@@ -162,21 +203,15 @@
       transform: translateZ(0);
     }
 
-    /* 联系信息区 */
+    /* contact */
     #my-contact{
       min-width: 260px;
       max-width: 560px;
     }
-    #my-name{
-      line-height: 1.15;
-      word-break: break-word;
-    }
-    #my-title, #my-email{
-      line-height: 1.35;
-      word-break: break-word;
-    }
+    #my-name{ line-height: 1.15; word-break: break-word; }
+    #my-title, #my-email{ line-height: 1.35; word-break: break-word; }
 
-    /* 社交图标换行更自然（不动颜色） */
+    /* social icons */
     .social-media{
       display:flex;
       flex-wrap:wrap;
@@ -186,12 +221,9 @@
       margin-top: 6px;
     }
 
-    /* 让 About 区域不会贴着 cover（进一步防遮挡） */
-    .page-content{
-      padding-top: 18px;
-    }
+    .page-content{ padding-top: 18px; }
 
-    /* About 两列：桌面两列，手机一列 */
+    /* two-col */
     .two-col{
       display:flex;
       gap: 22px;
@@ -200,6 +232,15 @@
     .two-col .col{
       flex: 1 1 0;
       min-width: 280px;
+    }
+
+    /* Awards justify (desktop + mobile) */
+    #awards .bio-body li{
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+      overflow-wrap: break-word;
     }
 
     @media (max-width: 720px){
@@ -221,22 +262,7 @@
         flex-direction: column;
         gap: 10px;
       }
-      .two-col .col{
-        min-width: 0;
-      }
-
-      .pub-item{
-        flex-direction: column;
-        gap: 6px;
-      }
-      .pub-idx{
-        width:auto;
-        flex: 0 0 auto;
-      }
-
-      .patent-card{ padding: 12px 12px; border-radius: 12px; }
-      .patent-card .title-en{ font-size: 15px; }
-      .patent-card .title-cn{ font-size: 13.5px; }
+      .two-col .col{ min-width: 0; }
     }
   </style>
 </head>
@@ -269,7 +295,6 @@
   <div class="profile-wrapper wrapper-light" id="profile-namecard">
     <div class="profile-col profile-col-1" id="my-pic">
       <img alt="Shiqi Zhang" class="circle-img border-dark" id="profile-avatar" src="images/avatar.jpg"/>
-   
     </div>
 
     <div class="profile-col profile-col-2" id="my-contact">
@@ -309,9 +334,8 @@
       <h1 class="md-heading text-left"><i aria-hidden="true" class="fa fa-id-card"></i> About</h1>
       <div class="bio-body" style="overflow:hidden;">
         <p class="intro-justify">
-  I work in electrical engineering, with a focus on power electronics for renewable-to-hydrogen energy systems. My research covers electrolyzer power supplies, multi-port DC–DC converter topologies, impedance modeling and stability in weak/converter-dominated grids, and reliability-aware control and protection. I am interested in collaborations on hydrogen power conversion and system-level control.
-</p>
-
+          I work in electrical engineering, with a focus on power electronics for renewable-to-hydrogen energy systems. My research covers electrolyzer power supplies, multi-port DC–DC converter topologies, impedance modeling and stability in weak/converter-dominated grids, and reliability-aware control and protection. I am interested in collaborations on hydrogen power conversion and system-level control.
+        </p>
 
         <div class="two-col">
           <div class="col">
