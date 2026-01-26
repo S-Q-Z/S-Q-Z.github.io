@@ -9,10 +9,26 @@
   <meta content="Shiqi Zhang, power electronics, hydrogen, electrolyzer" name="keywords"/>
 
   <link rel="icon" href="favicon.ico?v=1">
-  <link href="main.css" rel="stylesheet"/>
+<link href="main.css" rel="stylesheet"/>
+<link href="css/custom.css" rel="stylesheet"/>
 
-  <!-- Font / icons -->
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+<style>
+  .intro-justify{
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    overflow-wrap: break-word;
+  }
+  @media (max-width: 720px){
+    .intro-justify{
+      text-align: left;
+    }
+  }
+</style>
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+
   <link href="css/academicons.css" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" rel="stylesheet">
 
@@ -29,50 +45,12 @@
     }
   </script>
 
-  <!-- ===== Intro justify (fixed placement) ===== -->
-  <style>
-    .intro-justify{
-      text-align: justify;
-      text-justify: inter-word;
-      hyphens: auto;
-      -webkit-hyphens: auto;
-      overflow-wrap: break-word;
-    }
-    @media (max-width: 720px){
-      .intro-justify{ text-align: justify; }
-    }
-  </style>
-
-  <!-- ===== Publications layout (desktop + mobile FIX: idx not alone) ===== -->
+  <!-- Publications layout -->
   <style>
     .pub-list{ margin-top:10px; }
-    .pub-item{
-      display:flex;
-      align-items:flex-start;
-      gap:12px;
-      margin:10px 0;
-      flex-wrap: nowrap;              /* KEY: keep [n] + text same row */
-    }
-    .pub-idx{
-      width:46px;
-      flex:0 0 46px;
-      font-weight:600;
-      line-height:1.6;
-    }
-    .pub-text{
-      flex:1;
-      min-width:0;                    /* KEY: allow text wrap inside flex */
-      line-height:1.6;
-      text-align:justify;
-      text-justify:inter-word;
-      overflow-wrap:anywhere;
-      hyphens:auto;
-      -webkit-hyphens:auto;
-    }
-    @media (max-width: 720px){
-      .pub-item{ gap:10px; }
-      .pub-idx{ width:38px; flex:0 0 38px; }
-    }
+    .pub-item{ display:flex; align-items:flex-start; gap:12px; margin:10px 0; }
+    .pub-idx{ width:46px; flex:0 0 46px; font-weight:600; line-height:1.6; }
+    .pub-text{ flex:1; line-height:1.6; text-align:justify; text-justify:inter-word; }
   </style>
 
   <!-- Timeline list style -->
@@ -91,35 +69,21 @@
     .avatar-upload-btn:hover{ background:rgba(255,255,255,0.95); }
   </style>
 
-  <!-- ===== Patents: card layout + FIX badge alignment (grid) ===== -->
+  <!-- ===== Patents: FIX alignment + card layout (NO乱码) ===== -->
   <style>
     #patents .bio-body{ padding-left: 0 !important; padding-right: 0 !important; }
     #patent-cards{ display:flex; flex-direction:column; gap:12px; width:100%; margin:0 !important; padding:0 !important; }
-
     .patent-card{
       width:100%; box-sizing:border-box; background:#fff;
       border:1px solid rgba(0,0,0,0.12); border-radius:12px;
       padding:14px 16px; box-shadow:0 1px 2px rgba(0,0,0,0.04);
       text-align:left; margin:0 !important;
     }
-
-    /* KEY: stable badge positioning on mobile */
-    .patent-card .row-top{
-      display:grid;
-      grid-template-columns: 1fr auto;   /* left title, right badge */
-      column-gap:12px;
-      align-items:start;
-    }
-    .patent-card .row-top > div:first-child{ min-width:0; }
-
+    .patent-card .row-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; }
     .patent-card .title-en{ font-weight:700; font-size:16px; line-height:1.35; word-break:break-word; overflow-wrap:anywhere; }
     .patent-card .title-cn{ margin-top:4px; font-size:14px; color:#444; line-height:1.5; word-break:break-word; overflow-wrap:anywhere; }
-
     .patent-card .badge{
-      justify-self:end;                 /* KEY: always right */
-      align-self:start;
-      white-space:nowrap;
-      font-size:12px; padding:4px 10px; border-radius:999px;
+      white-space:nowrap; font-size:12px; padding:4px 10px; border-radius:999px;
       border:1px solid rgba(0,0,0,0.15); color:#555; background:rgba(0,0,0,0.02);
     }
     .patent-card .meta{
@@ -127,15 +91,9 @@
       gap:14px; align-items:center; word-break:break-word; overflow-wrap:anywhere;
     }
     .patent-card .meta b{ color:#333; }
-
-    @media (max-width: 720px){
-      .patent-card{ padding:12px 12px; border-radius:12px; }
-      .patent-card .title-en{ font-size:15px; }
-      .patent-card .title-cn{ font-size:13.5px; }
-    }
   </style>
 
-  <!-- ===== Mobile-first responsive fixes (and Awards justify) ===== -->
+  <!-- ===== Mobile-first responsive fixes (不改 icon/logo 颜色) ===== -->
   <style>
     html{
       -webkit-text-size-adjust: 100%;
@@ -149,12 +107,12 @@
     }
     img{ max-width:100%; height:auto; }
 
-    /* cover height */
+    /* ===== 关键修复：cover 不要固定高度，否则名片溢出会遮挡下面 ===== */
     #profile-cover{
-      height: auto !important;
+      height: auto !important;       /* 覆盖 main.css 的 .cover height:320/400 */
       min-height: 320px;
-      padding-top: 84px;
-      padding-bottom: 64px;
+      padding-top: 84px;             /* 预留顶部导航高度，避免被 header 压住 */
+      padding-bottom: 64px;          /* 给足空间，避免 social icons 溢出遮挡 About */
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -162,15 +120,15 @@
     }
     @media (max-width: 600px){
       #profile-cover{
-        min-height: 420px;
+        min-height: 420px;           /* 手机端更高一点，避免挤压 */
         padding-top: 78px;
         padding-bottom: 70px;
       }
     }
 
-    /* namecard */
+    /* ===== 关键修复：取消 main.css 对 profile-col 的 float:left !important ===== */
     #profile-namecard{
-      top: 0 !important;
+      top: 0 !important;             /* 覆盖 main.css 的 .profile-wrapper top:20% */
       width: min(980px, 92vw) !important;
       margin: 0 auto;
       padding: 18px 18px;
@@ -183,18 +141,19 @@
       gap: 16px 22px;
     }
     #profile-namecard .profile-col{
-      float: none !important;
+      float: none !important;        /* 盖掉 main.css 的 float:left !important */
       width: auto !important;
       margin: 0 !important;
       text-align: center;
     }
+
     #my-pic{
       display:flex;
       align-items:center;
       justify-content:center;
     }
 
-    /* avatar */
+    /* 头像固定像素，避免被拉伸导致“糊” */
     #profile-avatar{
       width: 168px;
       height: 168px;
@@ -203,15 +162,21 @@
       transform: translateZ(0);
     }
 
-    /* contact */
+    /* 联系信息区 */
     #my-contact{
       min-width: 260px;
       max-width: 560px;
     }
-    #my-name{ line-height: 1.15; word-break: break-word; }
-    #my-title, #my-email{ line-height: 1.35; word-break: break-word; }
+    #my-name{
+      line-height: 1.15;
+      word-break: break-word;
+    }
+    #my-title, #my-email{
+      line-height: 1.35;
+      word-break: break-word;
+    }
 
-    /* social icons */
+    /* 社交图标换行更自然（不动颜色） */
     .social-media{
       display:flex;
       flex-wrap:wrap;
@@ -221,9 +186,12 @@
       margin-top: 6px;
     }
 
-    .page-content{ padding-top: 18px; }
+    /* 让 About 区域不会贴着 cover（进一步防遮挡） */
+    .page-content{
+      padding-top: 18px;
+    }
 
-    /* two-col */
+    /* About 两列：桌面两列，手机一列 */
     .two-col{
       display:flex;
       gap: 22px;
@@ -232,15 +200,6 @@
     .two-col .col{
       flex: 1 1 0;
       min-width: 280px;
-    }
-
-    /* Awards justify (desktop + mobile) */
-    #awards .bio-body li{
-      text-align: justify;
-      text-justify: inter-word;
-      hyphens: auto;
-      -webkit-hyphens: auto;
-      overflow-wrap: break-word;
     }
 
     @media (max-width: 720px){
@@ -262,7 +221,22 @@
         flex-direction: column;
         gap: 10px;
       }
-      .two-col .col{ min-width: 0; }
+      .two-col .col{
+        min-width: 0;
+      }
+
+      .pub-item{
+        flex-direction: column;
+        gap: 6px;
+      }
+      .pub-idx{
+        width:auto;
+        flex: 0 0 auto;
+      }
+
+      .patent-card{ padding: 12px 12px; border-radius: 12px; }
+      .patent-card .title-en{ font-size: 15px; }
+      .patent-card .title-cn{ font-size: 13.5px; }
     }
   </style>
 </head>
@@ -295,6 +269,7 @@
   <div class="profile-wrapper wrapper-light" id="profile-namecard">
     <div class="profile-col profile-col-1" id="my-pic">
       <img alt="Shiqi Zhang" class="circle-img border-dark" id="profile-avatar" src="images/avatar.jpg"/>
+   
     </div>
 
     <div class="profile-col profile-col-2" id="my-contact">
@@ -334,8 +309,9 @@
       <h1 class="md-heading text-left"><i aria-hidden="true" class="fa fa-id-card"></i> About</h1>
       <div class="bio-body" style="overflow:hidden;">
         <p class="intro-justify">
-          I work in electrical engineering, with a focus on power electronics for renewable-to-hydrogen energy systems. My research covers electrolyzer power supplies, multi-port DC–DC converter topologies, impedance modeling and stability in weak/converter-dominated grids, and reliability-aware control and protection. I am interested in collaborations on hydrogen power conversion and system-level control.
-        </p>
+  I work in electrical engineering, with a focus on power electronics for renewable-to-hydrogen energy systems. My research covers electrolyzer power supplies, multi-port DC–DC converter topologies, impedance modeling and stability in weak/converter-dominated grids, and reliability-aware control and protection. I am interested in collaborations on hydrogen power conversion and system-level control.
+</p>
+
 
         <div class="two-col">
           <div class="col">
@@ -380,76 +356,36 @@
 </div>
 
 <!-- Publications -->
-<!-- Publications -->
 <div class="wrapper">
   <div class="bio" id="publications">
     <h1 class="md-heading text-left">
       <i aria-hidden="true" class="fa fa-file"></i>
       Publications (
-      <button class="custom-button" id="show-selected-btn" type="button"> Show Representative </button> /
-      <button class="custom-button" id="show-all-btn" type="button"> Show All </button>
+      <button class="custom-button" id="show-selected-btn"> Show Representative </button> /
+      <button class="custom-button" id="show-all-btn"> Show All </button>
       )
     </h1>
 
     <div class="bio-body">
-      <div class="pub-list" id="pub-list">
-        <!-- ✅ 代表性论文：按你现有顺序放在最前，并全部标 data-selected="true" -->
-        <div class="pub-item" data-selected="true"><div class="pub-idx">[1]</div><div class="pub-text">S. Zhang, Y. Teng, H. Kong, N. Wang, Y. Liu, X. Guo, and C. Hua, “An industrial overview of variable-frequency drives for hydrogen compressors in hydrogen transportation,” <i>Renew. Sustain. Energy Rev.</i>, vol. 223, 116009, 2025.</div></div>
-        <div class="pub-item" data-selected="true"><div class="pub-idx">[2]</div><div class="pub-text">S. Zhang, Z. Jiao, J. Su, N. Wang, Z. Li, X. Guo, and C. Hua, “Low-ripple modulation strategy for a photovoltaic-based triple-port hydrogen production system,” <i>IEEE Trans. Ind. Electron.</i>, Early Access, 2025.</div></div>
-        <div class="pub-item" data-selected="true"><div class="pub-idx">[3]</div><div class="pub-text">S. Zhang, Y. Teng, Y. Sun, F. Ding, N. Wang, X. Guo, and C. Hua, “Fault diagnosis and fault-tolerant operation strategy for triple-port hydrogen production system,” <i>IEEE Trans. Power Electron.</i>, vol. 40, no. 8, pp. 11526–11536, 2025.</div></div>
-        <div class="pub-item" data-selected="true"><div class="pub-idx">[4]</div><div class="pub-text">S. Zhang, Y. Wei, X. Guo, Z. Li, X. Song, and F. Blaabjerg, “Overview of US patents for energy management of renewable energy systems with hydrogen,” <i>Int. J. Hydrogen Energy</i>, vol. 48, no. 26, pp. 9574–9591, 2023.</div></div>
-        <div class="pub-item" data-selected="true"><div class="pub-idx">[5]</div><div class="pub-text">X. Guo, S. Zhang (Corresponding Author), F. Ding, J. Zhu, and H. Bai, “A novel DC–DC converter for electrolyzer with low ripple and high step down,” <i>IEEE Trans. Ind. Electron.</i>, vol. 71, no. 10, pp. 12476–12486, 2024.</div></div>
-        <div class="pub-item" data-selected="true"><div class="pub-idx">[6]</div><div class="pub-text">X. Guo, S. Zhang (Corresponding Author), Z. Yan, Y. Wei, and X. Hu, “A novel phase-locked loop structure to enhance converter stability in weak grids,” <i>IEEE Trans. Power Electron.</i>, vol. 38, no. 11, pp. 13855–13865, 2023.</div></div>
-        <div class="pub-item" data-selected="true"><div class="pub-idx">[7]</div><div class="pub-text">X. Guo, S. Zhang, Z. Liu, L. Sun, Z. Lu, C. Hua, and J. Guerrero, “A new multi-mode fault-tolerant operation control strategy of multiphase stacked interleaved Buck converter for green hydrogen production,” <i>Int. J. Hydrogen Energy</i>, vol. 47, no. 71, pp. 30359–30370, 2022.</div></div>
-        <div class="pub-item" data-selected="true"><div class="pub-idx">[8]</div><div class="pub-text">X. Guo, S. Zhang (Corresponding Author), Y. Gao, Y. Teng, N. Diao, C. Hua, and V. Terzija, “Advancements in photovoltaic electrolysis for green hydrogen production: A comprehensive review and comparative analysis of modeling approaches,” <i>IEEE Trans. Power Electron.</i>, vol. 40, no. 7, pp. 10000–10026, 2025.</div></div>
-        <div class="pub-item" data-selected="true"><div class="pub-idx">[9]</div><div class="pub-text">W. Fang, Y. Teng, S. Zhang (Corresponding Author), H. Kong, H. Wang, and X. Guo, “Impedance modeling and stability analysis of electrolysis system for hydrogen production under weak grid,” <i>Fuel</i>, vol. 374, 132403, 2024.</div></div>
-        <div class="pub-item" data-selected="true"><div class="pub-idx">[10]</div><div class="pub-text">X. Guo, F. Ding, S. Zhang (Corresponding Author), Y. Teng, N. Diao, and V. Terzija, “Enhanced green hydrogen production using a novel converter with extremely low current ripple and high step-down ratio,” <i>Fuel</i>, vol. 398, 135424, 2025.</div></div>
-        <div class="pub-item" data-selected="true"><div class="pub-idx">[11]</div><div class="pub-text">X. Guo, X. Hu, and S. Zhang (Corresponding Author), “Application status of variable-frequency drive in hydrogen fuel cell air compressors from an industrial viewpoint: A review,” <i>Sustain. Energy Technol. Assess.</i>, vol. 64, 103716, 2024.</div></div>
-        <div class="pub-item" data-selected="true"><div class="pub-idx">[12]</div><div class="pub-text">X. Guo, H. Zhu, and S. Zhang (Corresponding Author), “Overview of electrolyser and hydrogen production power supply from industrial perspective,” <i>Int. J. Hydrogen Energy</i>, vol. 49, pp. 1048–1059, 2024.</div></div>
-
-        <!-- ✅ 如果你后面还有“非代表性论文”，继续往下加，并标 data-selected="false" -->
-        <!--
-        <div class="pub-item" data-selected="false">
-          <div class="pub-idx">[13]</div>
-          <div class="pub-text">...</div>
-        </div>
-        -->
+      <div class="pub-list">
+        <div class="pub-item"><div class="pub-idx">[1]</div><div class="pub-text">S. Zhang, Y. Teng, H. Kong, N. Wang, Y. Liu, X. Guo, and C. Hua, “An industrial overview of variable-frequency drives for hydrogen compressors in hydrogen transportation,” <i>Renew. Sustain. Energy Rev.</i>, vol. 223, 116009, 2025.</div></div>
+        <div class="pub-item"><div class="pub-idx">[2]</div><div class="pub-text">S. Zhang, Z. Jiao, J. Su, N. Wang, Z. Li, X. Guo, and C. Hua, “Low-ripple modulation strategy for a photovoltaic-based triple-port hydrogen production system,” <i>IEEE Trans. Ind. Electron.</i>, Early Access, 2025.</div></div>
+        <div class="pub-item"><div class="pub-idx">[3]</div><div class="pub-text">S. Zhang, Y. Teng, Y. Sun, F. Ding, N. Wang, X. Guo, and C. Hua, “Fault diagnosis and fault-tolerant operation strategy for triple-port hydrogen production system,” <i>IEEE Trans. Power Electron.</i>, vol. 40, no. 8, pp. 11526–11536, 2025.</div></div>
+        <div class="pub-item"><div class="pub-idx">[4]</div><div class="pub-text">S. Zhang, Y. Wei, X. Guo, Z. Li, X. Song, and F. Blaabjerg, “Overview of US patents for energy management of renewable energy systems with hydrogen,” <i>Int. J. Hydrogen Energy</i>, vol. 48, no. 26, pp. 9574–9591, 2023.</div></div>
+        <div class="pub-item"><div class="pub-idx">[5]</div><div class="pub-text">X. Guo, S. Zhang (Corresponding Author), F. Ding, J. Zhu, and H. Bai, “A novel DC–DC converter for electrolyzer with low ripple and high step down,” <i>IEEE Trans. Ind. Electron.</i>, vol. 71, no. 10, pp. 12476–12486, 2024.</div></div>
+        <div class="pub-item"><div class="pub-idx">[6]</div><div class="pub-text">X. Guo, S. Zhang (Corresponding Author), Z. Yan, Y. Wei, and X. Hu, “A novel phase-locked loop structure to enhance converter stability in weak grids,” <i>IEEE Trans. Power Electron.</i>, vol. 38, no. 11, pp. 13855–13865, 2023.</div></div>
+        <div class="pub-item"><div class="pub-idx">[7]</div><div class="pub-text">X. Guo, S. Zhang, Z. Liu, L. Sun, Z. Lu, C. Hua, and J. Guerrero, “A new multi-mode fault-tolerant operation control strategy of multiphase stacked interleaved Buck converter for green hydrogen production,” <i>Int. J. Hydrogen Energy</i>, vol. 47, no. 71, pp. 30359–30370, 2022.</div></div>
+        <div class="pub-item"><div class="pub-idx">[8]</div><div class="pub-text">X. Guo, S. Zhang (Corresponding Author), Y. Gao, Y. Teng, N. Diao, C. Hua, and V. Terzija, “Advancements in photovoltaic electrolysis for green hydrogen production: A comprehensive review and comparative analysis of modeling approaches,” <i>IEEE Trans. Power Electron.</i>, vol. 40, no. 7, pp. 10000–10026, 2025.</div></div>
+        <div class="pub-item"><div class="pub-idx">[9]</div><div class="pub-text">W. Fang, Y. Teng, S. Zhang (Corresponding Author), H. Kong, H. Wang, and X. Guo, “Impedance modeling and stability analysis of electrolysis system for hydrogen production under weak grid,” <i>Fuel</i>, vol. 374, 132403, 2024.</div></div>
+        <div class="pub-item"><div class="pub-idx">[10]</div><div class="pub-text">X. Guo, F. Ding, S. Zhang (Corresponding Author), Y. Teng, N. Diao, and V. Terzija, “Enhanced green hydrogen production using a novel converter with extremely low current ripple and high step-down ratio,” <i>Fuel</i>, vol. 398, 135424, 2025.</div></div>
+        <div class="pub-item"><div class="pub-idx">[11]</div><div class="pub-text">X. Guo, X. Hu, and S. Zhang (Corresponding Author), “Application status of variable-frequency drive in hydrogen fuel cell air compressors from an industrial viewpoint: A review,” <i>Sustain. Energy Technol. Assess.</i>, vol. 64, 103716, 2024.</div></div>
+        <div class="pub-item"><div class="pub-idx">[12]</div><div class="pub-text">X. Guo, H. Zhu, and S. Zhang (Corresponding Author), “Overview of electrolyser and hydrogen production power supply from industrial perspective,” <i>Int. J. Hydrogen Energy</i>, vol. 49, pp. 1048–1059, 2024.</div></div>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const showSelectedBtn = document.getElementById('show-selected-btn');
-    const showAllBtn = document.getElementById('show-all-btn');
-    const pubList = document.getElementById('pub-list');
-
-    // 读取当前列表（保持你写入的顺序）
-    const pubs = Array.from(pubList.querySelectorAll('.pub-item'));
-
-    // ✅ “代表性在前”排序：只把 data-selected=true 的放前面，组内顺序不变
-    const selected = pubs.filter(p => p.getAttribute('data-selected') === 'true');
-    const others   = pubs.filter(p => p.getAttribute('data-selected') !== 'true');
-    [...selected, ...others].forEach(p => pubList.appendChild(p));
-
-    function showRepresentative(){
-      pubs.forEach(pub => {
-        pub.style.display = (pub.getAttribute('data-selected') === 'true') ? 'flex' : 'none';
-      });
-    }
-    function showAll(){
-      pubs.forEach(pub => pub.style.display = 'flex');
-    }
-
-    showSelectedBtn.addEventListener('click', showRepresentative);
-    showAllBtn.addEventListener('click', showAll);
-
-    // ✅ 默认显示 12 篇代表性论文
-    showRepresentative();
-  });
-</script>
-
   const showSelectedBtn = document.getElementById('show-selected-btn');
   const showAllBtn = document.getElementById('show-all-btn');
   const publications = document.querySelectorAll('.pub-item');
