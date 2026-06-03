@@ -455,8 +455,9 @@ a:focus {
 }
 
 @media (min-width: 780px) {
-  .project-card-featured:last-child:nth-child(odd) {
+  .project-card-wide {
     grid-column: 1 / -1;
+    min-height: 190px;
   }
 }
 
@@ -514,15 +515,25 @@ a:focus {
   background: linear-gradient(145deg, #31546f, #176b6b);
 }
 
+.project-logo-inverter {
+  background: linear-gradient(145deg, #5a4f86, #1e8d84);
+}
+
 .project-logo-wind {
   background: linear-gradient(145deg, #17785d, #6aa84f);
+}
+
+.project-logo-flywheel {
+  background: linear-gradient(145deg, #486c5f, #8a8b42);
 }
 
 .project-logo-dc {
   background: linear-gradient(145deg, #254f7a, #1e8d84);
 }
 
-.project-logo-satellite span {
+.project-logo-satellite span,
+.project-logo-inverter span,
+.project-logo-flywheel span {
   font-size: 18px;
 }
 
@@ -978,6 +989,12 @@ a:focus {
 
   .project-logo span {
     font-size: 22px;
+  }
+
+  .project-logo-satellite span,
+  .project-logo-inverter span,
+  .project-logo-flywheel span {
+    font-size: 18px;
   }
 
   .project-role {
