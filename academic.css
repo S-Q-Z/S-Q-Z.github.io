@@ -454,6 +454,12 @@ a:focus {
   padding: 22px;
 }
 
+@media (min-width: 780px) {
+  .project-card-featured:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
 .project-logo {
   position: relative;
   display: flex;
@@ -502,6 +508,22 @@ a:focus {
 
 .project-logo-pi {
   background: linear-gradient(145deg, var(--accent-warm), var(--gold));
+}
+
+.project-logo-satellite {
+  background: linear-gradient(145deg, #31546f, #176b6b);
+}
+
+.project-logo-wind {
+  background: linear-gradient(145deg, #17785d, #6aa84f);
+}
+
+.project-logo-dc {
+  background: linear-gradient(145deg, #254f7a, #1e8d84);
+}
+
+.project-logo-satellite span {
+  font-size: 18px;
 }
 
 .project-index {
