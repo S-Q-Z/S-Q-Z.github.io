@@ -560,13 +560,14 @@ a:focus {
 
 .project-role {
   display: inline-flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   width: fit-content;
   max-width: 100%;
   min-height: 28px;
   margin-bottom: 10px;
-  padding: 5px 9px;
-  border-radius: 999px;
+  padding: 6px 10px;
+  border-radius: 8px;
   color: var(--accent-deep);
   background: rgba(23, 107, 107, 0.08);
   font-size: 12px;
@@ -574,7 +575,19 @@ a:focus {
   line-height: 1.2;
 }
 
-.project-content span {
+.project-role-main,
+.project-role-date {
+  display: block;
+}
+
+.project-role-date {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 720;
+}
+
+.project-content > span {
   display: block;
   margin-top: 8px;
   color: #344141;
@@ -1140,6 +1153,7 @@ a:focus {
 
   .project-role {
     width: 100%;
+    align-items: center;
     justify-content: center;
     text-align: center;
   }
