@@ -93,7 +93,7 @@ a:focus {
   display: flex;
   align-items: center;
   padding: 104px 24px 72px;
-  background-image: linear-gradient(115deg, rgba(20, 26, 27, 0.78), rgba(23, 107, 107, 0.32)), url("images/background/background-2.jpg");
+  background-image: linear-gradient(115deg, rgba(20, 26, 27, 0.72), rgba(23, 107, 107, 0.28)), url("images/background/my_cover3.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -707,6 +707,11 @@ a:focus {
     min-height: auto;
     padding: 10px 0;
     overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .site-nav .trigger::-webkit-scrollbar {
+    display: none;
   }
 
   .site-nav .page-link {
@@ -758,6 +763,10 @@ a:focus {
 
   .bio {
     margin: 34px auto;
+  }
+
+  .intro-justify {
+    text-align: left;
   }
 
   .md-heading {
