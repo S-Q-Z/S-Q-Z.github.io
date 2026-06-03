@@ -591,6 +591,147 @@ a:focus {
   line-height: 1.45;
 }
 
+.engagement-overview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.engagement-metric {
+  min-height: 112px;
+  padding: 17px 18px;
+  border: 1px solid rgba(23, 107, 107, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: inset 0 3px 0 rgba(181, 139, 61, 0.72);
+}
+
+.engagement-metric span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--accent-deep);
+  font-size: 12px;
+  font-weight: 780;
+  text-transform: uppercase;
+}
+
+.engagement-metric b {
+  display: block;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.engagement-timeline {
+  position: relative;
+  display: grid;
+  gap: 12px;
+}
+
+.engagement-timeline::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: 84px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(23, 107, 107, 0.2), rgba(23, 107, 107, 0.72), rgba(181, 139, 61, 0.32));
+}
+
+.engagement-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 22px;
+}
+
+.engagement-date {
+  position: relative;
+  padding: 10px 20px 0 0;
+  color: var(--accent-deep);
+  text-align: right;
+  line-height: 1.15;
+}
+
+.engagement-date::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  right: -7px;
+  width: 13px;
+  height: 13px;
+  border: 3px solid var(--paper);
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 1px rgba(23, 107, 107, 0.35);
+}
+
+.engagement-date b,
+.engagement-date span {
+  display: block;
+}
+
+.engagement-date b {
+  font-size: 16px;
+  font-weight: 850;
+}
+
+.engagement-date span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 720;
+}
+
+.engagement-card {
+  min-height: 124px;
+  padding: 17px 18px;
+  border: 1px solid rgba(23, 107, 107, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: inset 3px 0 0 rgba(23, 107, 107, 0.48);
+}
+
+.engagement-type {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  min-height: 26px;
+  margin-bottom: 8px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  color: var(--accent-deep);
+  background: rgba(23, 107, 107, 0.08);
+  font-size: 12px;
+  font-weight: 760;
+  line-height: 1.2;
+}
+
+.engagement-card b {
+  display: block;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.engagement-card span {
+  display: block;
+  margin-top: 7px;
+  color: #344141;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.engagement-card small {
+  display: block;
+  margin-top: 8px;
+  color: var(--accent-deep);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
 .section-tools {
   display: inline-flex;
   align-items: center;
@@ -1005,6 +1146,60 @@ a:focus {
 
   .project-content b {
     text-align: center;
+  }
+
+  .engagement-overview {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .engagement-metric {
+    min-height: 0;
+    padding: 14px 15px;
+  }
+
+  .engagement-timeline {
+    gap: 11px;
+  }
+
+  .engagement-timeline::before {
+    left: 42px;
+  }
+
+  .engagement-item {
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .engagement-date {
+    padding-right: 14px;
+  }
+
+  .engagement-date::after {
+    right: -6px;
+  }
+
+  .engagement-date b {
+    font-size: 14px;
+  }
+
+  .engagement-date span {
+    font-size: 11px;
+  }
+
+  .engagement-card {
+    min-height: 0;
+    padding: 14px 14px;
+  }
+
+  .engagement-type {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .engagement-card b {
+    font-size: 15px;
   }
 
   .project-index {
