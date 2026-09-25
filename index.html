@@ -687,7 +687,7 @@
     </h1>
     <div class="section-tools" aria-label="Patent display options">
       <button class="custom-button is-active" id="show-selected-patents-btn" type="button" aria-pressed="true">Selected</button>
-      <button class="custom-button" id="show-all-patents-btn" type="button" aria-pressed="false">All Listed (11)</button>
+      <button class="custom-button" id="show-all-patents-btn" type="button" aria-pressed="false">All Listed (29)</button>
     </div>
     <div class="bio-body">
       <div id="patent-cards"></div>
@@ -698,17 +698,36 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const patents = [
-      { en:"Electrolysis hydrogen production system model", cn:"一种电解制氢系统模型", no:"CN117037928B", date:"2023-11-10", status:"Granted", selected:true },
-      { en:"Hydrogen production power converter", cn:"一种制氢变流器", no:"CN117040267B", date:"2023-11-10", status:"Granted", selected:true },
-      { en:"Hydrogen-production converter and control method", cn:"一种制氢变换器及其控制方法", no:"CN118174544B", date:"2024-10-08", status:"Granted", selected:true },
-      { en:"Control and fault-tolerant method for multiphase interleaved parallel converters", cn:"一种多相交错并联变换器控制和容错方法", no:"CN115347774B", date:"2023-05-23", status:"Granted", selected:true },
-      { en:"Energy management method for renewable energy systems", cn:"一种可再生能源系统的能量管理方法", no:"CN115411770B", date:"2022-11-29", status:"Granted", selected:true },
-      { en:"Fault diagnosis and recovery control for interleaved Buck circuits", cn:"一种交错并联Buck电路的故障诊断及恢复控制方法", no:"CN115065243B", date:"2022-12-30", status:"Granted", selected:false },
-      { en:"Multi-mode dual-layer fault diagnosis method for fuel cell systems", cn:"一种燃料电池系统多模式双层故障诊断方法", no:"CN113962259B", date:"2022-06-03", status:"Granted", selected:false },
-      { en:"Energy management method for microgrids with hydrogen energy storage", cn:"一种含氢储能微电网的能量管理方法", no:"CN115085229B", date:"2022-12-30", status:"Granted", selected:false },
-      { en:"Multi-objective optimization method for distributed generation considering power constraints", cn:"一种考虑电源设置条件的多目标分布式电源优化配置方法", no:"CN113890094B", date:"2022-06-03", status:"Granted", selected:false },
-      { en:"Intelligent optimization control for satellite power fault reconstruction based on wild goat algorithm", cn:"基于野山羊算法的卫星电源故障重构的智能优化控制方法", no:"CN115079571B", date:"2022-12-30", status:"Granted", selected:false },
-      { en:"Improved transformerless three-phase multilevel inverter and control method", cn:"一种改进的无变压器三相多电平逆变器及其控制方法", no:"CN115987127B", date:"2023-09-19", status:"Granted", selected:false }
+      { en:"Electrolysis hydrogen production system model", cn:"一种电解制氢系统模型", no:"CN117037928B", date:"2023-11-10", dateLabel:"Granted", status:"Granted", role:"First inventor", selected:true },
+      { en:"Hydrogen production power converter", cn:"一种制氢变流器", no:"CN117040267B", date:"2023-11-10", dateLabel:"Granted", status:"Granted", role:"First inventor", selected:true },
+      { en:"Hydrogen-production converter and control method", cn:"一种制氢变换器及其控制方法", no:"CN118174544B", date:"2024-10-08", dateLabel:"Granted", status:"Granted", role:"First inventor", selected:true },
+      { en:"Control and fault-tolerant method for multiphase interleaved parallel converters", cn:"一种多相交错并联变换器控制和容错方法", no:"CN115347774B", date:"2023-05-23", dateLabel:"Granted", status:"Granted", role:"First inventor", selected:true },
+      { en:"Energy management method for renewable energy systems", cn:"一种可再生能源系统的能量管理方法", no:"CN115411770B", date:"2022-11-29", dateLabel:"Granted", status:"Granted", role:"First inventor", selected:true },
+      { en:"Fault diagnosis and recovery control for interleaved Buck circuits", cn:"一种交错并联Buck电路的故障诊断及恢复控制方法", no:"CN115065243B", date:"2022-12-30", dateLabel:"Granted", status:"Granted", role:"First inventor", selected:false },
+      { en:"Multi-mode dual-layer fault diagnosis method for fuel cell systems", cn:"一种燃料电池系统多模式双层故障诊断方法", no:"CN113962259B", date:"2022-06-03", dateLabel:"Granted", status:"Granted", role:"First inventor", selected:false },
+      { en:"Energy management method for microgrids with hydrogen energy storage", cn:"一种含氢储能微电网的能量管理方法", no:"CN115085229B", date:"2022-12-30", dateLabel:"Granted", status:"Granted", role:"First inventor", selected:false },
+      { en:"Multi-objective optimization method for distributed generation considering power constraints", cn:"一种考虑电源设置条件的多目标分布式电源优化配置方法", no:"CN113890094B", date:"2022-06-03", dateLabel:"Granted", status:"Granted", role:"First inventor", selected:false },
+      { en:"Intelligent optimization control for satellite power fault reconstruction based on wild goat algorithm", cn:"基于野山羊算法的卫星电源故障重构的智能优化控制方法", no:"CN115079571B", date:"2022-12-30", dateLabel:"Granted", status:"Granted", role:"First inventor", selected:false },
+      { en:"Improved transformerless three-phase multilevel inverter and control method", cn:"一种改进的无变压器三相多电平逆变器及其控制方法", no:"CN115987127B", date:"2023-09-19", dateLabel:"Granted", status:"Granted", role:"First inventor", selected:false },
+
+      { en:"MPC predictive control and electricity-purchase cost optimization method for a photovoltaic hydrogen production system", cn:"一种光伏制氢系统的MPC预测控制和购电成本优化方法", no:"CN119651557A", date:"2024-11-22", dateLabel:"Filed", status:"Published", role:"Co-inventor", selected:false },
+      { en:"Space-vector modulation method using vector-bridge extension to eliminate superposed-current effects", cn:"一种叠流效应消除的矢量桥式延拓空间矢量调制方法", no:"CN118611453A", date:"2024-05-31", dateLabel:"Filed", status:"Published", role:"Co-inventor", selected:false },
+      { en:"High-reliability converter control method", cn:"一种高可靠性的变流器控制方法", no:"CN118487466A", date:"2024-05-07", dateLabel:"Filed", status:"Published", role:"Co-inventor", selected:false },
+      { en:"Multi-port converter and energy-flow control method for renewable hydrogen production", cn:"一种新能源制氢多端口变换器及其能流控制方法", no:"CN118449170A", date:"2024-04-30", dateLabel:"Filed", status:"Published", role:"Co-inventor", selected:false },
+      { en:"Energy management and optimized scheduling method for renewable energy systems", cn:"一种可再生能源系统的能量管理与优化调度方法", no:"CN118449171A", date:"2024-04-30", dateLabel:"Filed", status:"Published", role:"Co-inventor", selected:false },
+      { en:"Impedance modeling method for a three-phase four-leg grid-forming converter", cn:"一种适用于三相四桥臂构网型变流器的阻抗建模方法", no:"CN118364766A", date:"2024-04-30", dateLabel:"Filed", status:"Published", role:"Co-inventor", selected:false },
+      { en:"Transformer model and calculation method", cn:"一种变压器模型及其计算方法", no:"CN117034834B", date:"2023-08-14", dateLabel:"Filed", status:"Granted", role:"Co-inventor", selected:false },
+      { en:"Hybrid control method for a converter", cn:"一种变流器混合控制方法", no:"CN117040299B", date:"2023-08-14", dateLabel:"Filed", status:"Granted", role:"Co-inventor", selected:false },
+      { en:"Isolated converter topology and capacity-sharing and fault-tolerance method", cn:"一种隔离型变流器拓扑结构及其容量共享与故障容错方法", no:"CN116632890B", date:"2023-05-24", dateLabel:"Filed", status:"Granted", role:"Co-inventor", selected:false },
+      { en:"Wind-turbine impedance reshaping control method", cn:"一种风电机组阻抗重塑控制方法", no:"CN116544963B", date:"2023-05-06", dateLabel:"Filed", status:"Granted", role:"Co-inventor", selected:false },
+      { en:"Impedance optimization method for a wind power generation system", cn:"一种风力发电系统的阻抗优化方法", no:"CN116544964B", date:"2023-05-06", dateLabel:"Filed", status:"Granted", role:"Co-inventor", selected:false },
+      { en:"Hydrogen-production multi-port converter and fault-tolerance method", cn:"一种制氢多端口变换器及其故障容错方法", no:"CN116155080B", date:"2023-04-03", dateLabel:"Filed", status:"Granted", role:"Co-inventor", selected:false },
+      { en:"Modulation method for optimizing switching-voltage stress in a three-phase current-source rectifier", cn:"一种三相电流源整流器优化开关电压应力的调制方法", no:"CN116191910B", date:"2023-04-03", dateLabel:"Filed", status:"Granted", role:"Co-inventor", selected:false },
+      { en:"Dynamic modeling method for an alkaline electrolyzer based on automatic-control principles", cn:"一种基于自动控制原理的碱性电解槽动态模型建模方法", no:"CN116467986B", date:"2023-03-31", dateLabel:"Filed", status:"Granted", role:"Co-inventor", selected:false },
+      { en:"Multidimensional evaluation method for an energy-storage battery system based on temperature and angle", cn:"一种基于温度角度对储能电池系统多维度评估方法", no:"CN115184809B", date:"2022-07-05", dateLabel:"Filed", status:"Granted", role:"Co-inventor", selected:false },
+      { en:"Dual-neural-network fault-diagnosis method for a satellite power system", cn:"一种双神经网络模型卫星电源系统故障诊断方法", no:"CN115034312B", date:"2022-06-14", dateLabel:"Filed", status:"Granted", role:"Co-inventor", selected:false },
+      { en:"High-gain bidirectional converter and control method", cn:"一种高增益双向变换器及其控制方法", no:"CN114759789A", date:"2022-03-29", dateLabel:"Filed", status:"Published", role:"Co-inventor", selected:false },
+      { en:"Boost converter and control method", cn:"一种升压变换器及其控制方法", no:"CN112886842B", date:"2021-02-25", dateLabel:"Filed", status:"Granted", role:"Co-inventor", selected:false }
     ];
 
     const container = document.getElementById('patent-cards');
@@ -729,7 +748,8 @@
           </div>
           <div class="meta">
             <span><b>No.</b> ${escapeHtml(p.no)}</span>
-            <span><b>Date</b> ${escapeHtml(p.date)}</span>
+            <span><b>${escapeHtml(p.dateLabel)}</b> ${escapeHtml(p.date)}</span>
+            <span><b>Role</b> ${escapeHtml(p.role)}</span>
           </div>
         </div>
       `).join('');
