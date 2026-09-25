@@ -254,6 +254,103 @@
     }
   </style>
   <link href="academic.css?v=20260604-compact-engagement" rel="stylesheet"/>
+  <style id="academic-polish">
+    :root{
+      --academic-ink:#26383d;
+      --academic-muted:#63757b;
+      --academic-accent:#176b6b;
+      --academic-line:#dfe7e8;
+      --academic-surface:#ffffff;
+      --academic-radius:10px;
+      --academic-shadow:0 4px 16px rgba(25,55,60,.045);
+    }
+    .bio{ margin-bottom:52px; }
+    .md-heading{
+      margin-bottom:18px;
+      color:var(--academic-ink);
+      letter-spacing:-.015em;
+    }
+    .md-heading .fa{ color:var(--academic-accent); }
+    .bio-body{ color:var(--academic-ink); }
+    .intro-panel{
+      max-width:900px;
+      margin-bottom:30px;
+      padding:20px 22px;
+      border-left:3px solid var(--academic-accent);
+      border-radius:var(--academic-radius);
+      background:#f7faf9;
+      box-shadow:inset 0 0 0 1px var(--academic-line);
+    }
+    .intro-panel .intro-justify{
+      margin:0 0 12px;
+      padding:0;
+      border:0;
+      border-radius:0;
+      background:transparent;
+      box-shadow:none;
+      text-align:left;
+      line-height:1.72;
+      color:#42545a;
+    }
+    .intro-panel .intro-justify:last-child{ margin-bottom:0; }
+    .project-card,
+    .patent-card,
+    .service-card{
+      border-color:var(--academic-line) !important;
+      border-radius:var(--academic-radius) !important;
+      box-shadow:var(--academic-shadow) !important;
+    }
+    #publications .bio-body{
+      padding:4px 20px 8px;
+      border:1px solid var(--academic-line);
+      border-radius:var(--academic-radius);
+      background:var(--academic-surface);
+      box-shadow:var(--academic-shadow);
+    }
+    #publications .pub-list{ margin-top:0; }
+    #publications .pub-item{
+      gap:14px;
+      margin:0;
+      padding:13px 0;
+      border-bottom:1px solid #edf1f2;
+    }
+    #publications .pub-item:last-child{ border-bottom:0; }
+    #publications .pub-idx{
+      width:38px;
+      flex-basis:38px;
+      color:var(--academic-accent);
+      font-size:.88em;
+      font-variant-numeric:tabular-nums;
+    }
+    #publications .pub-text{
+      text-align:left;
+      color:#34474d;
+      line-height:1.58;
+    }
+    #publications .pub-text i{
+      color:#223f45;
+      font-weight:600;
+    }
+    #publications .section-tools{ margin-bottom:14px; }
+    #publications .custom-button{
+      border-radius:999px;
+      box-shadow:none;
+    }
+    .service-card{ box-shadow:none !important; }
+    .service-item{ color:#3d5056; }
+    .award-list li{ margin-bottom:7px; line-height:1.55; }
+    .site-footer .text{ color:rgba(255,255,255,.72); }
+    @media (max-width:600px){
+      .bio{ margin-bottom:38px; }
+      .md-heading{ margin-bottom:14px; }
+      .intro-panel{ margin-bottom:24px; padding:17px 18px; }
+      .intro-panel .intro-justify{ text-align:left; line-height:1.65; }
+      #publications .bio-body{ padding:2px 14px 5px; }
+      #publications .pub-item{ gap:8px; padding:12px 0; }
+      #publications .pub-idx{ width:30px; flex-basis:30px; }
+      #publications .pub-text{ line-height:1.55; }
+    }
+  </style>
 </head>
 
 <body>
@@ -274,8 +371,8 @@
         <a class="page-link" href="#publications"><b>Publications</b></a>
         <a class="page-link" href="#patents"><b>Patents</b></a>
         <a class="page-link" href="#awards"><b>Honors</b></a>
-        <a class="page-link" href="#engagement"><b>Engagement</b></a>
         <a class="page-link" href="#academicservices"><b>Service</b></a>
+        <a class="page-link" href="#engagement"><b>Engagement</b></a>
       </div>
     </nav>
   </div>
@@ -331,15 +428,14 @@
     <div class="bio" id="bio">
       <h1 class="md-heading text-left"><i aria-hidden="true" class="fa fa-id-card"></i> About</h1>
       <div class="bio-body" style="overflow:hidden;">
-<p class="intro-justify">
-I am currently a Researcher at KTH Royal Institute of Technology, Sweden. My research lies at the intersection of power electronics, converter-dominated power systems, and renewable-hydrogen energy systems.
-</p>
-<p class="intro-justify">
-My work focuses on the modelling, control, optimization, and experimental validation of converter-interfaced energy resources, including electrolyzers, renewable generation, battery storage, and multi-port power-conversion systems. Particular interests include weak-grid stability, impedance-based analysis, grid-supportive control, low-ripple and high-efficiency power conversion, fault-tolerant operation, and coordinated flexibility from distributed energy resources.
-</p>
-<p class="intro-justify">
-I aim to bridge device- and converter-level innovation with power-system-level operation. Current research interests include grid-interactive electrolyzer plants, hybrid battery–hydrogen flexibility, stability-certified control of converter fleets, medium-voltage interfaces for industrial electrolysis, and real-time/HIL validation of low-carbon energy systems.
-</p>
+        <div class="intro-panel">
+          <p class="intro-justify">
+          I am a Researcher at KTH Royal Institute of Technology, working at the intersection of power electronics, converter-dominated power systems, and renewable-hydrogen energy systems. My research combines modelling, control, optimization, and experimental validation of converter-interfaced resources, including electrolyzers, renewable generation, battery storage, and multi-port power converters.
+          </p>
+          <p class="intro-justify">
+          I aim to connect converter-level innovation with power-system operation, with particular interests in weak-grid stability, impedance-based analysis, low-ripple and high-efficiency conversion, fault-tolerant control, and coordinated battery–hydrogen flexibility.
+          </p>
+        </div>
 
         <div class="two-col">
           <div class="col">
@@ -849,16 +945,6 @@ I aim to bridge device- and converter-level innovation with power-system-level o
     font-weight:700;
     letter-spacing:.01em;
   }
-  .service-count {
-    flex:0 0 auto;
-    padding:2px 9px;
-    border-radius:999px;
-    background:#eef5f7;
-    color:#45626a;
-    font-size:.68em;
-    font-weight:700;
-    line-height:1.65;
-  }
   .service-list {
     display:grid;
     grid-template-columns:1fr;
@@ -918,7 +1004,6 @@ I aim to bridge device- and converter-level innovation with power-system-level o
         <section class="service-card" aria-labelledby="conference-reviewer-heading">
           <div class="service-card-header">
             <h2 class="service-card-title" id="conference-reviewer-heading">Conference Reviewer</h2>
-            <span class="service-count" aria-label="2 conferences">02</span>
           </div>
           <ul class="service-list">
             <li class="service-item"><span class="service-name">IEEE Applied Power Electronics Conference and Exposition <span class="service-abbr">(APEC)</span></span></li>
@@ -929,7 +1014,6 @@ I aim to bridge device- and converter-level innovation with power-system-level o
         <section class="service-card service-card--journals" aria-labelledby="journal-reviewer-heading">
           <div class="service-card-header">
             <h2 class="service-card-title" id="journal-reviewer-heading">Journal Reviewer</h2>
-            <span class="service-count" aria-label="13 journals">13</span>
           </div>
           <ul class="service-list">
             <li class="service-item"><span class="service-name">Nature Communications</span></li>
@@ -986,7 +1070,7 @@ I aim to bridge device- and converter-level innovation with power-system-level o
 
       <div class="footer-col footer-col-3">
         <p class="text">
-          Last updated: Jul, 2026.
+          Last updated: Sep, 2026.
         </p>
       </div>
     </div>
