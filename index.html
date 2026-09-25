@@ -273,7 +273,8 @@
     .md-heading .fa{ color:var(--academic-accent); }
     .bio-body{ color:var(--academic-ink); }
     .intro-panel{
-      max-width:900px;
+      width:100%;
+      box-sizing:border-box;
       margin-bottom:30px;
       padding:20px 22px;
       border-left:3px solid var(--academic-accent);
@@ -291,6 +292,9 @@
       text-align:left;
       line-height:1.72;
       color:#42545a;
+      hyphens:none;
+      -webkit-hyphens:none;
+      overflow-wrap:normal;
     }
     .intro-panel .intro-justify:last-child{ margin-bottom:0; }
     .project-card,
@@ -332,10 +336,12 @@
       font-weight:600;
     }
     #publications .section-tools{ margin-bottom:14px; }
-    #publications .custom-button{
+    #publications .custom-button,
+    #patents .custom-button{
       border-radius:999px;
       box-shadow:none;
     }
+    #patents .section-tools{ margin-bottom:14px; }
     .service-card{ box-shadow:none !important; }
     .service-item{ color:#3d5056; }
     .award-list li{ margin-bottom:7px; line-height:1.55; }
@@ -679,6 +685,10 @@
     <h1 class="md-heading text-left">
       <i aria-hidden="true" class="fa fa-gavel"></i> Patents / 专利
     </h1>
+    <div class="section-tools" aria-label="Patent display options">
+      <button class="custom-button is-active" id="show-selected-patents-btn" type="button" aria-pressed="true">Selected</button>
+      <button class="custom-button" id="show-all-patents-btn" type="button" aria-pressed="false">All Listed (11)</button>
+    </div>
     <div class="bio-body">
       <div id="patent-cards"></div>
     </div>
@@ -688,36 +698,50 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const patents = [
-      { en:"Electrolysis hydrogen production system model", cn:"一种电解制氢系统模型", no:"CN117037928B", date:"2023-11-10", status:"Granted" },
-      { en:"Hydrogen production power converter", cn:"一种制氢变流器", no:"CN117040267B", date:"2023-11-10", status:"Granted" },
-      { en:"Control and fault-tolerant method for multiphase interleaved parallel converters", cn:"一种多相交错并联变换器控制和容错方法", no:"CN115347774B", date:"2023-05-23", status:"Granted" },
-      { en:"Fault diagnosis and recovery control for interleaved Buck circuits", cn:"一种交错并联Buck电路的故障诊断及恢复控制方法", no:"CN115065243B", date:"2022-12-30", status:"Granted" },
-      { en:"Multi-mode dual-layer fault diagnosis method for fuel cell systems", cn:"一种燃料电池系统多模式双层故障诊断方法", no:"CN113962259B", date:"2022-06-03", status:"Granted" },
-      { en:"Energy management method for renewable energy systems", cn:"一种可再生能源系统的能量管理方法", no:"CN115411770B", date:"2022-11-29", status:"Granted" },
-      { en:"Energy management method for microgrids with hydrogen energy storage", cn:"一种含氢储能微电网的能量管理方法", no:"CN115085229B", date:"2022-12-30", status:"Granted" },
-      { en:"Multi-objective optimization method for distributed generation considering power constraints", cn:"一种考虑电源设置条件的多目标分布式电源优化配置方法", no:"CN113890094B", date:"2022-06-03", status:"Granted" },
-      { en:"Intelligent optimization control for satellite power fault reconstruction based on wild goat algorithm", cn:"基于野山羊算法的卫星电源故障重构的智能优化控制方法", no:"CN115079571B", date:"2022-12-30", status:"Granted" },
-      { en:"Improved transformerless three-phase multilevel inverter and control method", cn:"一种改进的无变压器三相多电平逆变器及其控制方法", no:"CN115987127B", date:"2023-09-19", status:"Granted" }
+      { en:"Electrolysis hydrogen production system model", cn:"一种电解制氢系统模型", no:"CN117037928B", date:"2023-11-10", status:"Granted", selected:true },
+      { en:"Hydrogen production power converter", cn:"一种制氢变流器", no:"CN117040267B", date:"2023-11-10", status:"Granted", selected:true },
+      { en:"Hydrogen-production converter and control method", cn:"一种制氢变换器及其控制方法", no:"CN118174544B", date:"2024-10-08", status:"Granted", selected:true },
+      { en:"Control and fault-tolerant method for multiphase interleaved parallel converters", cn:"一种多相交错并联变换器控制和容错方法", no:"CN115347774B", date:"2023-05-23", status:"Granted", selected:true },
+      { en:"Energy management method for renewable energy systems", cn:"一种可再生能源系统的能量管理方法", no:"CN115411770B", date:"2022-11-29", status:"Granted", selected:true },
+      { en:"Fault diagnosis and recovery control for interleaved Buck circuits", cn:"一种交错并联Buck电路的故障诊断及恢复控制方法", no:"CN115065243B", date:"2022-12-30", status:"Granted", selected:false },
+      { en:"Multi-mode dual-layer fault diagnosis method for fuel cell systems", cn:"一种燃料电池系统多模式双层故障诊断方法", no:"CN113962259B", date:"2022-06-03", status:"Granted", selected:false },
+      { en:"Energy management method for microgrids with hydrogen energy storage", cn:"一种含氢储能微电网的能量管理方法", no:"CN115085229B", date:"2022-12-30", status:"Granted", selected:false },
+      { en:"Multi-objective optimization method for distributed generation considering power constraints", cn:"一种考虑电源设置条件的多目标分布式电源优化配置方法", no:"CN113890094B", date:"2022-06-03", status:"Granted", selected:false },
+      { en:"Intelligent optimization control for satellite power fault reconstruction based on wild goat algorithm", cn:"基于野山羊算法的卫星电源故障重构的智能优化控制方法", no:"CN115079571B", date:"2022-12-30", status:"Granted", selected:false },
+      { en:"Improved transformerless three-phase multilevel inverter and control method", cn:"一种改进的无变压器三相多电平逆变器及其控制方法", no:"CN115987127B", date:"2023-09-19", status:"Granted", selected:false }
     ];
 
     const container = document.getElementById('patent-cards');
+    const showSelectedBtn = document.getElementById('show-selected-patents-btn');
+    const showAllBtn = document.getElementById('show-all-patents-btn');
     if (!container) return;
 
-    container.innerHTML = patents.map(p => `
-      <div class="patent-card">
-        <div class="row-top">
-          <div>
-            <div class="title-en">${escapeHtml(p.en)}</div>
-            <div class="title-cn">${escapeHtml(p.cn)}</div>
+    function renderPatents(showAll){
+      const visiblePatents = showAll ? patents : patents.filter(p => p.selected);
+      container.innerHTML = visiblePatents.map(p => `
+        <div class="patent-card">
+          <div class="row-top">
+            <div>
+              <div class="title-en">${escapeHtml(p.en)}</div>
+              <div class="title-cn">${escapeHtml(p.cn)}</div>
+            </div>
+            <div class="badge">${escapeHtml(p.status)}</div>
           </div>
-          <div class="badge">${escapeHtml(p.status)}</div>
+          <div class="meta">
+            <span><b>No.</b> ${escapeHtml(p.no)}</span>
+            <span><b>Date</b> ${escapeHtml(p.date)}</span>
+          </div>
         </div>
-        <div class="meta">
-          <span><b>No.</b> ${escapeHtml(p.no)}</span>
-          <span><b>Date</b> ${escapeHtml(p.date)}</span>
-        </div>
-      </div>
-    `).join('');
+      `).join('');
+      showSelectedBtn.classList.toggle('is-active', !showAll);
+      showAllBtn.classList.toggle('is-active', showAll);
+      showSelectedBtn.setAttribute('aria-pressed', String(!showAll));
+      showAllBtn.setAttribute('aria-pressed', String(showAll));
+    }
+
+    showSelectedBtn.addEventListener('click', () => renderPatents(false));
+    showAllBtn.addEventListener('click', () => renderPatents(true));
+    renderPatents(false);
 
     function escapeHtml(s){
       return String(s)
