@@ -820,14 +820,92 @@ I aim to bridge device- and converter-level innovation with power-system-level o
 
 <!-- Reviewer -->
 <style>
-  .reviewer-section { display:flex; flex-wrap:wrap; margin-top:8px; }
-  .reviewer-column {
-    flex:1 1 50%; box-sizing:border-box; padding-right:20px;
-    font-size:0.85em; line-height:1.6; position:relative; padding-left:1em; margin-bottom:4px;
+  .service-grid {
+    display:grid;
+    grid-template-columns:minmax(230px, .72fr) minmax(0, 1.5fr);
+    gap:18px;
+    margin-top:18px;
   }
-  .reviewer-column::before { content:"•"; position:absolute; left:0; color:#555; }
-  @media (max-width:600px){ .reviewer-column{ flex:1 1 100%; padding-right:0; } }
-  .reviewer-title{ margin-top:12px; font-weight:bold; }
+  .service-card {
+    padding:20px 22px;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    background:#fff;
+    box-shadow:0 7px 22px rgba(15, 23, 42, .045);
+  }
+  .service-card-header {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:14px;
+    padding-bottom:11px;
+    border-bottom:1px solid #edf0f2;
+  }
+  .service-card-title {
+    margin:0;
+    color:#263238;
+    font-size:.96em;
+    font-weight:700;
+    letter-spacing:.01em;
+  }
+  .service-count {
+    flex:0 0 auto;
+    padding:2px 9px;
+    border-radius:999px;
+    background:#eef5f7;
+    color:#45626a;
+    font-size:.68em;
+    font-weight:700;
+    line-height:1.65;
+  }
+  .service-list {
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  .service-card--journals .service-list {
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    column-gap:26px;
+  }
+  .service-item {
+    display:flex;
+    align-items:flex-start;
+    gap:9px;
+    min-width:0;
+    padding:7px 0;
+    color:#3f4b50;
+    font-size:.82em;
+    line-height:1.45;
+  }
+  .service-item::before {
+    content:"";
+    flex:0 0 5px;
+    width:5px;
+    height:5px;
+    margin-top:.55em;
+    border-radius:50%;
+    background:#78909c;
+  }
+  .service-name { min-width:0; }
+  .service-abbr {
+    white-space:nowrap;
+    color:#6b7d84;
+    font-size:.88em;
+    font-weight:600;
+  }
+  @media (max-width:760px) {
+    .service-grid { grid-template-columns:1fr; gap:14px; }
+  }
+  @media (max-width:600px) {
+    .service-grid { margin-top:14px; }
+    .service-card { padding:17px 18px; }
+    .service-card--journals .service-list { grid-template-columns:1fr; }
+    .service-item { font-size:.84em; }
+  }
 </style>
 
 <div class="wrapper" id="academicservices">
@@ -836,27 +914,39 @@ I aim to bridge device- and converter-level innovation with power-system-level o
       <i aria-hidden="true" class="fa fa-edit"></i> Academic Service
     </h1>
     <div class="bio-body">
-      <div class="reviewer-title">Conference Reviewer</div>
-      <div class="reviewer-section">
-        <div class="reviewer-column">IEEE Applied Power Electronics Conference and Exposition (APEC)</div>
-        <div class="reviewer-column">IEEE Energy Conversion Congress and Exposition (ECCE)</div>
-      </div>
+      <div class="service-grid">
+        <section class="service-card" aria-labelledby="conference-reviewer-heading">
+          <div class="service-card-header">
+            <h2 class="service-card-title" id="conference-reviewer-heading">Conference Reviewer</h2>
+            <span class="service-count" aria-label="2 conferences">02</span>
+          </div>
+          <ul class="service-list">
+            <li class="service-item"><span class="service-name">IEEE Applied Power Electronics Conference and Exposition <span class="service-abbr">(APEC)</span></span></li>
+            <li class="service-item"><span class="service-name">IEEE Energy Conversion Congress and Exposition <span class="service-abbr">(ECCE)</span></span></li>
+          </ul>
+        </section>
 
-      <div class="reviewer-title">Journal Reviewer</div>
-      <div class="reviewer-section">
-        <div class="reviewer-column">Nature Communications</div>
-        <div class="reviewer-column">IEEE Transactions on Power Electronics (TPEL)</div>
-        <div class="reviewer-column">IEEE Transactions on Transportation Electrification (TTE)</div>
-        <div class="reviewer-column">IEEE Journal of Emerging and Selected Topics in Power Electronics (JESTPE)</div>
-        <div class="reviewer-column">Energy</div>
-        <div class="reviewer-column">Energy Conversion and Management (ECM)</div>
-        <div class="reviewer-column">Renewable and Sustainable Energy Reviews (RSER)</div>
-        <div class="reviewer-column">International Journal of Hydrogen Energy (IJHE)</div>
-        <div class="reviewer-column">Journal of Energy Storage</div>
-        <div class="reviewer-column">Fuel</div>
-        <div class="reviewer-column">IET Power Electronics</div>
-        <div class="reviewer-column">Scientific African</div>
-        <div class="reviewer-column">Electricity</div>
+        <section class="service-card service-card--journals" aria-labelledby="journal-reviewer-heading">
+          <div class="service-card-header">
+            <h2 class="service-card-title" id="journal-reviewer-heading">Journal Reviewer</h2>
+            <span class="service-count" aria-label="13 journals">13</span>
+          </div>
+          <ul class="service-list">
+            <li class="service-item"><span class="service-name">Nature Communications</span></li>
+            <li class="service-item"><span class="service-name">IEEE Transactions on Power Electronics <span class="service-abbr">(TPEL)</span></span></li>
+            <li class="service-item"><span class="service-name">IEEE Transactions on Transportation Electrification <span class="service-abbr">(TTE)</span></span></li>
+            <li class="service-item"><span class="service-name">IEEE Journal of Emerging and Selected Topics in Power Electronics <span class="service-abbr">(JESTPE)</span></span></li>
+            <li class="service-item"><span class="service-name">Energy</span></li>
+            <li class="service-item"><span class="service-name">Energy Conversion and Management <span class="service-abbr">(ECM)</span></span></li>
+            <li class="service-item"><span class="service-name">Renewable and Sustainable Energy Reviews <span class="service-abbr">(RSER)</span></span></li>
+            <li class="service-item"><span class="service-name">International Journal of Hydrogen Energy <span class="service-abbr">(IJHE)</span></span></li>
+            <li class="service-item"><span class="service-name">Journal of Energy Storage</span></li>
+            <li class="service-item"><span class="service-name">Fuel</span></li>
+            <li class="service-item"><span class="service-name">IET Power Electronics</span></li>
+            <li class="service-item"><span class="service-name">Scientific African</span></li>
+            <li class="service-item"><span class="service-name">Electricity</span></li>
+          </ul>
+        </section>
       </div>
     </div>
   </div>
