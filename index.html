@@ -981,6 +981,20 @@
     grid-template-columns:repeat(2, minmax(0, 1fr));
     column-gap:26px;
   }
+  .service-card--leadership {
+    grid-column:1 / -1;
+  }
+  .service-card--leadership .service-list {
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    column-gap:26px;
+  }
+  .service-role {
+    display:block;
+    margin-top:2px;
+    color:#6b7d84;
+    font-size:.9em;
+    font-weight:600;
+  }
   .service-item {
     display:flex;
     align-items:flex-start;
@@ -1013,7 +1027,8 @@
   @media (max-width:600px) {
     .service-grid { margin-top:14px; }
     .service-card { padding:17px 18px; }
-    .service-card--journals .service-list { grid-template-columns:1fr; }
+    .service-card--journals .service-list,
+    .service-card--leadership .service-list { grid-template-columns:1fr; }
     .service-item { font-size:.84em; }
   }
 </style>
@@ -1025,6 +1040,20 @@
     </h1>
     <div class="bio-body">
       <div class="service-grid">
+        <section class="service-card service-card--leadership" aria-labelledby="academic-leadership-heading">
+          <div class="service-card-header">
+            <h2 class="service-card-title" id="academic-leadership-heading">Academic Leadership</h2>
+          </div>
+          <ul class="service-list">
+            <li class="service-item">
+              <span class="service-name">IEEE Yanshan University Student Branch<span class="service-role">Chair</span></span>
+            </li>
+            <li class="service-item">
+              <span class="service-name">IEEE Power Electronics Society (PELS), Yanshan University Student Branch Chapter<span class="service-role">Chair</span></span>
+            </li>
+          </ul>
+        </section>
+
         <section class="service-card" aria-labelledby="conference-reviewer-heading">
           <div class="service-card-header">
             <h2 class="service-card-title" id="conference-reviewer-heading">Conference Reviewer</h2>
