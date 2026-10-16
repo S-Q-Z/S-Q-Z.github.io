@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c3658">
+  <meta name="description" content="Digital research card for Shiqi Zhang, Researcher at KTH Royal Institute of Technology.">
+  <meta property="og:title" content="Shiqi Zhang · Researcher at KTH">
+  <meta property="og:description" content="Power electronics, converter-dominated power systems, and green hydrogen.">
+  <meta property="og:image" content="https://s-q-z.github.io/images/avatar.jpg">
+  <meta property="og:type" content="profile">
+  <title>Shiqi Zhang · Digital Research Card</title>
+  <style>
+    :root {
+      --ink: #102f4c;
+      --ink-soft: #617b91;
+      --line: rgba(16, 47, 76, .12);
+      --blue: #247fc1;
+      --teal: #28a78f;
+      --paper: rgba(255, 255, 255, .94);
+      --shadow: 0 28px 80px rgba(25, 69, 92, .18);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { min-height: 100%; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: clamp(18px, 4vw, 64px);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 9% 9%, rgba(255, 214, 132, .42), transparent 34%),
+        radial-gradient(circle at 92% 12%, rgba(99, 201, 219, .36), transparent 36%),
+        linear-gradient(135deg, #f7f0dd, #eef8f7 52%, #e9f4f9);
+    }
+
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .card {
+      width: min(1540px, 100%);
+      min-height: min(810px, calc(100vh - 80px));
+      display: grid;
+      grid-template-columns: minmax(270px, .92fr) minmax(430px, 1.38fr) minmax(320px, .92fr);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .9);
+      border-radius: 28px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .portrait {
+      position: relative;
+      min-height: 560px;
+      overflow: hidden;
+      background: #cbd6de;
+    }
+
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center 34%;
+      filter: saturate(.88) contrast(1.03);
+      transform: scale(1.015);
+    }
+
+    .portrait::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 42%;
+      background: linear-gradient(transparent, rgba(8, 34, 57, .7));
+      pointer-events: none;
+    }
+
+    .portrait-label {
+      position: absolute;
+      z-index: 1;
+      left: 28px;
+      right: 28px;
+      bottom: 26px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      color: white;
+    }
+
+    .portrait-label strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 1.05rem;
+      letter-spacing: .02em;
+    }
+
+    .portrait-label span { font-size: .88rem; opacity: .82; }
+
+    .kth-mark {
+      flex: 0 0 auto;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .6);
+      border-radius: 50%;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      backdrop-filter: blur(8px);
+    }
+
+    .identity,
+    .about { padding: clamp(38px, 5vw, 76px); }
+
+    .identity {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-left: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 24px;
+      color: var(--teal);
+      font-size: .77rem;
+      font-weight: 800;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 10ch;
+      color: #164b70;
+      font-size: clamp(3rem, 5.1vw, 5.7rem);
+      font-weight: 560;
+      letter-spacing: -.055em;
+      line-height: .96;
+    }
+
+    .role {
+      margin: 24px 0 0;
+      color: var(--ink-soft);
+      font-size: clamp(1.08rem, 1.55vw, 1.5rem);
+      line-height: 1.4;
+    }
+
+    .rule {
+      width: 72px;
+      height: 4px;
+      margin: 34px 0;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--teal));
+    }
+
+    .keywords {
+      margin: 0 0 26px;
+      color: #154b79;
+      font-size: clamp(1rem, 1.35vw, 1.28rem);
+      font-weight: 650;
+      line-height: 1.6;
+    }
+
+    .summary {
+      max-width: 700px;
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: clamp(.97rem, 1.16vw, 1.12rem);
+      line-height: 1.65;
+    }
+
+    .flow {
+      margin-top: auto;
+      padding-top: 48px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--blue);
+      font-size: .76rem;
+      font-weight: 750;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .flow i {
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, var(--blue), var(--teal));
+      opacity: .55;
+    }
+
+    .about {
+      display: flex;
+      flex-direction: column;
+    }
+
+    h2 {
+      margin: 0 0 26px;
+      color: #147589;
+      font-size: clamp(1.9rem, 2.3vw, 2.7rem);
+      font-weight: 600;
+      letter-spacing: -.035em;
+    }
+
+    .about-copy {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: clamp(.96rem, 1.1vw, 1.08rem);
+      line-height: 1.58;
+    }
+
+    .actions {
+      display: grid;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .action {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 0 24px;
+      border: 0;
+      border-radius: 16px;
+      color: white;
+      background: linear-gradient(105deg, var(--blue), var(--teal));
+      box-shadow: 0 10px 28px rgba(36, 127, 193, .15);
+      font: inherit;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .action:hover,
+    .action:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(36, 127, 193, .25);
+      outline: none;
+    }
+
+    .action svg { width: 22px; height: 22px; flex: 0 0 auto; }
+
+    .socials {
+      margin-top: auto;
+      padding-top: 42px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .social {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: #27688d;
+      background: rgba(255, 255, 255, .78);
+      text-decoration: none;
+      transition: color .2s ease, border-color .2s ease, transform .2s ease;
+    }
+
+    .social:hover,
+    .social:focus-visible {
+      color: var(--teal);
+      border-color: rgba(40, 167, 143, .5);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .social svg { width: 21px; height: 21px; }
+
+    .hint {
+      margin: 18px 0 0;
+      color: #8ba0b1;
+      font-size: .78rem;
+      line-height: 1.5;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      z-index: 5;
+      padding: 11px 18px;
+      border-radius: 999px;
+      color: white;
+      background: #0e3a59;
+      box-shadow: 0 12px 30px rgba(14, 58, 89, .24);
+      font-size: .9rem;
+      opacity: 0;
+      transform: translate(-50%, 18px);
+      pointer-events: none;
+      transition: .25s ease;
+    }
+
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    @media (max-width: 1040px) {
+      body { padding: 20px; place-items: start center; }
+      .card { grid-template-columns: .86fr 1.14fr; min-height: auto; }
+      .portrait { min-height: 650px; }
+      .identity { border-right: 0; }
+      .about { grid-column: 1 / -1; border-top: 1px solid var(--line); }
+      .about-copy { max-width: 820px; }
+      .socials { margin-top: 36px; }
+    }
+
+    @media (max-width: 680px) {
+      body { display: block; padding: 12px; }
+      .card { display: block; border-radius: 22px; }
+      .portrait { min-height: 460px; }
+      .portrait img { object-position: center 30%; }
+      .identity, .about { padding: 34px 26px; }
+      .identity { border: 0; border-top: 1px solid var(--line); }
+      h1 { max-width: none; font-size: clamp(3rem, 15vw, 4.5rem); }
+      .flow { padding-top: 38px; }
+      .action { min-height: 62px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" aria-label="Digital research card for Shiqi Zhang">
+    <section class="portrait" aria-label="Portrait">
+      <img src="../images/avatar.jpg" alt="Portrait of Shiqi Zhang">
+      <div class="portrait-label">
+        <div><strong>Shiqi Zhang</strong><span>Power electronics researcher</span></div>
+        <div class="kth-mark" aria-label="KTH">KTH</div>
+      </div>
+    </section>
+
+    <section class="identity">
+      <p class="eyebrow">Digital research card</p>
+      <h1>Shiqi<br>Zhang</h1>
+      <p class="role">Researcher · KTH Royal Institute of Technology</p>
+      <hr class="rule">
+      <p class="keywords">Power Electronics · Converter-Dominated Power Systems · Green Hydrogen</p>
+      <p class="summary">Modelling, control, optimization, and experimental validation of converter-interfaced renewable, storage, and hydrogen energy systems—from power-converter design to grid stability and system-level flexibility.</p>
+      <div class="flow" aria-hidden="true"><span>Converter</span><i></i><span>Grid</span><i></i><span>Hydrogen</span></div>
+    </section>
+
+    <section class="about">
+      <h2>About</h2>
+      <p class="about-copy">Shiqi Zhang is a researcher at KTH Royal Institute of Technology. His work connects converter-level innovation with power-system operation, with interests in weak-grid stability, low-ripple power conversion, fault-tolerant control, and coordinated battery–hydrogen flexibility.</p>
+
+      <div class="actions">
+        <a class="action" href="../" aria-label="View full academic profile">
+          <span>View My Profile</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        </a>
+        <a class="action" href="mailto:shizha@kth.se" aria-label="Email Shiqi Zhang">
+          <span>Contact Me</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        </a>
+      </div>
+
+      <nav class="socials" aria-label="Academic and professional links">
+        <a class="social" href="https://scholar.google.com/citations?user=f6Bvb1UAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1.8 9 12 15l8.3-4.9V17h1.9V9L12 3Zm-6.4 9.3V17c1.8 2.7 4 4 6.4 4s4.6-1.3 6.4-4v-4.7L12 16l-6.4-3.7Z"/></svg>
+        </a>
+        <a class="social" href="https://www.linkedin.com/in/shiqi-zhang-9b76a1359/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8.2H3V21h3.5V8.2ZM4.8 3A2 2 0 1 0 4.8 7a2 2 0 0 0 0-4Zm16.2 10.7c0-3.9-2.1-5.7-4.9-5.7-2.2 0-3.3 1.2-3.8 2.1V8.2H8.8V21h3.5v-6.3c0-1.7.3-3.3 2.4-3.3 2 0 2 1.9 2 3.4V21H21v-7.3Z"/></svg>
+        </a>
+        <a class="social" href="https://www.researchgate.net/profile/Shiqi-Zhang-63" target="_blank" rel="noopener noreferrer" aria-label="ResearchGate" title="ResearchGate">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 4.7c0 1.5-1.2 2.7-2.7 2.7s-2.7-1.2-2.7-2.7S15.4 2 16.9 2s2.7 1.2 2.7 2.7ZM13.2 21h-2.6l-3.5-6H5.5v6H3V3h5.4c3.8 0 6.1 2.1 6.1 5.8 0 2.5-1.3 4.5-3.8 5.4l2.5 4.3V21ZM5.5 5.4v7.2h2.7c2.5 0 3.8-1.2 3.8-3.7s-1.3-3.5-3.8-3.5H5.5Z"/></svg>
+        </a>
+        <button class="social" type="button" id="copy-email" aria-label="Copy email address" title="Copy email">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        </button>
+        <button class="social" type="button" id="share-card" aria-label="Share this card" title="Share card">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/></svg>
+        </button>
+      </nav>
+      <p class="hint">s-q-z.github.io · shizha@kth.se</p>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const toast = document.getElementById('toast');
+    let toastTimer;
+
+    function notify(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+
+    async function copyText(text, message) {
+      try {
+        await navigator.clipboard.writeText(text);
+        notify(message);
+      } catch (_) {
+        window.prompt('Copy this:', text);
+      }
+    }
+
+    document.getElementById('copy-email').addEventListener('click', () => {
+      copyText('shizha@kth.se', 'Email copied');
+    });
+
+    document.getElementById('share-card').addEventListener('click', async () => {
+      const shareData = {
+        title: 'Shiqi Zhang · Researcher at KTH',
+        text: 'Power electronics, converter-dominated power systems, and green hydrogen.',
+        url: window.location.href
+      };
+      if (navigator.share) {
+        try { await navigator.share(shareData); } catch (_) {}
+      } else {
+        copyText(window.location.href, 'Card link copied');
+      }
+    });
+  </script>
+</body>
+</html>
